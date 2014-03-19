@@ -1,31 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class EnergyNetWorkControler : MonoBehaviour {
-    public float tickTime = 0.5f;
-	// Use this for initialization
-	void Start () {
-	StartCoroutine("EnergyTick");
-	}
-    IEnumerator EnergyTick()
+namespace EnergyNet
+{
+    public class EnergyNetWorkControler : MonoBehaviour
     {
-        while (true)
+        public float CheckForChangesInterval = 1.5f;
+        // Use this for initialization
+        void Start()
         {
-            Debug.Log("beeb");
-            Object[] objects = FindObjectsOfType(typeof(GameObject));
-            foreach (GameObject go in objects)
-            {
-                if (go.tag == EnergyTags.EnergyNode)
-                {
-                    EnergyNode tmp = go.GetComponent<EnergyNode>();
-                    tmp.GetInRangeNodes();
-                }
-            }
-            yield return new WaitForSeconds(tickTime);
+            StartCoroutine("CheckForChanges");
         }
-    }
-    void OnApplicationStop()
-    {
-        StopCoroutine("EnergyTick");
+        IEnumerator CheckForChanges()
+        {
+            while (true)
+            {
+                Debug.Log("CheckForChanges");
+                Object[] objects = FindObjectsOfType(typeof(GameObject));
+                foreach (GameObject go in objects)
+                {
+                    if (go.tag == EnergyTags.EnergyNode)
+                    {
+                        EnergyNode tmp = go.GetComponent<EnergyNode>();
+                        tmp.GetInRangeNodes();
+                    }
+                }
+                yield return new WaitForSeconds(CheckForChangesInterval);
+            }
+        }
+        void Update()
+        {
+
+        }
+        void OnApplicationStop()
+        {
+            StopCoroutine("CheckForChanges");
+        }
     }
 }
