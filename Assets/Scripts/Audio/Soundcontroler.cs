@@ -28,7 +28,7 @@ public class Soundcontroler : MonoBehaviour {
 		if(volume<0f&&volume!=-1){
 			source.Stop();
 			volume=-1;
-			Debug.Log("stoped Audio");
+			Debug.Log("stoped Audio: "+name);
 		}
 	}
 

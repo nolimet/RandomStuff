@@ -28,4 +28,15 @@ public class DebugGrid : MonoBehaviour {
         }
         Debug.DrawLine(Vector3.zero, ant, Color.blue);
 	}
+    public static Color randomColor()
+    {
+        // float numb = 0.0039215686274509803921568627451f;
+        Color output = new Color();
+        output.b = 1 * Random.value;
+        output.g = 1 * Random.value;
+        output.r = 1 * Random.value;
+        output.a = 1;
+
+        return output;
+    }
 }
