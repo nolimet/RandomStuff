@@ -7,7 +7,7 @@ namespace EnergyNet
     {
         public static string EnergyNode = "EnergyNode";
         public static string EnergyStorage = "EnergyStorage";
-        public static string EnergyGenartor = "PowerGen";
+        public static string EnergyGenartor = "EnergyGenartor";
 
     }
 }

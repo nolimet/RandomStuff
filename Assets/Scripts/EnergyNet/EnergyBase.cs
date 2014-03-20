@@ -10,9 +10,9 @@ namespace EnergyNet
         public float Storage = 0;
         public int Range = 5;
         protected Color NodeColor;
-        protected List<EnergyBase> nodes = new List<EnergyBase>();
+        protected List<EnergyNode> nodes = new List<EnergyNode>();
 
-        void Start()
+        public virtual void Start()
         {
             NodeColor = DebugGrid.randomColor();
             renderer.material.color = NodeColor;
@@ -21,7 +21,7 @@ namespace EnergyNet
         public virtual void GetInRangeNodes()
         {
             //Debug.Log("boob");
-            nodes = new List<EnergyBase>();
+            nodes = new List<EnergyNode>();
             Object[] objects = FindObjectsOfType(typeof(GameObject));
             foreach (GameObject go in objects)
             {
@@ -32,7 +32,7 @@ namespace EnergyNet
                     if (dist >= 0 && dist < Range)
                     {
                         nodes.Add(go.gameObject.GetComponent<EnergyNode>());
-                        Debug.Log("addedNode");
+                       // Debug.Log("addedNode");
                     }
                     //else if (dist < 0 && dist > Range)
                     // {
@@ -46,7 +46,7 @@ namespace EnergyNet
             int l = nodes.Count;
             for (int i = 0; i < l; i++)
             {
-                Debug.DrawLine(transform.position, nodes[i].transform.position, NodeColor);
+                Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
             }
         }
     }

@@ -195,7 +195,7 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 63672091}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &63672095
 Camera:
   m_ObjectHideFlags: 0
@@ -208,16 +208,16 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: .725000024
+    y: .699999988
+    width: .25
+    height: .25
   near clip plane: .300000012
   far clip plane: 50.2999992
   field of view: 60
   orthographic: 1
   orthographic size: 16.5390148
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -412,7 +412,6 @@ GameObject:
   - 135: {fileID: 365695134}
   - 23: {fileID: 365695133}
   - 114: {fileID: 365695132}
-  - 114: {fileID: 365695131}
   - 54: {fileID: 365695130}
   - 114: {fileID: 365695137}
   m_Layer: 0
@@ -437,18 +436,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &365695131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 365695129}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ece484f9be5ce42b22d7776715da87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 15
 --- !u!114 &365695132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65175ccaa63e2404b948939a78122f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0
+  mass: 15
 --- !u!1 &627149474
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 813423528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalPosition: {x: .0399999991, y: .899999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1173,6 +1160,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1384863021}
   - 20: {fileID: 1384863022}
+  - 92: {fileID: 1384863023}
   m_Layer: 0
   m_Name: ChaseCam
   m_TagString: Untagged
@@ -1205,14 +1193,14 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: .5
-    height: .5
+    width: 1
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1220,6 +1208,13 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
   m_OcclusionCulling: 1
+--- !u!92 &1384863023
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1384863020}
+  m_Enabled: 1
 --- !u!1 &1389590468
 GameObject:
   m_ObjectHideFlags: 0

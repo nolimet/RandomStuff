@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+namespace EnergyNet
+{
+    public class EnergyGenator : EnergyBase
+    {
 
-public class EnergyGenator : MonoBehaviour {
+        public override void Start()
+        {
+            base.Start();
+            MaxStorage = 200;
+        }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        void Send()
+        {
+
+        }
+    
+    }
 }

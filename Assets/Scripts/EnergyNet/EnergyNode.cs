@@ -11,26 +11,61 @@ namespace EnergyNet
 
         public void receive(float receiving,EnergyNode sender)
         {
-            Storage += receiving;
-            if (Storage > MaxStorage) Storage = MaxStorage;
+			Debug.Log("Receiving: "+receiving);
+           // Storage += receiving;
+			if (Storage < MaxStorage) {Storage += MaxStorage;}
             receivedLast.Add(sender);
+            Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
         }
 
         public void sendPower()
         {
-
-            //check receiver's storage
-            int l = nodes.Count;
-            for (int i = 0; i < l; i++)
+			if (Storage > 0 && transferRate>0)
             {
-                
-                if (nodes[i].Storage < MaxStorage)
+                //check receiver's storage
+                int l = nodes.Count;
+                int k = receivedLast.Count;
+                for (int i = 0; i < l; i++)
                 {
-                    if (Storage < transferRate)
+                    bool receivedFrom = false;
+                    for (int j = 0; j < k; j++)
                     {
-                       
+                        if (receivedLast[j] == nodes[i])
+                        {
+                            receivedFrom = true;
+                        }
+                    }
+                    if (!receivedFrom)
+                    {
+                        
+                        if (Storage >= transferRate&&nodes[i].Storage+transferRate<=nodes[i].MaxStorage)
+                        {
+                            nodes[i].receive(transferRate, this.gameObject.GetComponent<EnergyNode>());
+                            Storage -= transferRate;
+                        }
+                        else if (Storage>0&&nodes[i].Storage+transferRate <= nodes[i].MaxStorage)
+                        {
+                            nodes[i].receive(Storage, this.gameObject.GetComponent<EnergyNode>());
+                            Storage = 0;
+                        }
+                        else 
+                        {
+                            //nodes[i].receive(
+                        }
                     }
                 }
+
+                /*  if (nodes[i].Storage < MaxStorage)
+                  {
+                      if (Storage < transferRate)
+                      {
+
+                      }
+                  }*/
+            }
+            else
+            {
+                Storage = 0;
             }
         }
         public override void GetInRangeNodes()

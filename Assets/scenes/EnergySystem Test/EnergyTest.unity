@@ -195,7 +195,7 @@ GameObject:
   - 23: {fileID: 469908893}
   - 114: {fileID: 469908892}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: EndPoint
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,10 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 10
+  MaxStorage: 1000
   Storage: 0
   Range: 5
-  transferRate: 2
+  transferRate: 0
 --- !u!23 &469908893
 Renderer:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 469908891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .390155256, y: 0, z: 24.4891357}
+  m_LocalPosition: {x: -1.2775054, y: 0, z: 23.6524048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - 23: {fileID: 1636451598}
   - 114: {fileID: 1636451597}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: StartPoint
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,10 +377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 10
-  Storage: 0
+  MaxStorage: 1000
+  Storage: 1000
   Range: 5
-  transferRate: 2
+  transferRate: 10
 --- !u!23 &1636451598
 Renderer:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636451596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.50691748, y: 0, z: 26.8781986}
+  m_LocalPosition: {x: -9.9666729, y: 0, z: 24.9407272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -465,7 +465,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
-  transferRate: 2
+  transferRate: 5
 --- !u!23 &1978426479
 Renderer:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
-  transferRate: 2
+  transferRate: 5
 --- !u!23 &1996269207
 Renderer:
   m_ObjectHideFlags: 0
@@ -598,7 +598,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1996269205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.06562996, y: 0, z: 14.3061428}
+  m_LocalPosition: {x: -4.39480114, y: 0, z: 22.3161125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
