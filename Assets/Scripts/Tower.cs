@@ -7,12 +7,12 @@ public class Tower : MonoBehaviour {
 	private List<Transform> targetsInRange = new List<Transform>();
 	private Transform target;
 	private float nextFireTime;
-	private float turnSpeed = 1;
+	//private float turnSpeed = 1;
 
 	void Update()
 	{
 		if(target !=null){
-			Vector3 targetDir = new Vector3(target.position.x - transform.position.x,0f, target.position.z - transform.position.z);
+			//Vector3 targetDir = new Vector3(target.position.x - transform.position.x,0f, target.position.z - transform.position.z);
 			//Vector3 desiredRot = Vector3.RotateTowards(transform.forward,targetDir, Time.deltaTime * turnSpeed,0f);
 
 			transform.rotation=Quaternion.FromToRotation(Vector3.forward,target.position);

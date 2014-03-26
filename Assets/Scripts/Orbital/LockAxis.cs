@@ -16,7 +16,9 @@ namespace Orbital
         // Update is called once per frame
         void Start()
         {
-
+            lockedX = transform.position.x;
+            lockedY = transform.position.y;
+            lockedZ = transform.position.z;
         }
         void Update()
         {

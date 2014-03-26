@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 namespace EnergyNet
 {
     public class EnergyGenator : EnergyBase
