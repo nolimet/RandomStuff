@@ -7,6 +7,8 @@ public class MultiLineText : MonoBehaviour {
     public string Text = "wello world";
 	[Range(1,256)]
 	public int maxLineLenght;
+    [Range(0, 1)]
+    public float DelayBetweenLetters;
     public string ShowingText;
     private string line1 = "";
     private string line2;
@@ -63,7 +65,8 @@ public class MultiLineText : MonoBehaviour {
          {
              if (c == '\n' || line1.Length>maxLineLenght)
              {
-                 LinesAbove.Add(line9);
+                 LinesAbove.Add(line1);
+                 LinesBelow.Add(line1);
                  line9 = line8;
                  line8 = line7;
                  line7 = line6;
@@ -80,8 +83,9 @@ public class MultiLineText : MonoBehaviour {
                  line1 += c;
              }
             // Debug.Log(ShowingText.Length);
-             yield return new WaitForSeconds(Random.RandomRange(0,0.08f));
+             yield return new WaitForSeconds(Random.RandomRange(0,DelayBetweenLetters));
          }
+         currentLine = LinesBelow.Count;
          StopCoroutine("Typer");
      }
 
@@ -95,24 +99,50 @@ public class MultiLineText : MonoBehaviour {
          GUI.Label(new Rect(pos.x, pos.y - (Style.fontSize * 6), pos.z, pos.w), line7, Style);
          GUI.Label(new Rect(pos.x, pos.y - (Style.fontSize * 7), pos.z, pos.w), line8, Style);
          GUI.Label(new Rect(pos.x, pos.y - (Style.fontSize * 8), pos.z, pos.w), line9, Style);
+
+         if (GUI.Button(new Rect(50, 50, 75, 50), "LineUp"))
+         {
+             LineUp();
+         }
+         if (GUI.Button(new Rect(125, 50, 75, 50), "LineDown"))
+         {
+             LineDown();
+         }
      }
 
       void LineUp()
       {
-          currentLine++;
-          line9 = LinesAbove[currentLine];
-          line8 = line9;
-          line7 = line8;
-          line6 = line7;
-          line5 = line6;
-          line4 = line5;
-          line3 = line4;
-          line2 = line3;
-          line1 = line2;
+          if (currentLine < LinesAbove.Count - 8)
+          {
+              currentLine++;
+
+              line1 = LinesAbove[currentLine - 8];
+              line2 = LinesAbove[currentLine - 7];
+              line3 = LinesAbove[currentLine - 6];
+              line4 = LinesAbove[currentLine - 5];
+              line5 = LinesAbove[currentLine - 4];
+              line6 = LinesAbove[currentLine - 3];
+              line7 = LinesAbove[currentLine - 2];
+              line8 = LinesAbove[currentLine - 1];
+              line9 = LinesAbove[currentLine];
+          }
       }
 
       void LineDown()
       {
-
+          if (currentLine > 0)
+          {
+              currentLine--;
+              
+              line9 = line8;
+              line8 = line7;
+              line7 = line6;
+              line6 = line5;
+              line5 = line4;
+              line4 = line3;
+              line3 = line2;
+              line2 = line1;
+              line1 = LinesBelow[currentLine];
+          }
       }
 }
