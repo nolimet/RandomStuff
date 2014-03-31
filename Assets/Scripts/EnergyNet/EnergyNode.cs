@@ -5,73 +5,80 @@ namespace EnergyNet
 {
     public class EnergyNode : EnergyBase
     {
-
         public int transferRate = 2;
-        private List<EnergyNode> receivedLast = new List<EnergyNode>();
+        public bool endPoint;
+        private List<int> RevievedID = new List<int>();
 
-        public void receive(float receiving,EnergyNode sender)
+        public override void Start()
         {
-			Debug.Log("Receiving: "+receiving);
+            base.Start();
+            this.name = "Node " + ID;
+        }
+
+        public void receive(float receiving,int senderID)
+        {
+			//Debug.Log("Receiving: "+receiving);
            // Storage += receiving;
-			if (Storage < MaxStorage) {Storage += MaxStorage;}
-            receivedLast.Add(sender);
-            Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
+			if (Storage < MaxStorage) {Storage += receiving;}
+            RevievedID.Add(senderID);
+            if (Storage > MaxStorage) { Storage = 0; }
+            //Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
         }
 
         public void sendPower()
         {
-			if (Storage > 0 && transferRate>0)
+            if (!endPoint)
             {
-                //check receiver's storage
-                int l = nodes.Count;
-                int k = receivedLast.Count;
-                for (int i = 0; i < l; i++)
+                if (Storage > 0 && transferRate > 0)
                 {
-                    bool receivedFrom = false;
-                    for (int j = 0; j < k; j++)
+                    //check receiver's storage
+                    int l = nodes.Count;
+                    int k = RevievedID.Count;
+                    for (int i = 0; i < l; i++)
                     {
-                        if (receivedLast[j] == nodes[i])
+                        bool receivedFrom = false;
+                        for (int j = 0; j < k; j++)
                         {
-                            receivedFrom = true;
+                            if (RevievedID[j] == nodes[i].ID)
+                            {
+                                receivedFrom = true;
+                                //Debug.Log(receivedFrom);
+                            }
                         }
-                    }
-                    if (!receivedFrom)
-                    {
-                        
-                        if (Storage >= transferRate&&nodes[i].Storage+transferRate<=nodes[i].MaxStorage)
+                        if (!receivedFrom)
                         {
-                            nodes[i].receive(transferRate, this.gameObject.GetComponent<EnergyNode>());
-                            Storage -= transferRate;
-                        }
-                        else if (Storage>0&&nodes[i].Storage+transferRate <= nodes[i].MaxStorage)
-                        {
-                            nodes[i].receive(Storage, this.gameObject.GetComponent<EnergyNode>());
-                            Storage = 0;
-                        }
-                        else 
-                        {
-                            //nodes[i].receive(
+                            if (Storage >= transferRate)
+                            {
+                                // Debug.Log("sending");
+                                GameObject energyPacket = Instantiate(Resources.Load("EnergyPacket"), transform.position, Quaternion.identity) as GameObject;
+                                EnergyPacket packetScript = energyPacket.GetComponent<EnergyPacket>();
+                                packetScript.SentTo(nodes[i].transform, transferRate, ID, nodes[i].ID);
+                                Storage -= transferRate;
+                            }
+                            /* 
+                             if (Storage >= transferRate&&nodes[i].Storage+transferRate<=nodes[i].MaxStorage)
+                             {
+                                 nodes[i].receive(transferRate, this.gameObject.GetComponent<EnergyNode>());
+                                 Storage -= transferRate;
+                             }
+                             else if (Storage>0&&nodes[i].Storage+transferRate <= nodes[i].MaxStorage)
+                             {
+                                 nodes[i].receive(Storage, this.gameObject.GetComponent<EnergyNode>());
+                                 Storage = 0;
+                             }
+                             else 
+                             {
+                                 //nodes[i].receive(
+                             }*/
                         }
                     }
                 }
-
-                /*  if (nodes[i].Storage < MaxStorage)
-                  {
-                      if (Storage < transferRate)
-                      {
-
-                      }
-                  }*/
-            }
-            else
-            {
-                Storage = 0;
             }
         }
         public override void GetInRangeNodes()
         {
             base.GetInRangeNodes();
-            receivedLast = new List<EnergyNode>();
+            //RevievedID = new List<int>();
             
         }
     }

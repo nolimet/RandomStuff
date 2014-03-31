@@ -83,7 +83,7 @@ public class MultiLineText : MonoBehaviour {
                  line1 += c;
              }
             // Debug.Log(ShowingText.Length);
-             yield return new WaitForSeconds(Random.RandomRange(0,DelayBetweenLetters));
+             yield return new WaitForSeconds(Random.Range(0,DelayBetweenLetters));
          }
          currentLine = LinesBelow.Count;
          StopCoroutine("Typer");

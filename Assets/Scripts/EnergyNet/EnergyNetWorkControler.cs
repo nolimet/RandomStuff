@@ -15,7 +15,7 @@ namespace EnergyNet
         {
             while (true)
             {
-                Debug.Log("CheckForChanges");
+                Debug.Log("Update");
                 Object[] objects = FindObjectsOfType(typeof(GameObject));
                 List<EnergyNode> tmpNodes = new List<EnergyNode>();
                 float waitTime = 1f / objects.Length;

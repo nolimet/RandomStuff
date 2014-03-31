@@ -10,9 +10,8 @@ var yMaxLimit = 80;
 private var x = 0.0;
 private var y = 0.0;
 
-var isDrog : boolean = false;
-
-@script AddComponentMenu("Camera-Control/Mouse Orbit")
+@AddComponentMenu("Camera-Control/Mouse Orbit")
+partial class MouseOrbit { }
 
 function Start () {
     var angles = transform.eulerAngles;
@@ -24,22 +23,14 @@ function Start () {
 		rigidbody.freezeRotation = true;
 }
 
-function OnGUI() {
-if(Event.current.type == EventType.MouseDrag) {
-isDrog = true;
-} else {
-isDrog = false;
-}
-}
-
 function LateUpdate () {
-    if (target && isDrog) {
+    if (target) {
         x += Input.GetAxis("Mouse X") * xSpeed * 0.02;
         y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02;
  		
  		y = ClampAngle(y, yMinLimit, yMaxLimit);
  		       
-        var rotation = Quaternion.Euler(y, x, 0);
+        var rotation = Quaternion.EulerAngles(y * Mathf.Deg2Rad, x * Mathf.Deg2Rad, 0);
         var position = rotation * Vector3(0.0, 0.0, -distance) + target.position;
         
         transform.rotation = rotation;

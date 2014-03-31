@@ -9,11 +9,13 @@ namespace EnergyNet
         public int MaxStorage = 10;
         public float Storage = 0;
         public int Range = 5;
+        public int ID;
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
 
         public virtual void Start()
         {
+            ID = Mathf.FloorToInt(Random.Range(0, 10000000));
             NodeColor = DebugGrid.randomColor();
             renderer.material.color = NodeColor;
         }

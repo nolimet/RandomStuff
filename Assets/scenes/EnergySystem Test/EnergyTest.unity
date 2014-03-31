@@ -215,6 +215,7 @@ MonoBehaviour:
   MaxStorage: 1000
   Storage: 0
   Range: 5
+  ID: 0
   transferRate: 0
 --- !u!23 &469908893
 Renderer:
@@ -377,9 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 1000
-  Storage: 1000
-  Range: 5
+  MaxStorage: 1000000
+  Storage: 1e+06
+  Range: 40
+  ID: 0
   transferRate: 10
 --- !u!23 &1636451598
 Renderer:
@@ -410,7 +412,7 @@ SphereCollider:
   m_GameObject: {fileID: 1636451596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
@@ -428,7 +430,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636451596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.9666729, y: 0, z: 24.9407272}
+  m_LocalPosition: {x: -6.88123322, y: 0, z: 48.2644882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -465,6 +467,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
+  ID: 0
   transferRate: 5
 --- !u!23 &1978426479
 Renderer:
@@ -550,6 +553,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
+  ID: 0
   transferRate: 5
 --- !u!23 &1996269207
 Renderer:
