@@ -21,12 +21,21 @@ namespace EnergyNet
                 float waitTime = 1f / objects.Length;
                 foreach (GameObject go in objects)
                 {
+                    try
+                        {
                     if (go.tag == EnergyTags.EnergyNode)
                     {
-                        EnergyNode tmp = go.GetComponent<EnergyNode>();
-                        tmp.GetInRangeNodes();
-                        tmpNodes.Add(tmp);
+                        
+                            EnergyNode tmp = go.GetComponent<EnergyNode>();
+                            tmp.GetInRangeNodes();
+                            tmpNodes.Add(tmp);
+                       
                     }
+                        }
+                    catch (System.Exception e)
+                    {
+                        Debug.Log(e);
+                         }
                     yield return new WaitForSeconds(waitTime);
                 }
                 foreach (EnergyNode nd in tmpNodes)
