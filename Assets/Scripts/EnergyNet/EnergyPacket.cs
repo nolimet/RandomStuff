@@ -18,8 +18,8 @@ namespace EnergyNet
         void Start()
         {
             name = "EnergyPacket from " + SenderID + " To " + TargetID;
-            particleSystem.emissionRate = Energy;
-        }
+			particleSystem.emissionRate = Energy*5;
+		}
 
         public void SentTo(Transform newNode, float _Energy, int currentNodeID,int _TargetID)
         {
@@ -27,7 +27,7 @@ namespace EnergyNet
             SenderID = currentNodeID;
             startPos = transform.position;
             Energy = _Energy;
-            particleSystem.emissionRate = Energy*2;
+            particleSystem.emissionRate = Energy*5;
             TargetID = _TargetID;
             journeyLength = Vector3.Distance(startPos, target.position);
             startTime = Time.time;
