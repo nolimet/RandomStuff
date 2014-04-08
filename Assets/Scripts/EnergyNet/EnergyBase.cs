@@ -22,6 +22,7 @@ namespace EnergyNet
 
         public virtual void GetInRangeNodes(List<EnergyNode>_nodes)
         {
+            nodes = new List<EnergyNode>();
             foreach (EnergyNode go in _nodes)
             {
                 if (go != this.gameObject)
