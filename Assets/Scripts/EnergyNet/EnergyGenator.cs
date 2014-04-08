@@ -12,7 +12,7 @@ namespace EnergyNet
         public bool activated = true;
         public int transferRate = 5;
 
-        public override void Start()
+        protected override void Start()
         {
             base.Start();
             MaxStorage = 200;

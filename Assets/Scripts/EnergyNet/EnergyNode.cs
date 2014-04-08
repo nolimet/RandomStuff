@@ -7,15 +7,16 @@ namespace EnergyNet
     {
         public int transferRate = 2;
         public bool endPoint;
+        public bool nonRecivend;
         private List<int> RevievedID = new List<int>();
 
-        public override void Start()
+        protected override void Start()
         {
             base.Start();
             this.name = "Node " + ID;
         }
 
-        public void receive(float receiving,int senderID)
+        public virtual void receive(float receiving,int senderID)
         {
 			//Debug.Log("Receiving: "+receiving);
            // Storage += receiving;
@@ -25,7 +26,7 @@ namespace EnergyNet
             //Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
         }
 
-        public void sendPower()
+        public virtual void sendPower()
         {
             if (!endPoint)
             {
@@ -37,6 +38,10 @@ namespace EnergyNet
                     for (int i = 0; i < l; i++)
                     {
                         bool receivedFrom = false;
+                        if (nodes[i].nonRecivend)
+                            receivedFrom = true;
+
+                        if(!receivedFrom)
                         for (int j = 0; j < k; j++)
                         {
                             if (RevievedID[j] == nodes[i].ID)

@@ -13,7 +13,7 @@ namespace EnergyNet
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
 
-        public virtual void Start()
+        protected virtual void Start()
         {
             ID = Mathf.FloorToInt(Random.Range(0, 10000000));
             NodeColor = DebugGrid.randomColor();

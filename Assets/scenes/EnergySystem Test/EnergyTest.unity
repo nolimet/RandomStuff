@@ -87,7 +87,7 @@ GameObject:
   - 23: {fileID: 186095846}
   - 114: {fileID: 186095845}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &186095846
 Renderer:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckForChangesInterval: .5
+  TicksPerSecond: 4
 --- !u!4 &197435151
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +303,7 @@ GameObject:
   - 23: {fileID: 359171076}
   - 114: {fileID: 359171075}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,6 +326,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &359171076
 Renderer:
   m_ObjectHideFlags: 0
@@ -336,7 +339,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -388,7 +391,7 @@ GameObject:
   - 23: {fileID: 440348822}
   - 114: {fileID: 440348821}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,6 +414,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &440348822
 Renderer:
   m_ObjectHideFlags: 0
@@ -423,7 +427,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -498,6 +502,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 0
   endPoint: 1
+  nonRecivend: 0
 --- !u!23 &469908893
 Renderer:
   m_ObjectHideFlags: 0
@@ -624,7 +629,7 @@ GameObject:
   - 23: {fileID: 720653742}
   - 114: {fileID: 720653741}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,6 +652,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &720653742
 Renderer:
   m_ObjectHideFlags: 0
@@ -659,7 +665,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 04fb3c01523fa1d47a75a2c0ea28abe2, type: 2}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -778,6 +784,94 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &1195563908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1195563913}
+  - 33: {fileID: 1195563912}
+  - 135: {fileID: 1195563911}
+  - 23: {fileID: 1195563910}
+  - 114: {fileID: 1195563909}
+  m_Layer: 0
+  m_Name: Node
+  m_TagString: EnergyNode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1195563909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195563908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxStorage: 80
+  Storage: 0
+  Range: 20
+  ID: 0
+  transferRate: 5
+  endPoint: 0
+  nonRecivend: 0
+--- !u!23 &1195563910
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195563908}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!135 &1195563911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195563908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1195563912
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195563908}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1195563913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195563908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.4488125, y: 0, z: 25.7622261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1269235525
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +885,7 @@ GameObject:
   - 23: {fileID: 1269235527}
   - 114: {fileID: 1269235526}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,6 +908,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1269235527
 Renderer:
   m_ObjectHideFlags: 0
@@ -826,7 +921,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -878,7 +973,7 @@ GameObject:
   - 23: {fileID: 1505296388}
   - 114: {fileID: 1505296387}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,6 +996,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1505296388
 Renderer:
   m_ObjectHideFlags: 0
@@ -913,7 +1009,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -965,7 +1061,7 @@ GameObject:
   - 23: {fileID: 1555538071}
   - 114: {fileID: 1555538070}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -988,6 +1084,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1555538071
 Renderer:
   m_ObjectHideFlags: 0
@@ -1000,7 +1097,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1052,7 +1149,7 @@ GameObject:
   - 23: {fileID: 1628888101}
   - 114: {fileID: 1628888100}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1075,6 +1172,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 1
 --- !u!23 &1628888101
 Renderer:
   m_ObjectHideFlags: 0
@@ -1162,6 +1260,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 10
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1636451598
 Renderer:
   m_ObjectHideFlags: 0
@@ -1226,7 +1325,7 @@ GameObject:
   - 23: {fileID: 1978426479}
   - 114: {fileID: 1978426478}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,6 +1348,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 10
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1978426479
 Renderer:
   m_ObjectHideFlags: 0
@@ -1261,7 +1361,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1313,7 +1413,7 @@ GameObject:
   - 23: {fileID: 1996269207}
   - 114: {fileID: 1996269206}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Node
   m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,6 +1436,7 @@ MonoBehaviour:
   ID: 0
   transferRate: 5
   endPoint: 0
+  nonRecivend: 0
 --- !u!23 &1996269207
 Renderer:
   m_ObjectHideFlags: 0
@@ -1348,7 +1449,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 89db0e16386dfc64dbb485f0e8f71cf1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
