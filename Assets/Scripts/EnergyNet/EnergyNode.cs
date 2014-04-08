@@ -55,29 +55,14 @@ namespace EnergyNet
                                 packetScript.SentTo(nodes[i].transform, transferRate, ID, nodes[i].ID);
                                 Storage -= transferRate;
                             }
-                            /* 
-                             if (Storage >= transferRate&&nodes[i].Storage+transferRate<=nodes[i].MaxStorage)
-                             {
-                                 nodes[i].receive(transferRate, this.gameObject.GetComponent<EnergyNode>());
-                                 Storage -= transferRate;
-                             }
-                             else if (Storage>0&&nodes[i].Storage+transferRate <= nodes[i].MaxStorage)
-                             {
-                                 nodes[i].receive(Storage, this.gameObject.GetComponent<EnergyNode>());
-                                 Storage = 0;
-                             }
-                             else 
-                             {
-                                 //nodes[i].receive(
-                             }*/
                         }
                     }
                 }
             }
         }
-        public override void GetInRangeNodes()
+        public override void GetInRangeNodes(List<EnergyNode> _nodes)
         {
-            base.GetInRangeNodes();
+            base.GetInRangeNodes(_nodes);
             //RevievedID = new List<int>();
             
         }

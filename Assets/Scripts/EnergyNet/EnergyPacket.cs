@@ -53,7 +53,7 @@ namespace EnergyNet
                 if (node.ID == TargetID)
                 {
                     node.receive(Energy, SenderID);
-                    Destroy(gameObject,5f);
+                    Destroy(gameObject,3f);
                     particleSystem.emissionRate = 0;
                     name = "EnergyPacket Empty";
                     Energy = 0;

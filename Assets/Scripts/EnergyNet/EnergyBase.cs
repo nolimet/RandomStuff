@@ -20,14 +20,11 @@ namespace EnergyNet
             renderer.material.color = NodeColor;
         }
 
-        public virtual void GetInRangeNodes()
+        public virtual void GetInRangeNodes(List<EnergyNode>_nodes)
         {
-            //Debug.Log("boob");
-            nodes = new List<EnergyNode>();
-            Object[] objects = FindObjectsOfType(typeof(GameObject));
-            foreach (GameObject go in objects)
+            foreach (EnergyNode go in _nodes)
             {
-                if (go.gameObject.tag == EnergyTags.EnergyNode && go != this.gameObject)
+                if (go != this.gameObject)
                 {
                     float dist = Vector3.Distance(go.transform.position, transform.position);
 

@@ -211,9 +211,10 @@ GameObject:
   - 33: {fileID: 350456630}
   - 65: {fileID: 350456629}
   - 23: {fileID: 350456628}
+  - 114: {fileID: 350456632}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: EnergyGenarator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,10 +266,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 350456627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25182152, y: 0, z: 29.0702934}
+  m_LocalPosition: {x: -23.5557537, y: 0, z: 38.7963181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &350456632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350456627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b819190472c75d4e9ac81e2c6e4cefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxStorage: 10
+  Storage: 0
+  Range: 5
+  ID: 0
+  generation: 50
+  activated: 1
+  transferRate: 10
 --- !u!1 &359171074
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 1000
+  MaxStorage: 100000000
   Storage: 0
   Range: 5
   ID: 0
@@ -674,10 +693,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: .300000012
-  far clip plane: 1000
+  far clip plane: 50
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 31.5100098
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -693,7 +712,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945102638}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -3.31421995, y: 17.3597813, z: 20.9510975}
+  m_LocalPosition: {x: 8.54848862, y: 17.3597813, z: 23.1616783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1075,8 +1094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 1000000
-  Storage: 1e+06
+  MaxStorage: 100
+  Storage: 0
   Range: 20
   ID: 0
   transferRate: 10

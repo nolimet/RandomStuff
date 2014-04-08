@@ -18,6 +18,7 @@ namespace EnergyNet
                 Debug.Log("Update");
                 Object[] objects = FindObjectsOfType(typeof(GameObject));
                 List<EnergyNode> tmpNodes = new List<EnergyNode>();
+                List<EnergyGenator> tmpGens = new List<EnergyGenator>();
                 float waitTime = 1f / objects.Length;
                 foreach (GameObject go in objects)
                 {
@@ -27,9 +28,15 @@ namespace EnergyNet
                     {
                         
                             EnergyNode tmp = go.GetComponent<EnergyNode>();
-                            tmp.GetInRangeNodes();
+                            //tmp.GetInRangeNodes();
                             tmpNodes.Add(tmp);
                        
+                    }
+                    else if (go.tag == EnergyTags.EnergyGenartor)
+                    {
+                        EnergyGenator tmp = go.GetComponent<EnergyGenator>();
+                        //tmp.GetInRangeNodes();
+                        tmpGens.Add(tmp);
                     }
                         }
                     catch (System.Exception e)
@@ -40,7 +47,14 @@ namespace EnergyNet
                 }
                 foreach (EnergyNode nd in tmpNodes)
                 {
+                    nd.GetInRangeNodes(tmpNodes);
                     nd.sendPower();
+                }
+
+                foreach (EnergyGenator gr in tmpGens)
+                {
+                    gr.GetInRangeNodes(tmpNodes);
+                    gr.sendPower();
                 }
 
                 yield return new WaitForSeconds(CheckForChangesInterval);
