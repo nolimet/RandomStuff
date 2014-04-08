@@ -6,7 +6,7 @@ namespace EnergyNet
     public class EnergyPacket : MonoBehaviour
     {
 
-        private float Energy = 5;
+        private float Energy = 0;
         public int SenderID;
         public int TargetID;
         public Transform target;
@@ -19,6 +19,10 @@ namespace EnergyNet
         {
             name = "EnergyPacket from " + SenderID + " To " + TargetID;
 			particleSystem.emissionRate = Energy*5;
+            if (Energy == 0)
+            {
+                Destroy(this.gameObject);
+            }
 		}
 
         public void SentTo(Transform newNode, float _Energy, int currentNodeID,int _TargetID)

@@ -15,10 +15,10 @@ namespace EnergyNet
 
     public class EnergyGlobals : MonoBehaviour
     {
-        static public bool useLightParticles = false;
+        static public bool useLightParticles = true;
         static public float RealTPS = 0;
 
-        public static void SendPackage(Transform sender,Transform target, int senderID, int targetID, int Energy)
+        public static void SendPackage(Transform sender,Transform target, int senderID, int targetID, int Energy, float Speed = 0.1f)
         {
             GameObject energyPacket;
             if (!useLightParticles)
@@ -30,6 +30,7 @@ namespace EnergyNet
                 energyPacket = Instantiate(Resources.Load("EnergyPacket_Light"), sender.position, Quaternion.identity) as GameObject;
             }
             EnergyPacket packetScript = energyPacket.GetComponent<EnergyPacket>();
+            packetScript.speed = Speed;
             packetScript.SentTo(target, Energy, senderID, targetID);
         }
     }

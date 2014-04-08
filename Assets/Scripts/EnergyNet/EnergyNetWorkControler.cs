@@ -28,7 +28,7 @@ namespace EnergyNet
             while (true)
             {
                 
-                Debug.Log("Update");
+               // Debug.Log("Update");
                 float startTime = Time.time;
                 Object[] objects = FindObjectsOfType(typeof(GameObject));
                 List<EnergyNode> tmpNodes = new List<EnergyNode>();

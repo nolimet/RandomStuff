@@ -22,6 +22,10 @@ namespace EnergyNet
 
         public virtual void GetInRangeNodes(List<EnergyNode>_nodes)
         {
+            if (ID == 0)
+            {
+                ID = Mathf.FloorToInt(Random.Range(0, 10000000));
+            }
             nodes = new List<EnergyNode>();
             foreach (EnergyNode go in _nodes)
             {
