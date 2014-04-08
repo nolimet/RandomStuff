@@ -26,6 +26,10 @@ namespace EnergyNet
             }
         }
 
+        public override void sendPower()
+        {
+            base.sendPower();
+        }
             
     }
 }

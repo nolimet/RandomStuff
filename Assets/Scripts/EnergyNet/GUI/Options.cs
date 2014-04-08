@@ -17,5 +17,20 @@ namespace EnergyNet
     {
         static public bool useLightParticles = false;
         static public float RealTPS = 0;
+
+        public static void SendPackage(Transform sender,Transform target, int senderID, int targetID, int Energy)
+        {
+            GameObject energyPacket;
+            if (!useLightParticles)
+            {
+                energyPacket = Instantiate(Resources.Load("EnergyPacket"), sender.position, Quaternion.identity) as GameObject;
+            }
+            else
+            {
+                energyPacket = Instantiate(Resources.Load("EnergyPacket_Light"), sender.position, Quaternion.identity) as GameObject;
+            }
+            EnergyPacket packetScript = energyPacket.GetComponent<EnergyPacket>();
+            packetScript.SentTo(target, Energy, senderID, targetID);
+        }
     }
 }

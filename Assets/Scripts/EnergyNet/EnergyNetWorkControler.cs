@@ -55,7 +55,7 @@ namespace EnergyNet
                         }
                     catch (System.Exception e)
                     {
-                         
+                        Debug.LogWarning(e);
                     }
                     yield return new WaitForSeconds(waitTime);
                 }
