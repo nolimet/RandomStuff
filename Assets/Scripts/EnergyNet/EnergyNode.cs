@@ -50,7 +50,15 @@ namespace EnergyNet
                             if (Storage >= transferRate)
                             {
                                 // Debug.Log("sending");
-                                GameObject energyPacket = Instantiate(Resources.Load("EnergyPacket"), transform.position, Quaternion.identity) as GameObject;
+                                GameObject energyPacket;
+                                if (!EnergyGlobals.useLightParticles)
+                                {
+                                   energyPacket = Instantiate(Resources.Load("EnergyPacket"), transform.position, Quaternion.identity) as GameObject;
+                                }
+                                else
+                                {
+                                    energyPacket = Instantiate(Resources.Load("EnergyPacket_Light"), transform.position, Quaternion.identity) as GameObject;
+                                }
                                 EnergyPacket packetScript = energyPacket.GetComponent<EnergyPacket>();
                                 packetScript.SentTo(nodes[i].transform, transferRate, ID, nodes[i].ID);
                                 Storage -= transferRate;
