@@ -52,9 +52,9 @@ namespace EnergyNet
             }
         }
 
-        void Update()
+        protected override void Update()
         {
-
+            base.Update();
             if (Storage < MaxStorage / 0.8f)
             {
                 maxLight = (8f / MaxStorage) * Storage;
