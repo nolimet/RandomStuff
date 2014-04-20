@@ -10,6 +10,7 @@ namespace EnergyNet
         public float Storage = 0;
         public int Range = 5;
         public int ID;
+        public bool nonRecivend;
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
 
@@ -17,7 +18,10 @@ namespace EnergyNet
         {
             ID = Mathf.FloorToInt(Random.Range(0, 10000000));
             NodeColor = DebugGrid.randomColor();
-            renderer.material.color = NodeColor;
+            if (renderer != null)
+            {
+                renderer.material.color = NodeColor;
+            }
         }
 
         public virtual void GetInRangeNodes(List<EnergyNode>_nodes)
@@ -45,12 +49,16 @@ namespace EnergyNet
                 }
             }
         }
-       public virtual void Update()
+       protected virtual void Update()
         {
-            int l = nodes.Count;
-            for (int i = 0; i < l; i++)
+            if (!nonRecivend)
             {
-                Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
+                int l = nodes.Count;
+                for (int i = 0; i < l; i++)
+                {
+                    if (!nodes[i].nonRecivend)
+                        Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ namespace EnergyNet
     {
         public int transferRate = 2;
         public bool endPoint;
-        public bool nonRecivend;
+        
         private List<int> RevievedID = new List<int>();
 
         protected override void Start()
@@ -22,7 +22,7 @@ namespace EnergyNet
            // Storage += receiving;
 			if (Storage < MaxStorage) {Storage += receiving;}
             RevievedID.Add(senderID);
-            if (Storage > MaxStorage) { Storage = 0; }
+            if (Storage > MaxStorage) { Storage = MaxStorage; }
             //Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
         }
 

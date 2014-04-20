@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TestMaterial
+  m_Name: TestMaterial 1
   m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords:
   - DIFFCUBE_ON
@@ -78,7 +78,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: .875862122, b: 1, a: 1}
+        second: {r: .580882311, g: .580882311, b: .580882311, a: 1}
       data:
         first:
           name: _SpecColor

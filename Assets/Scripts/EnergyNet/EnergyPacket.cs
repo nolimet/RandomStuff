@@ -19,6 +19,8 @@ namespace EnergyNet
         {
             name = "EnergyPacket from " + SenderID + " To " + TargetID;
 			particleSystem.emissionRate = Energy*5;
+            float temp = (speed / 2f)*Random.value;
+            speed = (speed / 2f) + temp;
             if (Energy == 0)
             {
                 Destroy(this.gameObject);
