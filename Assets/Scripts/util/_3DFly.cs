@@ -6,6 +6,7 @@ using System.Collections;
 public class _3DFly : MonoBehaviour
 {
     private bool mouseRightDown;
+    private bool NoRigiBody = false;
     // Update is called once per frame
     void Update()
     {
@@ -13,16 +14,28 @@ public class _3DFly : MonoBehaviour
         float ver = Input.GetAxis("Vertical");
         if (hor != 0 || ver != 0)
         {
-           // rigidbody.isKinematic = false;
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-                //transform.Translate((new Vector3(hor, 0, ver) * 12f) * Time.deltaTime);
-                rigidbody.AddRelativeForce((new Vector3(hor, 0, ver) * 120f) * Time.deltaTime);
+            if (!NoRigiBody&& rigidbody != null)
+            {
+                // rigidbody.isKinematic = false;
+                if (Input.GetAxis("Sprint")>0)
+                    //transform.Translate((new Vector3(hor, 0, ver) * 12f) * Time.deltaTime);
+                    rigidbody.AddRelativeForce((new Vector3(hor, 0, ver) * 120f) * Time.deltaTime);
+                else
+                    //transform.Translate((new Vector3(hor, 0, ver) * 6f) * Time.deltaTime);
+                    rigidbody.AddRelativeForce((new Vector3(hor, 0, ver) * 60f) * Time.deltaTime);
+            }
             else
-                //transform.Translate((new Vector3(hor, 0, ver) * 6f) * Time.deltaTime);
-                rigidbody.AddRelativeForce((new Vector3(hor, 0, ver) * 60f) * Time.deltaTime);
+            {
+                NoRigiBody = true;
+                if (Input.GetAxis("Sprint") > 0)
+                    transform.Translate((new Vector3(hor, 0, ver) * 12f) * Time.deltaTime);
+                else
+                    transform.Translate((new Vector3(hor, 0, ver) * 6f) * Time.deltaTime);
+            }
         }
         else
         {
+            if (!NoRigiBody && rigidbody != null)
             rigidbody.velocity = Vector3.zero;
            // rigidbody.isKinematic = true;
         }

@@ -20,15 +20,36 @@ namespace TerainGen
         private IEnumerator TerainGen()
         {
             Vector2 pos = new Vector2(thisChunk.x * chunksize.x, thisChunk.y * chunksize.y);
-            for (int k = 0; k < chunksize.x; k++)
+            if (height <= 0)
             {
-                for (int l = 0; l < chunksize.y; l++)
+                for (int k = 0; k < chunksize.x; k++)
                 {
-                    _BlockBase.place("Cube", new Vector2(k, l), pos,transform, 0f);
-                    yield return new WaitForSeconds(0.000001f);
+                    for (int l = 0; l < chunksize.y; l++)
+                    {
+                        int h = Mathf.FloorToInt(Mathf.PerlinNoise(pos.x + k, pos.y + l) * 32);
+                        //Debug.Log(Mathf.PerlinNoise(pos.x + k, pos.y + l) * 32);
+                        Debug.Log((pos.y + l) + " " + (pos.x + k));
+                        _BlockBase.place("Cube", new Vector2(k, l), pos, transform, h);//a  test set last arg to 0f if fails
+                        yield return new WaitForSeconds(0.000001f);
+                    }
+                }
+            }
+            else
+            {
+                for (int k = 0; k < chunksize.x; k++)
+                {
+                    for (int l = 0; l < chunksize.y; l++)
+                    {
+                        for (int h = 0; h < height; h++)
+                        {
+                            _BlockBase.place("Cube", new Vector2(k, l), pos, transform, h);
+                            yield return new WaitForSeconds(0.000001f);
+                        }
+                    }
                 }
             }
             StopCoroutine("TerainGen");
         }
+
     }
 }
