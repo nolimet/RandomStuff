@@ -37,6 +37,7 @@ namespace EnergyNet
             TargetID = _TargetID;
             journeyLength = Vector3.Distance(startPos, target.position);
             startTime = Time.time;
+            
         }
 
         void Update()

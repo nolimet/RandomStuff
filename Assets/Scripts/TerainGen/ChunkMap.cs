@@ -68,7 +68,7 @@ namespace TerainGen
         void CreateChunk(Vector3 pos)
         {
             GameObject chunk = Instantiate(Chunkobj, pos, Quaternion.identity) as GameObject;
-            chunk.GetComponent<Chunk>().placed(new Vector2(16, 16), new Vector2(pos.x / 10, pos.z / 10),Mathf.FloorToInt(pos.y));
+            //chunk.GetComponent<Chunk>().placed(new Vector2(16, 16), new Vector2(pos.x / 10, pos.z / 10),Mathf.FloorToInt(pos.y));
             chunk.transform.parent = transform;
 
         }

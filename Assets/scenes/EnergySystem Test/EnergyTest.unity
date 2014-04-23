@@ -1831,7 +1831,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 4e9a156357ffb4718aa392e91d3a2dae, type: 2}
+  - {fileID: 2100000, guid: 904aff0179a1d424391dfb29bc3f0ca0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2801,46 +2801,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d23a1b92cc230f4db2d5d17d5a0a685, type: 2}
   m_RootGameObject: {fileID: 197435149}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1001 &1158646940
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.71466541
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.4522922
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3.65501261
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .619093716
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -.785317123
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-  m_RootGameObject: {fileID: 2080188021}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1 &1195563908
@@ -6273,7 +6233,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-  m_PrefabInternal: {fileID: 1158646940}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2080188025}
@@ -6292,7 +6252,7 @@ GUIText:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 13200000, guid: 7f1579e8542525c4abfd439a01f6a3a9,
     type: 2}
-  m_PrefabInternal: {fileID: 1158646940}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080188021}
   m_Enabled: 0
   serializedVersion: 3
@@ -6317,19 +6277,28 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 7f1579e8542525c4abfd439a01f6a3a9,
     type: 2}
-  m_PrefabInternal: {fileID: 1158646940}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080188021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d19bcf00f47f48d38916c47262023ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 29d78461560b94fbba29123ade3720a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Lux_HDR_Scale: 6
+  isLinear: 0
+  LuxLighting: 0
+  Lux_IBL_DiffuseExposure: 1
+  Lux_IBL_SpecularExposure: 1
+  diffuseCube: {fileID: 0}
+  diffuseIsHDR: 0
+  specularCube: {fileID: 0}
+  specularIsHDR: 0
 --- !u!114 &2080188024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 7f1579e8542525c4abfd439a01f6a3a9,
     type: 2}
-  m_PrefabInternal: {fileID: 1158646940}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080188021}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -6349,7 +6318,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 7f1579e8542525c4abfd439a01f6a3a9, type: 2}
-  m_PrefabInternal: {fileID: 1158646940}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080188021}
   m_LocalRotation: {x: 0, y: .619093716, z: 0, w: -.785317123}
   m_LocalPosition: {x: 1.71466541, y: 1.4522922, z: 3.65501261}

@@ -2,7 +2,7 @@
 using System.Collections;
 namespace EnergyNet
 {
-    public class EnergyGlobals : MonoBehaviour
+    public class EnergyGlobals :MonoBehaviour
     {
         static public bool useLightParticles = true;
         static public float RealTPS = 0;

@@ -56,8 +56,11 @@ namespace EnergyNet
                 int l = nodes.Count;
                 for (int i = 0; i < l; i++)
                 {
-                    if (!nodes[i].nonRecivend)
+                    if (nodes[i]!=null&&!nodes[i].nonRecivend)
                         Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
+                  //  else if (nodes==null)
+
+
                 }
             }
         }

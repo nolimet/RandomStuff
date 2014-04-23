@@ -2,7 +2,7 @@
 using System.Collections;
 
 [AddComponentMenu("Camera-Control/3DFly")]
-
+[RequireComponent(typeof(MouseLook))]
 public class _3DFly : MonoBehaviour
 {
     private bool mouseRightDown;
