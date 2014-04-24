@@ -9,15 +9,21 @@ namespace TerainGen
         private int Scale;
         private int Passes;
         private int Height;
+        private float NoiseScale;
+        //private Color chunkcolour;
         // Use this for initialization             
-        public void placed(Vector2 _chunkSize, Vector2 _chunk,int _Scale,int _Passes,int _Height)
+        public void placed(Vector2 _chunkSize, Vector2 _chunk,int _Scale,int _Passes,int _Height, float _NoiseScale)
         {
             thisChunk=_chunk;
             chunksize=_chunkSize;
             Scale = _Scale;
             Passes = _Passes;
             Height = _Height;
-            this.name = "Chunk " + _chunk;
+            NoiseScale = _NoiseScale;
+            this.name = "Chunk: " + _chunk;
+            //float tmp = Random.value;
+            //chunkcolour = new Color(tmp, tmp, tmp);
+           // GetComponent<MeshMerger>().material.color = chunkcolour;
             StartCoroutine("TerainGen");
         }
 
@@ -36,9 +42,9 @@ namespace TerainGen
                             // int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate(pos.x + k, pos.y + l) * height);
                             for (int h = 0; h < Height; h++)
                             {
-                                //int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate(pos.x + k, pos.y + l, h) * Scale);
-                                int he = h;
-                                Debug.Log(he);
+                                int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate((pos.x + k) * NoiseScale, (pos.y + l) * NoiseScale, h) * Scale);
+                                //int he = h;
+                                //Debug.Log(he);
                                // if (he == 0.1f)
                                     _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he);//a  test set last arg to 0f if fails
                               //  else if(he==0.1f)
@@ -48,7 +54,7 @@ namespace TerainGen
                                 if (h % 16 == 0)
                                 {
                                     yield return new WaitForSeconds(0.03f);
-                                    Debug.Log(h % 16);
+                                   // Debug.Log(h % 16);
                                         
                                 }
                             }
@@ -73,10 +79,10 @@ namespace TerainGen
                                 int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate(pos.x + k, pos.y + l, h*n) * Scale);
 
                                 if (he > 0)
-                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he);//a  test set last arg to 0f if fails
+                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform , he);//a  test set last arg to 0f if fails
                                 else
                                 {
-                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform, -he);
+                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform , -he);
                                 }
                             }
                             yield return new WaitForSeconds(0.001f);
@@ -87,10 +93,10 @@ namespace TerainGen
                             int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate(pos.x + k, pos.y + l, h+(Height-leftOvers)) * Scale);
 
                             if (he > 0)
-                                _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he);//a  test set last arg to 0f if fails
+                                _BlockBase.place("Cube", new Vector2(k, l), pos, transform , he);//a  test set last arg to 0f if fails
                             else
                             {
-                                _BlockBase.place("Cube", new Vector2(k, l), pos, transform, -he);
+                                _BlockBase.place("Cube", new Vector2(k, l), pos, transform , -he);
                             }
                             yield return new WaitForSeconds(0.001f);
                         }
