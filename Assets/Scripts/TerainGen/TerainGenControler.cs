@@ -20,12 +20,16 @@ namespace TerainGen
         public int Scale=5;
         public int Height;
         public int passes=2;
+        private float Seed;
 
+        private int neededblocks;
         //intervals
         [Range(0.01f,0.5f)]
         public float TestCanPlaceTime = 0.2f;
         [Range(0f, 0.5f)]
         public float ChunkPlaceVertTime = 0.2f;
+
+       
 
         //public int[][] heightMap = new int[2][];
 
@@ -33,12 +37,14 @@ namespace TerainGen
         {
            name = "--TerainControler";
            TerainGlobals.ResetGlobals();
+           Seed = Random.Range(0, 1000000f) / 1000000f;
+           neededblocks = Mathf.FloorToInt(ChunkSize * (fieldSize.x * fieldSize.y) * Height * passes);
         }
 
         void Update()
         {
             chunksize = new Vector2(ChunkSize, ChunkSize);
-            guiText.text = "TotalBlocks: "+TerainGlobals.TotalBlocks;
+            guiText.text = "TotalBlocks: " + TerainGlobals.TotalBlocks + " Of "+neededblocks+'\n' + "Seed: " + Seed;
             if (generate && !started)
             {
                 StartCoroutine("TerainGen");
@@ -56,7 +62,7 @@ namespace TerainGen
             if (GUI.Button(new Rect(50, 350, 200, 50), "Reset"))
             {
 
-                Instantiate(Resources.Load("--TerainControler"), Vector3.zero, Quaternion.identity);
+                Instantiate(Resources.Load("--TerainControler"), transform.position, Quaternion.identity);
                 StopAllCoroutines();
                 Destroy(this.gameObject);
             }
@@ -87,7 +93,7 @@ namespace TerainGen
                         //Debug.Log("test");
                         GameObject newChunk = Instantiate(Resources.Load("Chunk"), Vector3.zero, Quaternion.identity) as GameObject;
                         newChunk.transform.parent = transform;
-                        newChunk.GetComponent<Chunk>().placed(chunksize, new Vector2(i, j), Scale, passes, Height, NoiseScale);
+                        newChunk.GetComponent<Chunk>().placed(chunksize, new Vector2(i, j), Scale, passes, Height, NoiseScale*Seed);
                         while (TerainGlobals.buildingChunks>=MaxBuildingChunks)
                         {
                             yield return new WaitForSeconds(TestCanPlaceTime);

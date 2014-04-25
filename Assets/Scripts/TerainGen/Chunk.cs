@@ -31,30 +31,22 @@ namespace TerainGen
         {
             TerainGlobals.buildingChunks++;
             Vector2 pos = new Vector2(thisChunk.x * chunksize.x, thisChunk.y * chunksize.y);
-            if (Height <=256)
-            {
+           // if (Height <=256)
+           // {
                 for (int p = 0; p < Passes; p++)
                 {
                     for (int k = 0; k < chunksize.x; k++)
                     {
                         for (int l = 0; l < chunksize.y; l++)
                         {
-                            // int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate(pos.x + k, pos.y + l) * height);
+
                             for (int h = 0; h < Height; h++)
                             {
-                                int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate((pos.x + k) * NoiseScale, (pos.y + l) * NoiseScale, h) * Scale);
-                                //int he = h;
-                                //Debug.Log(he);
-                               // if (he == 0.1f)
-                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he);//a  test set last arg to 0f if fails
-                              //  else if(he==0.1f)
-                                //{
-                                   // _BlockBase.place("Cube", new Vector2(k, l), pos, transform, -he);
-                                //}
+                                int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate((pos.x + k) * NoiseScale, (pos.y + l) * NoiseScale) * Scale);
+                                    _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he-h);//a  test set last arg to 0f if fails
                                 if (h % 16 == 0)
                                 {
                                     yield return new WaitForSeconds(0.03f);
-                                   // Debug.Log(h % 16);
                                         
                                 }
                             }
@@ -63,8 +55,8 @@ namespace TerainGen
                     }
                     yield return new WaitForSeconds(0.5f);
                 }
-            }
-            else if (Height > 2000)
+            //}
+            /*else if (Height > 2000)
             {
                 int normalLoops = Mathf.FloorToInt(Height / 16);
                 int leftOvers = Mathf.FloorToInt(Height % 16);
@@ -102,7 +94,7 @@ namespace TerainGen
                         }
                     }
                 }
-            }
+            }*/
             Destroy(this, 0.2f);
             TerainGlobals.buildingChunks--;
             GetComponent<MeshMerger>().Merge();

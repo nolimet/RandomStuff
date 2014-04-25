@@ -42,12 +42,12 @@ MonoBehaviour:
   generate: 0
   ChunkSize: 8
   MaxBuildingChunks: 5
-  NoiseScale: .0900000036
+  NoiseScale: .00999999978
   fieldSize: {x: 10, y: 10}
-  Scale: 4
-  Height: 2
+  Scale: 10
+  Height: 1
   passes: 1
-  TestCanPlaceTime: .0579999983
+  TestCanPlaceTime: .0359999985
   ChunkPlaceVertTime: 0
 --- !u!132 &13200000
 GUIText:
