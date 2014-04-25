@@ -41,10 +41,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generate: 0
   ChunkSize: 8
-  MaxBuildingChunks: 5
+  MaxBuildingChunks: 10
   NoiseScale: .00999999978
-  fieldSize: {x: 10, y: 10}
-  Scale: 10
+  fieldSize: {x: 20, y: 20}
+  Scale: 32
   Height: 1
   passes: 1
   TestCanPlaceTime: .0359999985

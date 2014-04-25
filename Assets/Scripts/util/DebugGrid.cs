@@ -20,9 +20,9 @@ public class DebugGrid : MonoBehaviour {
         points[0].name = "A";
         points[1].name = "B";
         points[2].name = "C";
-        points[3].name = "3 AB";
-        points[4].name = "4 BC";
-        points[5].name = "5 CA";
+        points[3].name = "AB";
+        points[4].name = "BC";
+        points[5].name = "CA";
 	}
 	
 	// Update is called once per frame
@@ -65,6 +65,7 @@ public class DebugGrid : MonoBehaviour {
             points[5].position = C * 0.5f + A * 0.5f;
 
             //Drawing lines
+
             //A
             Debug.DrawLine(points[0].position, points[3].position, Color.blue); 
             Debug.DrawLine(points[0].position, points[4].position, Color.red); 
@@ -79,9 +80,9 @@ public class DebugGrid : MonoBehaviour {
             Debug.DrawLine(points[2].position, points[5].position, Color.magenta);
 
             //renaming
-            points[0].name = "0 A" + A;
-            points[1].name = "1 B" + B;
-            points[2].name = "2 C" + C;
+            points[0].name = "A" + A;
+            points[1].name = "B" + B;
+            points[2].name = "C" + C;
         }
 	}
     public static Color randomColor()

@@ -38,7 +38,7 @@ namespace TerainGen
            name = "--TerainControler";
            TerainGlobals.ResetGlobals();
            Seed = Random.Range(0, 1000000f) / 1000000f;
-           neededblocks = Mathf.FloorToInt(ChunkSize * (fieldSize.x * fieldSize.y) * Height * passes);
+           neededblocks = Mathf.FloorToInt(ChunkSize*ChunkSize*Height*fieldSize.x*fieldSize.y*passes);
         }
 
         void Update()
