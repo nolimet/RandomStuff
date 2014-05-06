@@ -454,8 +454,9 @@ MonoBehaviour:
   width: 30
   A: {x: 1, y: 5}
   B: {x: 6, y: -3}
-  ALtMode: 1
   C: {x: 9, y: 8}
+  _altMode: 0
+  MaxDelay: .0500000007
   points:
   - {fileID: 950930543}
   - {fileID: 1262651426}
