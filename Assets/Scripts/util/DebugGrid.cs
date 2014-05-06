@@ -119,4 +119,8 @@ public class DebugGrid : MonoBehaviour {
 
         return output;
     }
+
+    void OnGUI()
+    {
+    }
 }
