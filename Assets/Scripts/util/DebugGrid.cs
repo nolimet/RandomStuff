@@ -7,8 +7,20 @@ public class DebugGrid : MonoBehaviour {
 
     public Vector2 A;
     public Vector2 B;
-
-    public bool ALtMode;
+    public bool _altMode;
+    public bool ALtMode{
+        set{
+            _ALtMode = value;
+            points[3].gameObject.SetActive(value);
+            points[4].gameObject.SetActive(value);
+            points[5].gameObject.SetActive(value);
+            }
+        get
+        {
+            return _ALtMode;
+        }
+    }
+   
     public Vector2 C;
 
     float delay=1f;
@@ -27,6 +39,7 @@ public class DebugGrid : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        _ALtMode = AltMode;
         int k = 0;
         Vector2 ant = A + B;
         Debug.Log(ant);
@@ -43,7 +56,7 @@ public class DebugGrid : MonoBehaviour {
             delay = 0;
         }
         delay += Time.deltaTime;
-        if (!ALtMode)
+        if (!_ALtMode)
         {
             Debug.DrawLine(Vector3.zero, ant, Color.blue);
             Debug.DrawLine(Vector3.zero, A, Color.green);
