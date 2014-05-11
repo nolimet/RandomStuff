@@ -6,6 +6,7 @@ namespace EnergyNet
     {
         static public bool useLightParticles = true;
         static public float RealTPS = 0;
+        public const int MaxTPS = 20;
 
         public static void SendPackage(Transform sender, Transform target, int senderID, int targetID, int Energy, float Speed = 0.1f, bool forceFancyParticle = false)
         {

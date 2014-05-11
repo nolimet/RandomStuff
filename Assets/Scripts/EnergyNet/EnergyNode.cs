@@ -7,12 +7,16 @@ namespace EnergyNet
     {
         public int transferRate = 2;
         public bool endPoint;
+        private int waitedTicks;
+        private int controlerTPS = EnergyGlobals.MaxTPS;
         
+
         private List<int> RevievedID = new List<int>();
 
         protected override void Start()
         {
             base.Start();
+            //controler.AddNewNode(this);
             this.name = "Node " + ID;
         }
 
@@ -28,35 +32,40 @@ namespace EnergyNet
 
         public virtual void sendPower()
         {
-            if (!endPoint)
+            waitedTicks++;
+            if (waitedTicks >= controlerTPS)
             {
-                if (Storage > 0 && transferRate > 0)
+                waitedTicks = 0;
+                if (!endPoint)
                 {
-                    //check receiver's storage
-                    int l = nodes.Count;
-                    int k = RevievedID.Count;
-                    for (int i = 0; i < l; i++)
+                    if (Storage > 0 && transferRate > 0)
                     {
-                        bool receivedFrom = false;
-                        if (nodes[i].nonRecivend)
-                            receivedFrom = true;
-
-                        if(!receivedFrom)
-                        for (int j = 0; j < k; j++)
+                        //check receiver's storage
+                        int l = nodes.Count;
+                        int k = RevievedID.Count;
+                        for (int i = 0; i < l; i++)
                         {
-                            if (RevievedID[j] == nodes[i].ID)
-                            {
+                            bool receivedFrom = false;
+                            if (nodes[i].nonRecivend)
                                 receivedFrom = true;
-                                //Debug.Log(receivedFrom);
-                            }
-                        }
-                        if (!receivedFrom)
-                        {
-                            if (Storage >= transferRate)
+
+                            if (!receivedFrom)
+                                for (int j = 0; j < k; j++)
+                                {
+                                    if (RevievedID[j] == nodes[i].ID)
+                                    {
+                                        receivedFrom = true;
+                                        //Debug.Log(receivedFrom);
+                                    }
+                                }
+                            if (!receivedFrom)
                             {
-                                // Debug.Log("sending");
-                                EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
-                                Storage -= transferRate;
+                                if (Storage >= transferRate)
+                                {
+                                    // Debug.Log("sending");
+                                    EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
+                                    Storage -= transferRate;
+                                }
                             }
                         }
                     }

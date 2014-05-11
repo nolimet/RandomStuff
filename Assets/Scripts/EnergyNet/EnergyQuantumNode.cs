@@ -48,7 +48,6 @@ namespace EnergyNet
             {
                 EnergyGlobals.SendPackage(transform, TwinNode.transform, ID, TwinNode.ID, Mathf.FloorToInt( Storage),0.05f,true);
                 Storage = 0;
-                Debug.Log("BAM");
             }
         }
 

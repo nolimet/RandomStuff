@@ -11,12 +11,16 @@ namespace EnergyNet
         public int generation = 3;
         public bool activated = true;
         public int transferRate = 5;
+        private int waitedTicks;
+        private int controlerTPS = EnergyGlobals.MaxTPS;
 
         protected override void Start()
         {
             base.Start();
+            //controler.AddNewGenerator(this);
             MaxStorage = 200;
             name = "Energy Genarator: " + ID;
+
         }
 
         public override void GetInRangeNodes(List<EnergyNode>_nodes)
@@ -42,32 +46,36 @@ namespace EnergyNet
 
         public void sendPower()
         {
-            if (activated&&Storage > 0 && transferRate > 0)
+            waitedTicks++;
+            if (waitedTicks >= controlerTPS)
             {
-                //check receiver's storage
-                int l = nodes.Count;
-                int k = RevievedID.Count;
-                for (int i = 0; i < l; i++)
+                waitedTicks = 0;
+                if (activated && Storage > 0 && transferRate > 0)
                 {
-                    bool receivedFrom = false;
-                    for (int j = 0; j < k; j++)
+                    //check receiver's storage
+                    int l = nodes.Count;
+                    int k = RevievedID.Count;
+                    for (int i = 0; i < l; i++)
                     {
-                        if (RevievedID[j] == nodes[i].ID)
+                        bool receivedFrom = false;
+                        for (int j = 0; j < k; j++)
                         {
-                            receivedFrom = true;
+                            if (RevievedID[j] == nodes[i].ID)
+                            {
+                                receivedFrom = true;
+                            }
                         }
-                    }
-                    if (!receivedFrom)
-                    {
-                        if (Storage >= transferRate)
+                        if (!receivedFrom)
                         {
-                            EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
-                            Storage -= transferRate;
+                            if (Storage >= transferRate)
+                            {
+                                EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
+                                Storage -= transferRate;
+                            }
                         }
                     }
                 }
             }
         }
-    
     }
 }

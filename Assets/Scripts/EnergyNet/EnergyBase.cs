@@ -13,10 +13,17 @@ namespace EnergyNet
         public bool nonRecivend;
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
+        protected EnergyNetWorkControler controler;
 
         protected virtual void Start()
         {
-            ID = Mathf.FloorToInt(Random.Range(0, 10000000));
+           // ID = Mathf.FloorToInt(Random.Range(0, 10000000));
+            controler = EnergyNetWorkControler.GetThis();
+            transform.parent = controler.gameObject.transform;
+            if (controler = null)
+            {
+                Destroy(this);
+            }
             NodeColor = DebugGrid.randomColor();
             if (renderer != null)
             {
