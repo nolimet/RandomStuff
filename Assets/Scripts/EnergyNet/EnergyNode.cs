@@ -9,64 +9,56 @@ namespace EnergyNet
         public bool endPoint;
         private int waitedTicks;
         private int controlerTPS = EnergyGlobals.MaxTPS;
-        
+
 
         private List<int> RevievedID = new List<int>();
 
         protected override void Start()
         {
             base.Start();
-            //controler.AddNewNode(this);
-            this.name = "Node " + ID;
+            SetNameID();
         }
 
         public virtual void receive(float receiving,int senderID)
         {
-			//Debug.Log("Receiving: "+receiving);
-           // Storage += receiving;
 			if (Storage < MaxStorage) {Storage += receiving;}
             RevievedID.Add(senderID);
             if (Storage > MaxStorage) { Storage = MaxStorage; }
-            //Debug.Log("Storage: " + Storage + " Max Storage: " + MaxStorage);
         }
 
         public virtual void sendPower()
         {
+            if (ID == 0)
+            {
+                SetNameID();
+            }
             waitedTicks++;
             if (waitedTicks >= controlerTPS)
             {
+               // Debug.Log("sendpower : " + ID);
                 waitedTicks = 0;
-                if (!endPoint)
+                if (!endPoint && Storage > 0 && transferRate > 0)
                 {
-                    if (Storage > 0 && transferRate > 0)
+                    int l = nodes.Count;
+                    int k = RevievedID.Count;
+                    for (int i = 0; i < l; i++)
                     {
-                        //check receiver's storage
-                        int l = nodes.Count;
-                        int k = RevievedID.Count;
-                        for (int i = 0; i < l; i++)
-                        {
-                            bool receivedFrom = false;
-                            if (nodes[i].nonRecivend)
-                                receivedFrom = true;
+                        bool receivedFrom = false;
+                        if (nodes[i].nonRecivend)
+                            receivedFrom = true;
 
-                            if (!receivedFrom)
-                                for (int j = 0; j < k; j++)
-                                {
-                                    if (RevievedID[j] == nodes[i].ID)
-                                    {
-                                        receivedFrom = true;
-                                        //Debug.Log(receivedFrom);
-                                    }
-                                }
-                            if (!receivedFrom)
+                        if (!receivedFrom)
+                            for (int j = 0; j < k; j++)
                             {
-                                if (Storage >= transferRate)
+                                if (RevievedID[j] == nodes[i].ID)
                                 {
-                                    // Debug.Log("sending");
-                                    EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
-                                    Storage -= transferRate;
+                                    receivedFrom = true;
                                 }
                             }
+                        if (!receivedFrom && Storage >= transferRate)
+                        {
+                            EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
+                            Storage -= transferRate;
                         }
                     }
                 }
@@ -75,8 +67,26 @@ namespace EnergyNet
         public override void GetInRangeNodes(List<EnergyNode> _nodes)
         {
             base.GetInRangeNodes(_nodes);
-            //RevievedID = new List<int>();
+        }
+
+        protected override void Update()
+        {
+            if (!nonRecivend)
+            {
+                int l = nodes.Count;
+                for (int i = 0; i < l; i++)
+                {
+                    if (nodes[i] != null && !nodes[i].nonRecivend && !RevievedID.Contains(nodes[i].ID))
+                        Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
+                }
+            }
             
+        }
+
+        protected override void SetNameID()
+        {
+            base.SetNameID();
+            this.name = "Node " + ID;
         }
     }
 }

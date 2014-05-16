@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 namespace EnergyNet
 {
     public class EnergyGlobals :MonoBehaviour
@@ -7,6 +8,9 @@ namespace EnergyNet
         static public bool useLightParticles = true;
         static public float RealTPS = 0;
         public const int MaxTPS = 20;
+        static public int LastNetworkObjectCount = -1;
+        static public int CurrentNetworkObjects = 0;
+        static public List<GameObject> NetWorkObjects = new List<GameObject>();
 
         public static void SendPackage(Transform sender, Transform target, int senderID, int targetID, int Energy, float Speed = 0.1f, bool forceFancyParticle = false)
         {
@@ -26,6 +30,12 @@ namespace EnergyNet
             EnergyPacket packetScript = energyPacket.GetComponent<EnergyPacket>();
             packetScript.speed = Speed;
             packetScript.SentTo(target, Energy, senderID, targetID);
+        }
+
+        public static void AddnewObject(GameObject NewObject)
+        {
+            NetWorkObjects.Add(NewObject);
+            CurrentNetworkObjects++;
         }
     }
 }

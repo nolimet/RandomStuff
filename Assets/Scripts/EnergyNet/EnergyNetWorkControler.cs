@@ -12,13 +12,10 @@ namespace EnergyNet
         public int TicksPerSecond = 4;
         List<EnergyNode> nodes = new List<EnergyNode>();
         List<EnergyGenator> generators = new List<EnergyGenator>();
-
         float[] tpsar = new float[5];
         int tps = 0;
-
         float timer = 0f;
 
-        // Use this for initialization
         public void Start()
         {
             name = "--NetworkControler";
@@ -55,31 +52,11 @@ namespace EnergyNet
 
         IEnumerator CheckForChanges()
         {
-            //give nodes a list of all the nodes
-            //give generators what they need;
-            //do the things that need to bedone
-            Object[] objects = FindObjectsOfType(typeof(GameObject));
-            foreach (GameObject go in objects)
-            {
-                if (go != null)
-                {
-                    if (go.tag == EnergyTags.EnergyNode)
-                    {
-
-                        EnergyNode tmp = go.GetComponent<EnergyNode>();
-                        nodes.Add(tmp);
-
-                    }
-                    else if (go.tag == EnergyTags.EnergyGenartor)
-                    {
-                        EnergyGenator tmp = go.GetComponent<EnergyGenator>();
-                        generators.Add(tmp);
-                    }
-                }
-            }
-
+            UpdateGride();
             while (true)
             {
+                if (EnergyGlobals.LastNetworkObjectCount != EnergyGlobals.CurrentNetworkObjects)
+                    UpdateGride();
                 foreach (EnergyNode node in nodes)
                 {
                     node.GetInRangeNodes(nodes);
@@ -93,53 +70,6 @@ namespace EnergyNet
                 tps++;
                 yield return new WaitForSeconds(CallculedWaitTime);
             }
-            //Old
-            /*while (true)
-            {
-                Object[] objects = FindObjectsOfType(typeof(GameObject));
-                List<EnergyNode> tmpNodes = new List<EnergyNode>();
-                List<EnergyGenator> tmpGens = new List<EnergyGenator>();
-                float waitTime = CallculedWaitTime / objects.Length;
-                foreach (GameObject go in objects)
-                {
-                    if (go != null)
-                    {
-                        try
-                        {
-                            if (go.tag == EnergyTags.EnergyNode)
-                            {
-
-                                EnergyNode tmp = go.GetComponent<EnergyNode>();
-                                tmpNodes.Add(tmp);
-
-                            }
-                            else if (go.tag == EnergyTags.EnergyGenartor)
-                            {
-                                EnergyGenator tmp = go.GetComponent<EnergyGenator>();
-                                tmpGens.Add(tmp);
-                            }
-                        }
-                        catch (System.Exception e)
-                        {
-                            Debug.LogWarning(e);
-                        }
-                    }
-                    yield return new WaitForSeconds(waitTime);
-                }
-                foreach (EnergyNode nd in tmpNodes)
-                {
-                    nd.GetInRangeNodes(tmpNodes);
-                    nd.sendPower();
-                }
-
-                foreach (EnergyGenator gr in tmpGens)
-                {
-                    gr.GetInRangeNodes(tmpNodes);
-                    gr.sendPower();
-                }
-                EnergyGlobals.RealTPS = waitTime * objects.Length;
-                yield return new WaitForSeconds(CheckForChangesInterval);
-            }*/
         }
 
         void OnApplicationStop()
@@ -158,29 +88,40 @@ namespace EnergyNet
                     output = go.GetComponent<EnergyNetWorkControler>();
                     return output;
                 }
-
             }
             if (output != null)
                 return output;
             else
             {
-
                 GameObject controler = Instantiate(Resources.Load("EnergyNetControler"), Vector3.zero, Quaternion.identity) as GameObject;
                 output = controler.GetComponent<EnergyNetWorkControler>();
                 output.Start();
                 return output;
             }
-                //return null;
         }
 
-        public void AddNewNode(EnergyNode newNode)
+        public void UpdateGride()
         {
-            nodes.Add(newNode);
-        }
-
-        public void AddNewGenerator(EnergyGenator newGen)
-        {
-            generators.Add(newGen);
+            Debug.Log("Updated Grid");
+            nodes = new List<EnergyNode>();
+            generators = new List<EnergyGenator>();
+            foreach (GameObject go in EnergyGlobals.NetWorkObjects)
+            {
+                if (go != null)
+                {
+                    if (go.tag == EnergyTags.EnergyNode)
+                    {
+                        EnergyNode tmp = go.GetComponent<EnergyNode>();
+                        nodes.Add(tmp);
+                    }
+                    else if (go.tag == EnergyTags.EnergyGenartor)
+                    {
+                        EnergyGenator tmp = go.GetComponent<EnergyGenator>();
+                        generators.Add(tmp);
+                    }
+                }
+            }
+            EnergyGlobals.LastNetworkObjectCount = EnergyGlobals.CurrentNetworkObjects;
         }
     }
 }

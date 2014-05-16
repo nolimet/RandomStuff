@@ -14,16 +14,18 @@ namespace EnergyNet
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
         protected EnergyNetWorkControler controler;
+        protected int connections;
 
         protected virtual void Start()
         {
-           // ID = Mathf.FloorToInt(Random.Range(0, 10000000));
             controler = EnergyNetWorkControler.GetThis();
             transform.parent = controler.gameObject.transform;
             if (controler = null)
             {
                 Destroy(this);
             }
+
+            EnergyGlobals.AddnewObject(gameObject);
             NodeColor = DebugGrid.randomColor();
             if (renderer != null)
             {
@@ -47,12 +49,7 @@ namespace EnergyNet
                     if (dist >= 0 && dist < Range)
                     {
                         nodes.Add(go.gameObject.GetComponent<EnergyNode>());
-                       // Debug.Log("addedNode");
                     }
-                    //else if (dist < 0 && dist > Range)
-                    // {
-                    //   nodes.Add(go.gameObject.GetComponent<EnergyNode>());
-                    //}
                 }
             }
         }
@@ -65,11 +62,13 @@ namespace EnergyNet
                 {
                     if (nodes[i]!=null&&!nodes[i].nonRecivend)
                         Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
-                  //  else if (nodes==null)
-
-
                 }
             }
         }
+
+       protected virtual void SetNameID()
+       {
+           ID = Mathf.FloorToInt(Random.Range(0, 10000000));
+       }
     }
 }

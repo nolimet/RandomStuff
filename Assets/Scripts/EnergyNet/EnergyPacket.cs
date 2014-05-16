@@ -61,6 +61,9 @@ namespace EnergyNet
                 {
                     node.receive(Energy, SenderID);
                     Destroy(gameObject,3f);
+                    Destroy(this);
+                    Destroy(rigidbody);
+                    Destroy(collider);
                     particleSystem.emissionRate = 0;
                     name = "EnergyPacket Empty";
                     Energy = 0;
