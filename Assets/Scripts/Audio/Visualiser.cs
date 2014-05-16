@@ -5,10 +5,11 @@ public class Visualiser : MonoBehaviour
 {
 
     AudioSource tests;
+    [Range (0.01f,100f)]
     public float audioDrawScale = 1f;
-    [Range(64,1024)]
+    [Range(16,1024)]
     public int SpectrumSize;
-    private List<Transform> cubes = new List<Transform>();
+    public List<Transform> cubes = new List<Transform>();
     // Use this for initialization
     void Start()
     {
@@ -24,13 +25,22 @@ public class Visualiser : MonoBehaviour
     }
     void FixedUpdate()
     {
+        float barWidth = 25.6f / SpectrumSize;
         float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
         int i = 0;
+        float channelSize = 0f;
         while (i < SpectrumSize)
         {
-            Debug.DrawLine(new Vector3(0,0,i/100f),new Vector3(0,spectrum[i]/audioDrawScale,i/100f),Color.yellow);
-            cubes[i].localScale = new Vector3(0.2f, spectrum[i] / audioDrawScale + 0.2f, 0.2f);
-            cubes[i].position = new Vector3(0, (spectrum[i] / audioDrawScale) / 2f, i / 5f);
+            channelSize = spectrum[i];
+            if (spectrum[i] * audioDrawScale > 12f)
+            {
+                //Debug.Log("greater");
+                channelSize = 12f / audioDrawScale;
+            }
+              //  Debug.Log(channelSize / audioDrawScale);
+         //   Debug.DrawLine(new Vector3(0,0,i/100f),new Vector3(0,spectrum[i]/audioDrawScale,i/100f),Color.yellow);
+            cubes[i].localScale = new Vector3(barWidth, channelSize * audioDrawScale + 0.01f, barWidth);
+            cubes[i].position = new Vector3(0, (channelSize * audioDrawScale) / 2f, i * barWidth);
             i++;
         }
     }

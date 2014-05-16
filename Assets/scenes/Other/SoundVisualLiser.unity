@@ -85,7 +85,7 @@ GameObject:
   - 82: {fileID: 402696247}
   - 114: {fileID: 402696246}
   m_Layer: 0
-  m_Name: Phoenix_Wright_Ace_Attorney_Carry_the_Moment_OC_ReMix
+  m_Name: audioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dd7223b0ad1844c94bb3057b102d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDrawScale: .0500000007
-  SpectrumSize: 128
+  audioDrawScale: 74.5999985
+  SpectrumSize: 1024
+  cubes: []
 --- !u!82 &402696247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081406373}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 13, y: 7.17999983, z: 12.6599998}
+  m_LocalPosition: {x: 14.3020802, y: 7.17999983, z: 12.6599998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
