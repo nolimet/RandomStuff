@@ -34,10 +34,8 @@ public class Visualiser : MonoBehaviour
             channelSize = spectrum[i];
             if (spectrum[i] * audioDrawScale > 12f)
             {
-                //Debug.Log("greater");
                 channelSize = 12f / audioDrawScale;
             }
-              //  Debug.Log(channelSize / audioDrawScale);
          //   Debug.DrawLine(new Vector3(0,0,i/100f),new Vector3(0,spectrum[i]/audioDrawScale,i/100f),Color.yellow);
             cubes[i].localScale = new Vector3(barWidth, channelSize * audioDrawScale + 0.01f, barWidth);
             cubes[i].position = new Vector3(0, (channelSize * audioDrawScale) / 2f, i * barWidth);
