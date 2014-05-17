@@ -12,7 +12,7 @@ namespace TerainGen
         private Vector2 chunksize;
         [Range(2,32)]
         public int ChunkSize = 8;
-        [Range(1,10)]
+        [Range(1,20)]
         public int MaxBuildingChunks = 3;
         [Range(0,1)]
         public float NoiseScale;
