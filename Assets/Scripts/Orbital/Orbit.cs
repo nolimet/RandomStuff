@@ -31,7 +31,6 @@ namespace Orbital
             GetClostestAttPoint();
             if (parentPos != null)
             {
-                if(parentobj.a
                 Vector3 diff = parentPos.position - transform.position;
                 Vector3 direction = diff.normalized;
                 float gravitationalForce = (parentobj.mass * mass * gravitationalConstant) / diff.sqrMagnitude;
