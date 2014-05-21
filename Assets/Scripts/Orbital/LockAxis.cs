@@ -48,6 +48,7 @@ namespace Orbital
             {
                 lockedZ = TempPos.z;
             }
+            transform.position = TempPos;
         }
     }
 }

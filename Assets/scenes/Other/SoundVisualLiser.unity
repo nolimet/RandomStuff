@@ -291,8 +291,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDrawScale: 74.5999985
-  SpectrumSize: 1024
+  SpectrumSize: 2048
   cubes: []
+  circle: 1
 --- !u!82 &402696247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -309,7 +310,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 495.0495
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 1
@@ -358,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402696245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: .401579857, z: 12.6599998}
+  m_LocalPosition: {x: 0, y: 6.47874641, z: 12.8564148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

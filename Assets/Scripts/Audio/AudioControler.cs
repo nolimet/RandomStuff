@@ -9,6 +9,7 @@ namespace Audio
 
         float volume= 100f;
         float pitch = 1f;
+        bool circle = false;
 
         void Update()
         {
@@ -30,14 +31,17 @@ namespace Audio
                 pitch = 1f;
             if (GUI.Button(new Rect(640, 130, 100, 15), "Awesom Pitch"))
                 pitch = 0.727272f;
+            if(GUI.Button(new Rect(150, 20, 100, 15), "Circle/Flat"))
+                circle=!circle;
             GUI.TextArea(new Rect (580,5,50,20),"Volume");
-            GUI.TextArea(new Rect(650, 5, 50, 20), "Pitch");
+            GUI.TextArea(new Rect(650, 5, 50, 20), "Pitch" + pitch);
         }
 
         void UpdateSettings(AudioSource editSource)
         {
             editSource.volume = volume/100f;
             editSource.pitch = pitch;
+            GetComponent<Visualiser>().circle = circle;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Menu
         {
             GameObject pivot;
             public int IndexNumb;
+            public bool currentMenu;
+
             public void SetPos(Quaternion rot, float distsCenter, int _IndexNumb)
             {
                 pivot = new GameObject("Pivot for "+name);

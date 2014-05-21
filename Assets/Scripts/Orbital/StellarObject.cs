@@ -6,5 +6,7 @@ namespace Orbital
     {
 
         public float mass = 0;
+
+        public bool active = false;
     }
 }

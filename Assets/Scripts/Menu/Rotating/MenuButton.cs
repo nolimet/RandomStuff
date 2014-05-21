@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+namespace Menu
+{
+    namespace Rotating
+    {
+        public class MenuButton : MonoBehaviour
+        {
+            public bool Activated = false;
+            public int LinkedMenu = 0;
 
-public class MenuButton : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        }
+    }
 }

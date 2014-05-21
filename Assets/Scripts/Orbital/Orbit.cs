@@ -16,7 +16,7 @@ namespace Orbital
             Object[] objects = FindObjectsOfType(typeof(GameObject));
             foreach (GameObject go in objects)
             {
-                if (go.gameObject.tag == "AttractionPoint")
+                if (go.gameObject.tag == "AttractionPoint" || go.tag == "MassPoint")
                 {
                     attracionPoints.Add(go);
                 }
@@ -31,6 +31,7 @@ namespace Orbital
             GetClostestAttPoint();
             if (parentPos != null)
             {
+                if(parentobj.a
                 Vector3 diff = parentPos.position - transform.position;
                 Vector3 direction = diff.normalized;
                 float gravitationalForce = (parentobj.mass * mass * gravitationalConstant) / diff.sqrMagnitude;

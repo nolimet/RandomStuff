@@ -21,6 +21,7 @@ namespace TerainGen
             NoiseScale = _NoiseScale;
             this.name = "Chunk: " + _chunk;
             StartCoroutine("TerainGen");
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         private IEnumerator TerainGen()
@@ -40,8 +41,7 @@ namespace TerainGen
                                     _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he-h);//a  test set last arg to 0f if fails
                                 if (h % 16 == 0)
                                 {
-                                    yield return new WaitForSeconds(0.03f);
-                                        
+                                    yield return new WaitForSeconds(0.03f);    
                                 }
                             }
                         }

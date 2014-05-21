@@ -9,9 +9,13 @@ namespace Menu
         public class Controler : MonoBehaviour
         {
             public static string menuTag = "Menu";
+            public static string menuButtonTag = "MenuButton";
             public float distfromCenter = 10f;
             public List<MenuObject> Menus = new List<MenuObject>();
             public List<MenuButton> Button = new List<MenuButton>();
+
+            int currentMenu = -1;
+            bool rotationDone = false;
             void Start()
             {
                 object[] allObjects = FindObjectsOfTypeAll(typeof(GameObject)) ;
@@ -35,7 +39,29 @@ namespace Menu
 
             void Update()
             {
-                
+                int l = Button.Count;
+                for (int i = 0; i < l; i++)
+                {
+                    if (Button[i].Activated)
+                    {
+                        Button[i].Activated = false;
+                    }
+                }
+                if (360f / l * currentMenu - 0.3f > transform.rotation.eulerAngles.z)
+                {
+                    transform.Rotate(0, 0, 4f);
+                }
+            }
+
+            void setCurrentMenu(int index)
+            {
+                foreach (MenuObject mo in Menus)
+                {
+                    mo.currentMenu = false;
+                }
+
+                Menus[index].currentMenu = true;
+                currentMenu = index;
             }
         }
     }
