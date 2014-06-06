@@ -10,7 +10,7 @@ namespace Audio
         bool nextTrack = false;
         void Update()
         {
-            if (!audio.isPlaying && track < playList.Length - 1 || nextTrack && track < playList.Length)
+            if (!audio.isPlaying && track < playList.Length  || nextTrack && track < playList.Length)
             {
                 
                 audio.Stop();
@@ -18,6 +18,7 @@ namespace Audio
                 audio.Play();
                 nextTrack = false;
                 track++;
+                Debug.Log("next");
             }
             if (track >= playList.Length)
             {
