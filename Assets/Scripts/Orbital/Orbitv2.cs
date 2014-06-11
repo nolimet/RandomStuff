@@ -5,14 +5,27 @@ namespace Orbital
 {
     public class Orbitv2 :MonoBehaviour
     {
-        public Transform origin;
-		public float angle= 0; // The Initial Angle Orbiting Starts From
-		public float speed = 0.1f; // Number Of Pixels Orbited Per Frame
-		public float radius = 30; // Orbiting Distance From Origin
-		public bool losegravity;
+        [SerializeField]
+        private Transform origin;
+        [SerializeField]
+		private float angle= 0; // The Initial Angle Orbiting Starts From
+        [SerializeField]
+		private float speed = 0.1f; // Number Of Pixels Orbited Per Frame
+        [SerializeField]
+		private float appopaps; // Orbiting Distance From Origin
+        [SerializeField]
+        private float periaps;
+        [SerializeField]
+        private bool updown = false;
+        [SerializeField]
+        private float radius;
+
+        [SerializeField]
+        private bool staticOrbit = true;
 
         void Start(){
             origin = transform.parent;
+            radius = periaps;
         }
 
         public void Update()
@@ -20,6 +33,26 @@ namespace Orbital
             if (angle >= 360f)
             {
                 angle = 0;
+            }
+            if (!staticOrbit)
+            {
+                if (periaps > appopaps)
+                {
+                    float temp = periaps;
+                    periaps = appopaps;
+                    appopaps = temp;
+                }
+
+                if (radius < periaps)
+                    updown = false;
+                else if (radius > appopaps)
+                    updown = true;
+
+
+                if (updown)
+                    radius -= (appopaps / 360) * speed;
+                else
+                    radius += (appopaps / 360) * speed;
             }
             Vector3 pos = new Vector3();
             float rad = angle * (Mathf.PI / 180); // Converting Degrees To Radians
