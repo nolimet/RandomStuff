@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDrawScale: 50
-  SpectrumSize: 2048
+  SpectrumSize: 512
   cubes: []
   circle: 1
 --- !u!82 &402696247
@@ -375,11 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playList:
-  - {fileID: 8300000, guid: f23be152bb179e04bb97909e8b4dd05c, type: 3}
-  - {fileID: 8300000, guid: 15155bec04330e9429fb3d7914d0bd63, type: 3}
-  - {fileID: 8300000, guid: 1735aa9e2a1f8eb45a043c198bfda25b, type: 3}
-  - {fileID: 8300000, guid: c57c6640f490c2b4c9c52bd728e41763, type: 3}
-  - {fileID: 8300000, guid: 839cf32fa05773d4d8c329f04597c50a, type: 3}
+  - {fileID: 8300000, guid: 3dd40d5a2b8b2f144a719846dacc2eb9, type: 3}
+  - {fileID: 8300000, guid: f06dcd789e3f66848be846b607daae94, type: 3}
 --- !u!114 &402696250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,7 +901,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081406373}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 14.3020802, y: 7.17999983, z: 10.8019609}
+  m_LocalPosition: {x: 14.3020802, y: 7.17999983, z: 12.8796215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

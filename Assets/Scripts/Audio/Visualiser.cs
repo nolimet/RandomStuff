@@ -46,6 +46,7 @@ namespace Audio
         }
         void Update()
         {
+
             float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
             //Quaternion temprot;
             int i = 0;
