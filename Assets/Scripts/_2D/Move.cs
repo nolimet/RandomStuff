@@ -5,14 +5,13 @@ public class Move : MonoBehaviour {
 
 
     bool g = false;
-	// Update is called once per frame
-	void Update () {
-	    
-	}
 
-    public float floatHeight=1f;
-    public float liftForce=1f;
-    public float damping=0.1f;
+    [SerializeField]
+    private float floatHeight=1f;
+    [SerializeField]
+    private float liftForce=1f;
+    [SerializeField]
+    private float damping=0.1f;
 
     void FixedUpdate()
     {
