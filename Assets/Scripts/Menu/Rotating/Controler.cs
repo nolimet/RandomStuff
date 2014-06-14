@@ -18,7 +18,7 @@ namespace Menu
             bool rotationDone = false;
             void Start()
             {
-                object[] allObjects = FindObjectsOfTypeAll(typeof(GameObject)) ;
+                object[] allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) ;
                 foreach (GameObject go in allObjects)
                 {
                     if (go.tag == menuTag)
