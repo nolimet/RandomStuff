@@ -294,6 +294,7 @@ MonoBehaviour:
   SpectrumSize: 512
   cubes: []
   circle: 1
+  updatespeed: 60
 --- !u!82 &402696247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -377,6 +378,7 @@ MonoBehaviour:
   playList:
   - {fileID: 8300000, guid: 3dd40d5a2b8b2f144a719846dacc2eb9, type: 3}
   - {fileID: 8300000, guid: f06dcd789e3f66848be846b607daae94, type: 3}
+  - {fileID: 8300000, guid: c57c6640f490c2b4c9c52bd728e41763, type: 3}
 --- !u!114 &402696250
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,10 @@ namespace Audio
 
         float heightCap = 12f;
         float barWidth;
+
+        [SerializeField]
+        [Range(30, 120)]
+        int updatespeed;
         // Use this for initialization
         void Start()
         {
@@ -43,52 +47,56 @@ namespace Audio
             }
             cirlelastframe = circle;
             Time.timeScale = 0.5f;
+            StartCoroutine("SoundUpdate");
         }
-        void Update()
+        IEnumerator SoundUpdate()
         {
-
-            float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
-            //Quaternion temprot;
-            int i = 0;
-            float channelSize = 0f;
-            while (i < SpectrumSize)
+            while (Application.isPlaying)
             {
-                if (circle != cirlelastframe)
-                    UpdateRot(cubes[i].parent,cubes[i], i);
-                channelSize = spectrum[i];
-                //limiter
-                if (spectrum[i] * audioDrawScale > 0.007f)
+                float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
+                //Quaternion temprot;
+                int i = 0;
+                float channelSize = 0f;
+                while (i < SpectrumSize)
                 {
-                    if (spectrum[i] * audioDrawScale > heightCap)
+                    if (circle != cirlelastframe)
+                        UpdateRot(cubes[i].parent, cubes[i], i);
+                    channelSize = spectrum[i];
+                    //limiter
+                    if (spectrum[i] * audioDrawScale > 0.007f)
                     {
-                        channelSize = heightCap / audioDrawScale;
-                    }
-                    //   Debug.DrawLine(new Vector3(0,0,i/100f),new Vector3(0,spectrum[i]/audioDrawScale,i/100f),Color.yellow);
-                    cubes[i].localScale = new Vector3(barWidth, channelSize * audioDrawScale + 0.01f, barWidth);
-                    if (!circle)
-                    {
-                        cubes[i].position = new Vector3(0, (channelSize * audioDrawScale) / 2f, i * barWidth);
+                        if (spectrum[i] * audioDrawScale > heightCap)
+                        {
+                            channelSize = heightCap / audioDrawScale;
+                        }
+                        //   Debug.DrawLine(new Vector3(0,0,i/100f),new Vector3(0,spectrum[i]/audioDrawScale,i/100f),Color.yellow);
+                        cubes[i].localScale = new Vector3(barWidth, channelSize * audioDrawScale + 0.01f, barWidth);
+                        if (!circle)
+                        {
+                            cubes[i].position = new Vector3(0, (channelSize * audioDrawScale) / 2f, i * barWidth);
+                        }
+                        else
+                        {
+                            cubes[i].localPosition = new Vector3(0, (channelSize * audioDrawScale) / 2f, 0);
+                        }
                     }
                     else
                     {
-                        cubes[i].localPosition = new Vector3(0, (channelSize * audioDrawScale) / 2f, 0);
+                        cubes[i].localScale = new Vector3(barWidth, 0 * audioDrawScale + 0.01f, barWidth);
+                        if (!circle)
+                        {
+                            cubes[i].position = new Vector3(0, (0 * audioDrawScale) / 2f, i * barWidth);
+                        }
+                        else
+                        {
+                            cubes[i].localPosition = new Vector3(0, (0 * audioDrawScale) / 2f, 0);
+                        }
                     }
-                }
-                else
-                {
-                    cubes[i].localScale = new Vector3(barWidth, 0 * audioDrawScale + 0.01f, barWidth);
-                    if (!circle)
-                    {
-                        cubes[i].position = new Vector3(0, (0 * audioDrawScale) / 2f, i * barWidth);
-                    }
-                    else
-                    {
-                        cubes[i].localPosition = new Vector3(0, (0 * audioDrawScale) / 2f, 0);
-                    }
-                }
                     i++;
+                }
+                cirlelastframe = circle;
+                yield return new WaitForSeconds(1f / updatespeed);
             }
-            cirlelastframe = circle;
         }
         void UpdateRot(Transform pivot,Transform cube ,int i)
         {
@@ -97,7 +105,7 @@ namespace Audio
             {
                 pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i, 0f, 0f);
                 pivot.transform.localPosition = Vector3.zero;
-                pivot.transform.Translate(0, 0, 2);
+                pivot.transform.Translate(0, 0, 1);
                 pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i + 90, 0f, 0f);
                 cube.localScale = new Vector3(barWidth, channelSize * audioDrawScale + 0.01f, barWidth);
                 cube.localPosition = new Vector3(0, (channelSize * audioDrawScale) / 2f, 0);
