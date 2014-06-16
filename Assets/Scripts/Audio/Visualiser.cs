@@ -24,6 +24,8 @@ namespace Audio
         // Use this for initialization
         void Start()
         {
+            if (Application.isWebPlayer)
+                SpectrumSize = 128;
             barWidth = 25.6f / SpectrumSize;
             for (int i = 0; i <SpectrumSize; i++)
             {
