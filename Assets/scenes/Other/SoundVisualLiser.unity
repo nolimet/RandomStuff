@@ -136,6 +136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &352124048
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &357875913
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &402696245
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +298,8 @@ MonoBehaviour:
   cubes: []
   circle: 1
   updatespeed: 60
+  beamMaterial: {fileID: 2100000, guid: 3a8245922c8eac64cb4498a4ccaca7cd, type: 2}
+  beamMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!82 &402696247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -364,6 +369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &402696249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +385,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3dd40d5a2b8b2f144a719846dacc2eb9, type: 3}
   - {fileID: 8300000, guid: f06dcd789e3f66848be846b607daae94, type: 3}
   - {fileID: 8300000, guid: c57c6640f490c2b4c9c52bd728e41763, type: 3}
+  - {fileID: 8300000, guid: 9d26d4935db0c5a43818e3dc553ff312, type: 3}
 --- !u!114 &402696250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &571590830
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &574792527
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +588,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &623445386
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &669964586
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &963982019
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1070436481
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1 &1081406373
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,8 +908,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1081406378
 Transform:
   m_ObjectHideFlags: 0
@@ -907,6 +924,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1360881322
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +987,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1438811918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,9 +1024,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!64 &1438811920
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1039,6 +1057,7 @@ Transform:
   m_LocalScale: {x: 11.6000004, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &1825253048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1944547919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!1 &2039788413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,3 +1246,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 15
