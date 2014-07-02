@@ -65,8 +65,10 @@ public class BeamControler : MonoBehaviour
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 1.8f);
         else if(leveldiff >= 3f && leveldiff<4f)
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 2f);
-        else if(leveldiff >=4f)
+        else if(leveldiff >=4f && leveldiff<5f)
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 3f);
+        else if (leveldiff >= 5f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 5f);
         else
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed);
     }
