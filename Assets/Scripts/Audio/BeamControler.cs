@@ -32,11 +32,22 @@ public class BeamControler : MonoBehaviour
     {
         this.level = @level;
         this.world = @world;
-        if (world)
-            transform.parent = parent.parent;
-        else
-            transform.parent = parent;
-        transform.rotation = Quaternion.Euler(0, -90, 0);
+        if (world != lastWorld)
+        {
+            transform.localScale = new Vector3(barWidth, currentLevel, 1f);
+            if (world)
+            {
+                transform.position = new Vector3(0, currentLevel / 2f, pos.z);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(0, currentLevel / 2f, 0);
+                transform.localRotation = Quaternion.Euler(0, -90, 0);
+            }
+            lastWorld = world;
+        }
+        
     }
 
 	void Update () 
@@ -47,8 +58,17 @@ public class BeamControler : MonoBehaviour
 
     void lerp()
     {
-        //make it update faster when diffrece between current and desired is higher
-        currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed);
+        float leveldiff = level - currentLevel;
+        if(leveldiff > 1f && leveldiff <2f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 1.4f);
+        else if (leveldiff > 2f && leveldiff < 3f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 1.8f);
+        else if(leveldiff >= 3f && leveldiff<4f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 2f);
+        else if(leveldiff >=4f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 3f);
+        else
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed);
     }
 
     void posUpdate()
