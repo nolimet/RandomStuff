@@ -34,6 +34,11 @@ namespace Audio
                 SpectrumSize = 256;
                 updatespeed = 30;
             }
+            if(Application.platform==RuntimePlatform.Android)
+            {
+                SpectrumSize = 128;
+                updatespeed = 30;
+            }
             barWidth = 25.6f / SpectrumSize;
             for (int i = 0; i <SpectrumSize; i++)
             {
