@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace menu
+namespace menu_old
 {
     public class ExitGame : TriggerV2
     {

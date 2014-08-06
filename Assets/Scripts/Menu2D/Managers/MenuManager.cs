@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using menu.factory.action;
 namespace menu
 {
     public class MenuManager : MonoBehaviour
     {
 
-        public TriggerV2[] buttons;
+        public ChangeMenu[] buttons;
         public MoveToV2[] Menus;
         public int currentMenuID;
         private int MenuLastFrame;
         // Use this for initialization
         void Start()
         {
-            buttons = GetComponentsInChildren<TriggerV2>();
+            buttons = GetComponentsInChildren<ChangeMenu>();
             for (int i = 0; i < Menus.Length; i++)
             {
                 Menus[i].menuID = i;

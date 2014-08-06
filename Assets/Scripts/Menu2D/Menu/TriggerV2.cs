@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace menu
+namespace menu_old
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class TriggerV2 : MonoBehaviour

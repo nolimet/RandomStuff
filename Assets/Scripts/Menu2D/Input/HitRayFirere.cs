@@ -27,7 +27,7 @@ public class HitRayFirere : MonoBehaviour
                     hit = Physics2D.Raycast(cam.ScreenToWorldPoint(touch.position), Vector2.zero);
                     if (hit.collider != null)
                     {
-                        hit.transform.gameObject.SendMessage("IWillDo", SendMessageOptions.DontRequireReceiver);
+                        hit.transform.gameObject.SendMessage("doAction", SendMessageOptions.DontRequireReceiver);
                     }
                 }
             }
@@ -39,7 +39,7 @@ public class HitRayFirere : MonoBehaviour
                 hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 if (hit.collider != null)
                 {
-                    hit.transform.gameObject.SendMessage("IWillDo", SendMessageOptions.DontRequireReceiver);
+                    hit.transform.gameObject.SendMessage("doAction", SendMessageOptions.DontRequireReceiver);
                 }
             }
         }
