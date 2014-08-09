@@ -23,7 +23,7 @@ namespace menu
         // Update is called once per frame
         void Update()
         {
-            if (atNewPos == false)
+            if (!atNewPos)
             {
                 if (move)
                 {

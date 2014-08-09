@@ -12,7 +12,7 @@ namespace menu
                 public bool State = false;
                 public bool triggered = false;
 
-                protected virtual void IWillDo()
+                public override void doAction()
                 {
                     State = true;
                 }
