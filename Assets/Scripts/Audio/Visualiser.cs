@@ -15,6 +15,8 @@ namespace Audio
 
         public bool circle = true;
         bool cirlelastframe = false;
+        bool play;
+        bool playing;
 
         float heightCap = 12f;
         float barWidth;
@@ -27,9 +29,15 @@ namespace Audio
         Material beamMaterial;
         [SerializeField]
         Mesh beamMesh;
+        [SerializeField]
+        Texture2D PlayButton;
+
+        [SerializeField]
+        Rect posPlay = new Rect();
         // Use this for initialization
         void Start()
         {
+            posPlay = new Rect((Screen.width / 2) - 128, (Screen.height / 2) - 128, 256, 256);
             if (Application.isWebPlayer)
             {
                 SpectrumSize = 256;
@@ -41,10 +49,10 @@ namespace Audio
                 SpectrumSize = 128;
                 updatespeed = 30;
             }
-            PlaceBars();
+            //PlaceBars();
             
         }
-
+        #region Position Updates
         IEnumerator SoundUpdate()
         {
             while (Application.isPlaying)
@@ -69,15 +77,37 @@ namespace Audio
             }
             Debug.Log("stopped");
         }
-
+        
+        void UpdateRot(Transform pivot, Transform cube, int i)
+        {
+            pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i, 0f, 0f);
+            pivot.transform.localPosition = Vector3.zero;
+            pivot.transform.Translate(0, 0, 1);
+            pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i + 90, 0f, 0f);
+            heightCap = 5f;
+        }
+        #endregion
         void Update()
         {
-            //Not working As it want right now!!
-            //Wil be renabled with it work right
-           // if (CSpecturSize != SpectrumSize)
-             //   ReplaceAllBars();
+            if (!playing)
+            {
+                if (play)
+                {
+                    PlaceBars();
+                }
+            }
+            else
+            {
+                enabled = false;
+            }
         }
 
+        void OnGUI()
+        {
+            if (GUI.Button(posPlay, PlayButton)) 
+                play = true;
+        }
+        #region Place/Replace
         void ReplaceAllBars()
         {
             CSpecturSize = SpectrumSize;
@@ -92,6 +122,9 @@ namespace Audio
 
         void PlaceBars()
         {
+            
+            playing = true;
+
             barWidth = 25.6f / SpectrumSize;
             for (int i = 0; i < SpectrumSize; i++)
             {
@@ -114,16 +147,13 @@ namespace Audio
             cirlelastframe = circle;
             CSpecturSize = SpectrumSize;
 
+            GetComponent<PlayList>().enabled = true;
+            GetComponent<AudioControler>().enabled = true;
+
             StartCoroutine("SoundUpdate");
         }
+        #endregion
 
-        void UpdateRot(Transform pivot,Transform cube ,int i)
-        {
-                pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i, 0f, 0f);
-                pivot.transform.localPosition = Vector3.zero;
-                pivot.transform.Translate(0, 0, 1);
-                pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i + 90, 0f, 0f);
-                heightCap = 5f;
-        }
+        
     }
 }

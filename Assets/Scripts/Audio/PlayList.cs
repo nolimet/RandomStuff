@@ -33,6 +33,8 @@ namespace Audio
         }
         void OnGUI()
         {
+            if (audio.clip == null)
+                return;
             if (GUI.Button(new Rect(20, 20, 100, 15), "Next Track"))
                 nextTrack = true;
             GUI.TextField(new Rect(20, 42, 500, 20), audio.clip.name);
