@@ -8,8 +8,9 @@ namespace Audio
     {
         [Range(0.01f, 100f)]
         public float audioDrawScale = 1f;
-        [Range(16, 8192)]
+        [Range(64, 8192)]
         public int SpectrumSize;
+        private int CSpecturSize;
         public List<BeamControler> cubes = new List<BeamControler>();
 
         public bool circle = true;
@@ -34,34 +35,16 @@ namespace Audio
                 SpectrumSize = 256;
                 updatespeed = 30;
             }
+
             if(Application.platform==RuntimePlatform.Android)
             {
                 SpectrumSize = 128;
                 updatespeed = 30;
             }
-            barWidth = 25.6f / SpectrumSize;
-            for (int i = 0; i <SpectrumSize; i++)
-            {
-               // GameObject cube = Instantiate(Resources.Load("SimpleCube"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-                GameObject cube = new GameObject();
-                cube.AddComponent<MeshFilter>().mesh = beamMesh;
-                cube.AddComponent<MeshRenderer>().material = beamMaterial;  
-                cube.name = "bar" + i;
-
-                GameObject pivot = new GameObject();
-                pivot.transform.parent = transform;
-                cube.transform.parent = pivot.transform;
-                cube.transform.rotation = Quaternion.Euler(0, 270, 0);
-                pivot.name = "Pivot" + i;
-
-                UpdateRot(pivot.transform,cube.transform, i);
-                cube.AddComponent<BeamControler>().setup(barWidth, new Vector3(0, 0, barWidth * i));
-                cubes.Add(cube.GetComponent<BeamControler>());
-            }
-            cirlelastframe = circle;
-            Time.timeScale = 0.5f;
-            StartCoroutine("SoundUpdate");
+            PlaceBars();
+            
         }
+
         IEnumerator SoundUpdate()
         {
             while (Application.isPlaying)
@@ -84,7 +67,56 @@ namespace Audio
                 cirlelastframe = circle;
                 yield return new WaitForSeconds(1f / updatespeed);
             }
+            Debug.Log("stopped");
         }
+
+        void Update()
+        {
+            //Not working As it want right now!!
+            //Wil be renabled with it work right
+           // if (CSpecturSize != SpectrumSize)
+             //   ReplaceAllBars();
+        }
+
+        void ReplaceAllBars()
+        {
+            CSpecturSize = SpectrumSize;
+            Debug.Log("ReplacedBeams");
+            StopCoroutine("SoundUpdate");
+            foreach (BeamControler g in cubes)
+            {
+                DestroyImmediate(g.transform.parent.gameObject);
+            }
+            PlaceBars();
+        }
+
+        void PlaceBars()
+        {
+            barWidth = 25.6f / SpectrumSize;
+            for (int i = 0; i < SpectrumSize; i++)
+            {
+                // GameObject cube = Instantiate(Resources.Load("SimpleCube"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                GameObject cube = new GameObject();
+                cube.AddComponent<MeshFilter>().mesh = beamMesh;
+                cube.AddComponent<MeshRenderer>().material = beamMaterial;
+                cube.name = "bar" + i;
+
+                GameObject pivot = new GameObject();
+                pivot.transform.parent = transform;
+                cube.transform.parent = pivot.transform;
+                cube.transform.rotation = Quaternion.Euler(0, 270, 0);
+                pivot.name = "Pivot" + i;
+
+                UpdateRot(pivot.transform, cube.transform, i);
+                cube.AddComponent<BeamControler>().setup(barWidth, new Vector3(0, 0, barWidth * i));
+                cubes.Add(cube.GetComponent<BeamControler>());
+            }
+            cirlelastframe = circle;
+            CSpecturSize = SpectrumSize;
+
+            StartCoroutine("SoundUpdate");
+        }
+
         void UpdateRot(Transform pivot,Transform cube ,int i)
         {
                 pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i, 0f, 0f);

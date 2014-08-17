@@ -30,6 +30,7 @@ public class BeamControler : MonoBehaviour
 
     public void updateLocation(float @level, bool @world)
     {
+        //world refers to in world position if it's not using world it just update the local postion and scale;
         this.level = @level;
         this.world = @world;
         if (world != lastWorld)
@@ -59,7 +60,9 @@ public class BeamControler : MonoBehaviour
     void lerp()
     {
         float leveldiff = level - currentLevel;
-        if(leveldiff > 1f && leveldiff <2f)
+        if (leveldiff > 0.4f && leveldiff < 1f)
+            currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 3f);
+        else if(leveldiff > 1f && leveldiff <2f)
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 1.4f);
         else if (leveldiff > 2f && leveldiff < 3f)
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 1.8f);

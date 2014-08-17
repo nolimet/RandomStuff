@@ -10,9 +10,10 @@ namespace menu
             public int FontSize = 0;
             public string Text = "";
             public int toMenu =-1;
+            public string url = "";
             void Start()
             {
-                ButtonFactory.makeButton(buttonType, transform.parent, transform.position, FontSize, Text, toMenu);
+                ButtonFactory.makeButton(buttonType, transform.parent, transform.position, FontSize, Text, toMenu,url);
                 DestroyImmediate(this.gameObject);
             }
         }

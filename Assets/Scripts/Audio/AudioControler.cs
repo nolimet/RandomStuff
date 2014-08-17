@@ -38,8 +38,8 @@ namespace Audio
                 pitch = 0.727272f;
             if(GUI.Button(new Rect(150, 20, 100, 15), "Circle/Flat"))
                 circle=!circle;
-            GUI.Label(new Rect (580,5,50,20),"Volume");
-            GUI.Label(new Rect(637f, 5, 75, 20), "Pitch:" + pitch);
+            GUI.TextField(new Rect (580,5,50,20),"Volume");
+            GUI.TextField(new Rect(637f, 5, 75, 20), "Pitch:" + pitch);
 
             
         }

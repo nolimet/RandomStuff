@@ -41,7 +41,7 @@ namespace menu
                 {
                     Vector2 temp1 = origen;
                     Vector2 temp2 = transform.position;
-                    if (Vector2.Distance(temp2, temp1) > 0.05f)
+                    if (Vector2.Distance(temp2, temp1) > 0.01f)
                     {
                         Vector2 dir = temp1 - temp2;
                         transform.Translate(dir * Time.deltaTime * 8f);

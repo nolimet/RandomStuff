@@ -20,7 +20,8 @@ namespace menu
             {
                 Exit,
                 ChangeMenu,
-                Link
+                Link,
+                LevelLink
             }
             #endregion
 
@@ -28,7 +29,7 @@ namespace menu
             //bug Currently:
             //fontMat,font need to be set solid somewhere in a manager of sorts
             #region Creator
-            public static GameObject makeButton(Buttons bu,Transform parent, Vector3 pos = new Vector3(),  int fontSize = 20, string text = "", int ToMenu = -1)
+            public static GameObject makeButton(Buttons bu,Transform parent, Vector3 pos = new Vector3(),  int fontSize = 20, string text = "", int ToMenu = -1, string url="")
             {
                 GameObject b = null;
                 switch (bu)
@@ -37,7 +38,13 @@ namespace menu
                        b = ExitButton.exitButton(fontMat, font, fontSize);
                         break;
                     case Buttons.ChangeMenu:
-                        b = ChangeMenuButton.changeMenuButton(fontMat, font, fontSize,text,ToMenu);
+                        b = ChangeMenuButton.changeMenuButton(fontMat, font, fontSize, text, ToMenu);
+                        break;
+                    case Buttons.Link:
+                        b = OpenLinkButton.openLinkButton(fontMat, font, fontSize, text, url);
+                        break;
+                    case Buttons.LevelLink:
+                        b = menu.factory.button.LoadLevelButton.loadLevelButton(fontMat, font, fontSize, text, url);
                         break;
                     default:
                         b=new GameObject();
