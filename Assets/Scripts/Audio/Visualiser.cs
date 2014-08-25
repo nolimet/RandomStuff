@@ -4,18 +4,27 @@ using System.Collections.Generic;
 
 namespace Audio
 {
+    [RequireComponent(typeof(AudioSource))]
+    [RequireComponent(typeof(SetBeamNumber))]
+    [RequireComponent(typeof(AudioStreamIn))]
+    [RequireComponent(typeof(AudioControler))]
+    [RequireComponent(typeof(PlayList))]
     public class Visualiser : MonoBehaviour
     {
+        //Variablen
+        #region General var's
+        [SerializeField]
         [Range(0.01f, 100f)]
-        public float audioDrawScale = 1f;
-        [Range(64, 8192)]
-        public int SpectrumSize;
-        private int CSpecturSize;
-        public List<BeamControler> cubes = new List<BeamControler>();
+        float audioDrawScale = 50f;
 
-        public bool circle = true;
+        [SerializeField]
+        [Range(64, 8192)]
+        int SpectrumSize;
+
+        List<BeamControler> cubes = new List<BeamControler>();
+
         bool cirlelastframe = false;
-        bool play;
+        
         bool playing;
 
         float heightCap = 12f;
@@ -24,34 +33,45 @@ namespace Audio
         [SerializeField]
         [Range(30, 120)]
         int updatespeed;
-
+        #endregion
+        #region InEditorSetVars
         [SerializeField]
         Material beamMaterial;
         [SerializeField]
         Mesh beamMesh;
-        [SerializeField]
-        Texture2D PlayButton;
 
-        [SerializeField]
-        Rect posPlay = new Rect();
-        // Use this for initialization
+        #endregion
+        #region public var's
+        public bool play = false;
+        public bool circle = true;
+        public int SpectrumLevel;
+        public int SpeedLevel;
+        #endregion
+
+        //Functions
+        #region StartUP
         void Start()
         {
-            posPlay = new Rect((Screen.width / 2) - 128, (Screen.height / 2) - 128, 256, 256);
-            if (Application.isWebPlayer)
-            {
-                SpectrumSize = 256;
-                updatespeed = 30;
-            }
-
-            if(Application.platform==RuntimePlatform.Android)
-            {
-                SpectrumSize = 128;
-                updatespeed = 30;
-            }
-            //PlaceBars();
+            
             
         }
+
+        void Update()
+        {
+            if (!playing)
+            {
+                if (play)
+                {
+                    PlaceBars();
+                }
+            }
+            else
+            {
+                enabled = false;
+            }
+        }
+
+        #endregion
         #region Position Updates
         IEnumerator SoundUpdate()
         {
@@ -87,42 +107,16 @@ namespace Audio
             heightCap = 5f;
         }
         #endregion
-        void Update()
-        {
-            if (!playing)
-            {
-                if (play)
-                {
-                    PlaceBars();
-                }
-            }
-            else
-            {
-                enabled = false;
-            }
-        }
-
-        void OnGUI()
-        {
-            if (GUI.Button(posPlay, PlayButton)) 
-                play = true;
-        }
         #region Place/Replace
-        void ReplaceAllBars()
+        void SetOptions()
         {
-            CSpecturSize = SpectrumSize;
-            Debug.Log("ReplacedBeams");
-            StopCoroutine("SoundUpdate");
-            foreach (BeamControler g in cubes)
-            {
-                DestroyImmediate(g.transform.parent.gameObject);
-            }
-            PlaceBars();
+            SpectrumSize = Mathf.FloorToInt(Mathf.Pow(2, 6 + SpectrumLevel));
+            updatespeed = 30 + 5 * SpeedLevel;
         }
 
         void PlaceBars()
         {
-            
+            SetOptions();
             playing = true;
 
             barWidth = 25.6f / SpectrumSize;
@@ -145,10 +139,10 @@ namespace Audio
                 cubes.Add(cube.GetComponent<BeamControler>());
             }
             cirlelastframe = circle;
-            CSpecturSize = SpectrumSize;
 
             GetComponent<PlayList>().enabled = true;
             GetComponent<AudioControler>().enabled = true;
+            GetComponent<SetBeamNumber>().enabled = false;
 
             StartCoroutine("SoundUpdate");
         }

@@ -37,8 +37,8 @@ namespace Audio
                 return;
             if (GUI.Button(new Rect(20, 20, 100, 15), "Next Track"))
                 nextTrack = true;
-            GUI.TextField(new Rect(20, 42, 500, 20), audio.clip.name);
-            GUI.TextField(new Rect(20,72,500,20), trackCurrentTime + " / " + trackDuration);
+            GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name);
+            GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration);
         }
 
         string Soundlength(int length)

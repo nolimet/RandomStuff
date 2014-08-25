@@ -275,6 +275,8 @@ GameObject:
   - 114: {fileID: 402696249}
   - 114: {fileID: 402696250}
   - 114: {fileID: 402696246}
+  - 114: {fileID: 402696251}
+  - 114: {fileID: 402696252}
   m_Layer: 0
   m_Name: audioSource
   m_TagString: Untagged
@@ -294,12 +296,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDrawScale: 50
-  SpectrumSize: 128
-  cubes: []
-  circle: 1
+  SpectrumSize: 64
   updatespeed: 60
   beamMaterial: {fileID: 2100000, guid: 3a8245922c8eac64cb4498a4ccaca7cd, type: 2}
   beamMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  play: 0
+  circle: 1
+  SpectrumLevel: 2
+  SpeedLevel: 0
 --- !u!82 &402696247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -308,7 +312,7 @@ AudioSource:
   m_GameObject: {fileID: 402696245}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: c57c6640f490c2b4c9c52bd728e41763, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -376,7 +380,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402696245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac2055f7f8a4e548ac4158b67c1caa8, type: 3}
   m_Name: 
@@ -392,7 +396,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402696245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc05eec218d984642adea8f3777cdb7e, type: 3}
   m_Name: 
@@ -400,6 +404,108 @@ MonoBehaviour:
   source: {fileID: 0}
   listen: {fileID: 0}
   textureBackdrop: {fileID: 2800000, guid: c1a03f95b65ba714b9a3720c1e6c731f, type: 3}
+--- !u!114 &402696251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402696245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ae2374ca705074390afc698fd5f75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropDownRect:
+    serializedVersion: 2
+    x: 125
+    y: 90
+    width: 125
+    height: 300
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  list:
+  - 64
+  - 128
+  - 256
+  - 512
+  - 1024
+  - 2048
+  - 4096
+  PlayButton: {fileID: 2800000, guid: b7dd01e356204a045a3795ce031d1d4c, type: 3}
+  posPlay:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+--- !u!114 &402696252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402696245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c6f237903f27a4e9b5f05c6f37ba75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &402900274
 GameObject:
   m_ObjectHideFlags: 0
