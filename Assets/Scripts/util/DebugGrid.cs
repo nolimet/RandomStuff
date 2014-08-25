@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DebugGrid : MonoBehaviour {
+public class DebugGrid : MonoBehaviour
+{
 
     public int height, width;
 
@@ -9,35 +10,41 @@ public class DebugGrid : MonoBehaviour {
     public Vector2 B;
     public Vector2 C;
 
-    public bool _altMode;
-    public bool ALtMode{
-        set{
-            _altMode = value;
+    [SerializeField]
+    float K = 1;
+    [SerializeField]
+    float L = 1;
+    [SerializeField]
+    float j = 1;
 
-            }
-        get
-        {
-            return _altMode;
-        }
+    public enum modes
+    {
+        Vectoradd,
+        VectorTriangle,
+        line
     }
+    public modes Mode;
 
+    bool state;
     public float MaxDelay;
-    float delay=1f;
+    float delay = 1f;
 
     public Transform[] points;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         points[0].name = "A";
         points[1].name = "B";
         points[2].name = "C";
         points[3].name = "AB";
         points[4].name = "BC";
         points[5].name = "CA";
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         int k = 0;
         if (delay >= MaxDelay)
@@ -53,8 +60,9 @@ public class DebugGrid : MonoBehaviour {
             delay = 0;
 
 
-            if (!_altMode)
+            if (Mode == modes.Vectoradd)
             {
+                state = false;
                 Vector2 ant = A + B;
 
                 Debug.DrawLine(Vector3.zero, ant, Color.blue, MaxDelay);
@@ -71,8 +79,9 @@ public class DebugGrid : MonoBehaviour {
 
                 points[2].name = "C" + new Vector2(points[2].position.x, points[2].position.y);
             }
-            else
+            else if (Mode == modes.VectorTriangle)
             {
+                state = true;
                 //Setting positions
                 points[0].position = A;
                 points[1].position = B;
@@ -101,13 +110,32 @@ public class DebugGrid : MonoBehaviour {
                 points[1].name = "B" + B;
                 points[2].name = "C" + C;
             }
+            else if (Mode == modes.line)
+            {
+                state = true;
+                points[3].position = Vector2.zero;
+                points[4].position = new Vector2(LineX(20)/5f, lineY(10)/5f);
+                for (int i = 0; i < points.Length; i++)
+                {
+                    points[i].name=" ";
+                    if (i == 3)
+                    {
+                        points[i].name = "A";
+                    }
+                    if (i == 4)
+                    {
+                        points[i].name = "B";
+                    }
 
-            points[3].gameObject.SetActive(_altMode);
-            points[4].gameObject.SetActive(_altMode);
-            points[5].gameObject.SetActive(_altMode);
+                }
+            }
+
+            points[3].gameObject.SetActive(state);
+            points[4].gameObject.SetActive(state);
+            points[5].gameObject.SetActive(state);
         }
         delay += Time.deltaTime;
-	}
+    }
     public static Color randomColor()
     {
         // float numb = 0.0039215686274509803921568627451f;
@@ -119,7 +147,16 @@ public class DebugGrid : MonoBehaviour {
 
         return output;
     }
+    float lineY(float x)
+    {
+        return (j - K * x) / L;
+    }
 
+    float LineX(float x)
+    {
+        return (j - L * x) / K;
+
+    }
     void OnGUI()
     {
     }
