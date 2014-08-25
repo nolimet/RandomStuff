@@ -11,6 +11,12 @@ namespace Audio
         int tracklength;
         string trackDuration;
         string trackCurrentTime;
+        Visualiser visu;
+
+        void Start()
+        {
+            visu = GetComponent<Visualiser>();
+        }
         void Update()
         {
             if (!audio.isPlaying && track < playList.Length  || nextTrack && track < playList.Length)
@@ -37,8 +43,8 @@ namespace Audio
                 return;
             if (GUI.Button(new Rect(20, 20, 100, 15), "Next Track"))
                 nextTrack = true;
-            GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name);
-            GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration);
+            GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name,visu.labelFix);
+            GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration, visu.labelFix);
         }
 
         string Soundlength(int length)

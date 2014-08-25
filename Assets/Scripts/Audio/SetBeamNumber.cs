@@ -6,7 +6,7 @@ namespace Audio
     {
         #region Public var's
         public Rect dropDownRect = new Rect(125, 50, 125, 300);
-        public GUIStyle style;
+        //public GUIStyle style;
         public string[] list = { "64", "128", "256", "512", "1024", "2048" };
         #endregion
 
@@ -64,7 +64,7 @@ namespace Audio
         void Update()
         {
             visu.SpectrumLevel = indexNumber;
-            visu.SpeedLevel = 30 + UpdateSpeed * 5;
+            visu.SpeedLevel = UpdateSpeed;
             if (play)
             {
                 visu.play = true;
@@ -74,8 +74,9 @@ namespace Audio
 
         void OnGUI()
         {
-            GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y - 75, 150, 25), "UpdateSpeed: " + (30 + UpdateSpeed * 5));
-            UpdateSpeed = Mathf.FloorToInt(GUI.HorizontalSlider(new Rect((dropDownRect.x - 95), dropDownRect.y - 50, 120, 25), UpdateSpeed, 0, 6));
+            GUI.Label(new Rect(300, 25, 300, 75), "Having a low framerate?"+'\n' +"Lower the number of beams and/or update speed",visu.labelFix);
+            GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y - 75, 150, 25), "UpdateSpeed: " + (30 + UpdateSpeed * 5), visu.labelFix);
+            UpdateSpeed = Mathf.FloorToInt(GUI.HorizontalSlider(new Rect((dropDownRect.x - 95), dropDownRect.y - 50, 120, 25), UpdateSpeed, 0, 18));
             #region Select Number of Beams
             if (GUI.Button(new Rect((dropDownRect.x - 100), dropDownRect.y, dropDownRect.width, 25), "" ))
             {
@@ -104,7 +105,7 @@ namespace Audio
                         indexNumber = index;
                     }
 
-                    GUI.Label(new Rect(5, (index * 25), dropDownRect.height, 25), list[index] );
+                    GUI.Label(new Rect(5, (index * 25), dropDownRect.height, 25), list[index], visu.labelFix);
 
                 }
 
@@ -112,7 +113,7 @@ namespace Audio
             }
             else
             {
-                GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y, 300, 25), list[indexNumber] );
+                GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y, 300, 25), list[indexNumber], visu.labelFix);
             }
             #endregion
 

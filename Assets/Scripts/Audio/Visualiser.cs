@@ -46,16 +46,11 @@ namespace Audio
         public bool circle = true;
         public int SpectrumLevel;
         public int SpeedLevel;
+        public GUIStyle labelFix;
         #endregion
 
         //Functions
         #region StartUP
-        void Start()
-        {
-            
-            
-        }
-
         void Update()
         {
             if (!playing)

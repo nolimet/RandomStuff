@@ -34,8 +34,8 @@ namespace Audio
             pitch = GUI.VerticalSlider(new Rect(670, 25, 30, 100), pitch, 3, 0);
             if (GUI.Button(new Rect(650, 145, 80, 15), "Reset Pitch"))
                 pitch = 1f;
-            if (GUI.Button(new Rect(640, 130, 100, 15), "Awesom Pitch"))
-                pitch = 0.727272f;
+            //if (GUI.Button(new Rect(640, 130, 100, 15), "Awesom Pitch"))
+           //     pitch = 0.727272f;
             if(GUI.Button(new Rect(150, 20, 100, 15), "Circle/Flat"))
                 circle=!circle;
             GUI.TextField(new Rect (580,5,50,20),"Volume");

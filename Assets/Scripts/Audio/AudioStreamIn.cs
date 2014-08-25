@@ -39,7 +39,7 @@ namespace Audio
                     if (!startedLoading)
                     {
                         audio.Stop();
-                        currentSound = getNewClip(new WWW(streamLocations[track]));
+                        //currentSound = getNewClip(new WWW(streamLocations[track]));
                         loadingNewClip = true;
                     }
                     if (!loadingNewClip)
@@ -83,7 +83,7 @@ namespace Audio
         {
             try
             {
-                AudioClip newClip = currentStreamLocation.GetAudioClip(false, false, AudioType.MPEG);
+               // AudioClip newClip = currentStreamLocation.GetAudioClip(false, false, AudioType.MPEG);
             }
             catch
             {
