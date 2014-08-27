@@ -135,7 +135,7 @@ public class MeshMerger : MonoBehaviour
             if (mr)
                 mr.enabled = false;
         }
-
+       
         // hook up the mesh
         Mesh me = new Mesh();
         me.name = gameObject.name;
@@ -154,6 +154,11 @@ public class MeshMerger : MonoBehaviour
         smr.sharedMesh = me;
         smr.bones = aBones;
         renderer.material = material;
+
+        foreach (MeshFilter mf in meshFilters)
+        {
+            mf.gameObject.SetActive(false);
+        }
 
     }
 }
