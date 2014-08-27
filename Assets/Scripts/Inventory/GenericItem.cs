@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+namespace InvFrameWork
+{
+    public class GenericItem:MonoBehaviour
+    {
 
-public class GenericItem : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        public string ItemName = "TEST!";
+    }
 }
