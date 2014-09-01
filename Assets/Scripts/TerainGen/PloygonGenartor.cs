@@ -69,7 +69,7 @@ namespace TerainGen
 
         void GenTerrain()
         {
-            blocks = new byte[20, 20];
+            blocks = new byte[40, 40];
             
             for (int px = 0; px < blocks.GetLength(0); px++)
             {

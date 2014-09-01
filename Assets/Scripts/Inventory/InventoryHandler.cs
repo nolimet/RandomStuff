@@ -6,27 +6,33 @@ namespace InvFrameWork
     public class InventoryHandler : MonoBehaviour
     {
         [SerializeField]
-        public List<InvRow> inv;
+        public GenericItem[] inv = new GenericItem[20];
 
         void Start()
         {
-            for(int i = 0 ;i<3;i++)
+            inv[9] = new TestItem();
+            inv[10] = new TestItem();
+            //non-test
+            foreach (GenericItem r in inv)
             {
-                inv.Add(new InvRow());
+                r.init();
+                Debug.Log(r.Name);
             }
-            foreach (InvRow r in inv)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    r.row.Add(new GenericItem());
-                }
-            }
+
+            
         }
 
+        void OnGUI()
+        {
+            for(int i = 0; i < inv.Length; i++)
+            {
+                GUI.Label(new Rect(64*i,64*(i/10),64,64),inv[i].texture);
+            }
+        }
     }
 
     [System.Serializable]
    public class InvRow{
-        public List<GenericItem> row = new List<GenericItem>(9);
+        public List<GenericItem> row = new List<GenericItem>(10);
     }
 }
