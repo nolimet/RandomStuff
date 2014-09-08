@@ -35,7 +35,7 @@ namespace EnergyNet
             waitedTicks++;
             if (waitedTicks >= controlerTPS)
             {
-               // Debug.Log("sendpower : " + ID);
+                List<EnergyNode> highstPull = new List<EnergyNode>();
                 waitedTicks = 0;
                 if (!endPoint && Storage > 0 && transferRate > 0)
                 {
@@ -62,11 +62,51 @@ namespace EnergyNet
                         }
                     }
                 }
+                #region oldSendCode
+                /* Debug.Log("sendpower : " + ID);
+                waitedTicks = 0;
+                if (!endPoint && Storage > 0 && transferRate > 0)
+                {
+                    int l = nodes.Count;
+                    int k = RevievedID.Count;
+                    for (int i = 0; i < l; i++)
+                    {
+                        bool receivedFrom = false;
+                        if (nodes[i].nonRecivend)
+                            receivedFrom = true;
+
+                        if (!receivedFrom)
+                            for (int j = 0; j < k; j++)
+                            {
+                                if (RevievedID[j] == nodes[i].ID)
+                                {
+                                    receivedFrom = true;
+                                }
+                            }
+                        if (!receivedFrom && Storage >= transferRate)
+                        {
+                            EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
+                            Storage -= transferRate;
+                        }
+                    }
+                }*/
+                #endregion
             }
         }
         public override void GetInRangeNodes(List<EnergyNode> _nodes)
         {
             base.GetInRangeNodes(_nodes);
+            if (!nonRecivend)
+            {
+                int highestpull = 0;
+                foreach (EnergyNode n in nodes)
+                {
+                    if (!n.nonRecivend && n.Pull > highestpull && n.Pull > Pull)
+                        highestpull = n.Pull;
+                }
+                if (highestpull != 0)
+                    Pull = highestpull - 1;
+            }
         }
 
         protected override void Update()
@@ -80,7 +120,6 @@ namespace EnergyNet
                         Debug.DrawLine(transform.position, nodes[i].transform.position, Color.yellow);
                 }
             }
-            
         }
 
         protected override void SetNameID()

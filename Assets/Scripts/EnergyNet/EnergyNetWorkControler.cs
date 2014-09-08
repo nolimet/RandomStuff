@@ -18,6 +18,10 @@ namespace EnergyNet
 
         public void Start()
         {
+            GameObject ep = new GameObject();
+            ep.name = "--EnergyPackages";
+            EnergyGlobals.packageParent = ep.transform;
+
             name = "--NetworkControler";
 
             tpsar[4] = 20;
@@ -102,7 +106,7 @@ namespace EnergyNet
 
         public void UpdateGride()
         {
-            Debug.Log("Updated Grid");
+            Debug.Log(this.name + ": Updated Grid");
             nodes = new List<EnergyNode>();
             generators = new List<EnergyGenator>();
             foreach (GameObject go in EnergyGlobals.NetWorkObjects)

@@ -107,6 +107,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 1
   transferRate: 10
@@ -1341,6 +1342,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -1527,6 +1529,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
+  Pull: 0
   ID: 0
   nonRecivend: 0
   generation: 50
@@ -1691,6 +1694,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -1849,6 +1853,7 @@ MonoBehaviour:
   MaxStorage: 100000000
   Storage: 0
   Range: 5
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 0
@@ -2127,6 +2132,7 @@ MonoBehaviour:
   MaxStorage: 90
   Storage: 0
   Range: 5
+  Pull: 20
   ID: 0
   nonRecivend: 0
   transferRate: 2
@@ -2321,6 +2327,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -2409,6 +2416,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -2497,6 +2505,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -2641,8 +2650,9 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
-  nonRecivend: 0
+  nonRecivend: 1
   transferRate: 10
   endPoint: 0
 --- !u!23 &842494448
@@ -3062,6 +3072,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1053502456
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,6 +3188,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -3265,6 +3277,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -3594,6 +3607,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -3682,6 +3696,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -3770,6 +3785,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -4941,6 +4957,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -6132,6 +6149,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -6220,6 +6238,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 1
   transferRate: 10
@@ -6308,6 +6327,7 @@ MonoBehaviour:
   MaxStorage: 100
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -6606,6 +6626,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -6764,6 +6785,7 @@ MonoBehaviour:
   MaxStorage: 80
   Storage: 0
   Range: 20
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 10
@@ -7003,6 +7025,7 @@ MonoBehaviour:
   MaxStorage: 10
   Storage: 0
   Range: 5
+  Pull: 0
   ID: 0
   nonRecivend: 0
   transferRate: 2

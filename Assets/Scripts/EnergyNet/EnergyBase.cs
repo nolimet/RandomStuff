@@ -9,6 +9,7 @@ namespace EnergyNet
         public int MaxStorage = 10;
         public float Storage = 0;
         public int Range = 5;
+        public int Pull = 0;
         public int ID;
         public bool nonRecivend;
         protected Color NodeColor;
@@ -42,7 +43,7 @@ namespace EnergyNet
             nodes = new List<EnergyNode>();
             foreach (EnergyNode go in _nodes)
             {
-                if (go != this.gameObject)
+                if (go != null && go != this.gameObject)
                 {
                     float dist = Vector3.Distance(go.transform.position, transform.position);
 
@@ -53,6 +54,7 @@ namespace EnergyNet
                 }
             }
         }
+
        protected virtual void Update()
         {
             if (!nonRecivend)
