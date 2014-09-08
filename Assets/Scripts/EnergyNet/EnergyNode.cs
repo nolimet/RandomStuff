@@ -35,7 +35,7 @@ namespace EnergyNet
             waitedTicks++;
             if (waitedTicks >= controlerTPS)
             {
-                List<EnergyNode> highstPull = new List<EnergyNode>();
+                EnergyNode highstPull = null;
                 waitedTicks = 0;
                 if (!endPoint && Storage > 0 && transferRate > 0)
                 {
@@ -57,9 +57,15 @@ namespace EnergyNet
                             }
                         if (!receivedFrom && Storage >= transferRate)
                         {
-                            EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
-                            Storage -= transferRate;
+                            if (nodes[i].Pull > Pull)
+                                highstPull = nodes[i];
                         }
+                    }
+
+                    if (highstPull != null)
+                    {
+                        EnergyGlobals.SendPackage(transform, highstPull.transform, ID, highstPull.ID, transferRate);
+                        Storage -= transferRate;
                     }
                 }
                 #region oldSendCode
