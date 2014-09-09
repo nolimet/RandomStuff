@@ -1857,10 +1857,10 @@ MonoBehaviour:
   MaxStorage: 100000000
   Storage: 0
   Range: 5
-  Pull: 0
+  Pull: 20
   ID: 0
   nonRecivend: 0
-  StaticPull: 0
+  StaticPull: 1
   transferRate: 0
   endPoint: 1
 --- !u!23 &469908893

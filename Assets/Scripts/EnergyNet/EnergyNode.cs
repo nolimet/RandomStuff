@@ -19,11 +19,24 @@ namespace EnergyNet
             SetNameID();
         }
 
-        public virtual void receive(float receiving,int senderID)
+        public virtual void receive(float receiving, int senderID)
         {
-			if (Storage < MaxStorage) {Storage += receiving;}
+            //if (Storage < MaxStorage) {Storage += receiving;}
+            Storage += receiving;
+
             RevievedID.Add(senderID);
-            if (Storage > MaxStorage) { Storage = MaxStorage; }
+
+            if (receiving > transferRate)
+                transferRate = Mathf.FloorToInt(receiving);
+            if (Storage > MaxStorage)
+            {
+                Storage = MaxStorage;
+                if (!endPoint)
+                {
+                    transferRate += 10;
+                    MaxStorage = transferRate * 6;
+                }
+            }
         }
 
         public virtual void sendPower()
