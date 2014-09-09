@@ -65,6 +65,7 @@ namespace EnergyNet
                 {
                     node.GetInRangeNodes(nodes);
                     node.sendPower();
+                    node.GetPull();
                 }
                 foreach (EnergyGenator gen in generators)
                 {

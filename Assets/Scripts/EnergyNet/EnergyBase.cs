@@ -11,7 +11,10 @@ namespace EnergyNet
         public int Range = 5;
         public int Pull = 0;
         public int ID;
-        public bool nonRecivend;
+        public bool nonRecivend = false;
+
+        [SerializeField]
+        protected bool StaticPull = false;
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
         protected EnergyNetWorkControler controler;

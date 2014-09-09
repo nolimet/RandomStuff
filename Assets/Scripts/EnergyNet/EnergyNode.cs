@@ -102,9 +102,14 @@ namespace EnergyNet
         public override void GetInRangeNodes(List<EnergyNode> _nodes)
         {
             base.GetInRangeNodes(_nodes);
-            if (!nonRecivend)
+        }
+
+        public virtual void GetPull()
+        {
+            if (!nonRecivend && !StaticPull)
             {
                 int highestpull = 0;
+                Pull = 0;
                 foreach (EnergyNode n in nodes)
                 {
                     if (!n.nonRecivend && n.Pull > highestpull && n.Pull > Pull)

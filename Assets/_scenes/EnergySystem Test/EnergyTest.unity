@@ -110,6 +110,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 1
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &78676878
@@ -1345,6 +1346,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &186095846
@@ -1532,6 +1534,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   generation: 50
   activated: 1
   transferRate: 10
@@ -1697,6 +1700,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &440348822
@@ -1856,6 +1860,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 0
   endPoint: 1
 --- !u!23 &469908893
@@ -2135,6 +2140,7 @@ MonoBehaviour:
   Pull: 20
   ID: 0
   nonRecivend: 0
+  StaticPull: 1
   transferRate: 2
   endPoint: 0
   IsSender: 1
@@ -2330,6 +2336,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &696712771
@@ -2419,6 +2426,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &752744132
@@ -2508,6 +2516,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &766278030
@@ -2652,7 +2661,8 @@ MonoBehaviour:
   Range: 20
   Pull: 0
   ID: 0
-  nonRecivend: 1
+  nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &842494448
@@ -3191,6 +3201,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1182922445
@@ -3280,6 +3291,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1195563910
@@ -3610,6 +3622,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1331062317
@@ -3699,6 +3712,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1356228283
@@ -3788,6 +3802,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1362569921
@@ -4960,6 +4975,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1505296388
@@ -6152,6 +6168,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1555538071
@@ -6241,6 +6258,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 1
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1628888101
@@ -6330,6 +6348,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1636451598
@@ -6629,6 +6648,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1845813535
@@ -6788,6 +6808,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1978426479
@@ -7028,6 +7049,7 @@ MonoBehaviour:
   Pull: 0
   ID: 0
   nonRecivend: 0
+  StaticPull: 0
   transferRate: 2
   endPoint: 0
   IsSender: 0
