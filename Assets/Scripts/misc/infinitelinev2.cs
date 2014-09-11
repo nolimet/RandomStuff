@@ -27,11 +27,11 @@ public class infinitelinev2 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	    Debug.DrawLine(new Vector3(x,-10),new Vector3(x,10),Color.white,1f);
+	    Debug.DrawLine(new Vector3(x,0),new Vector3(x,x/2),Color.white,1f);
         print(call(x));
         print(callp(x));
         Vector3 a = call(x);
         Vector3 b = callp(x);
-        Debug.DrawLine(a, b,Color.red,1f);
+        Debug.DrawLine(a, b,Color.red,0.1f);
 	}
 }
