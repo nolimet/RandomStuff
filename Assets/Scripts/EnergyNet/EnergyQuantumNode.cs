@@ -30,7 +30,7 @@ namespace EnergyNet
             }
             else
             {
-                name += "QuantumNode Reciever";
+                name += " QuantumNode Reciever";
                 endPoint = false;
                 nonRecivend = true;
             }

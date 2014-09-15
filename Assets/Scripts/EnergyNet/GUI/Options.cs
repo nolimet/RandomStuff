@@ -9,7 +9,7 @@ namespace EnergyNet
         {
             if (GUI.Button(new Rect(20, 20, 200, 40), "Use LightParticles : " + EnergyGlobals.useLightParticles))
                 EnergyGlobals.useLightParticles = !EnergyGlobals.useLightParticles;
-            GUI.TextArea(new Rect(20, 60, 200, 40), "Real TPS : " + EnergyGlobals.RealTPS);
+            GUI.Label(new Rect(20, 60, 200, 40), "Real TPS : " + EnergyGlobals.RealTPS);
             if (GUI.Button(new Rect(230, 20, 180, 40), "Restart System"))
                 Application.LoadLevel(Application.loadedLevel);
         }

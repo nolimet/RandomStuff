@@ -51,7 +51,9 @@ public class CallCu : MonoBehaviour {
         string m;
         string h;
 
-        if (fms < 10)
+        if (fms == 0)
+            ms = "";
+        else if (fms < 10)
             ms = "000" + fms;
         else if (fms < 100)
             ms = "00" + fms;
@@ -73,7 +75,7 @@ public class CallCu : MonoBehaviour {
         else
             h = "" + fh;
 
-
+        
         if (d == 0 && fh == 0 && fm == 0)
             time = " " + s + ":" + ms;
         else if (d == 0 && fh == 0)
