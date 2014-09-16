@@ -6,6 +6,15 @@ namespace EnergyNet
     {
 
         private string printName = "[3DHitRay] ";
+
+        private GameObject currentSelected;
+        private EnergyBase currentScript;
+
+        [SerializeField]
+        private GameObject InGameUI;
+        [SerializeField]
+        private TextMesh IGUITM; //InGameUITextMesh
+
         void Update()
         {
             if(Input.GetKey(KeyCode.Mouse0))
@@ -18,11 +27,18 @@ namespace EnergyNet
                 if (Physics.Raycast(ray, out hit, 100) && hit.collider.tag == EnergyTags.EnergyNode)
                 {
                     Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
-                    print(printName);
-                    print(printName+hit.point+'\n'+printName+hit.collider.name);
+                  //  print(printName);
+                   // print(printName+hit.point+'\n'+printName+hit.collider.name);
+                    InGameUI.transform.position = hit.point + new Vector3(0, 0.5f, 0);
                     EnergyNode node = hit.collider.gameObject.GetComponent<EnergyNode>();
+                    currentScript = node;
+                    currentSelected = hit.collider.gameObject;
                 }
-                //Debug.Log(
+            }
+
+            if (currentScript != null && currentSelected != null)
+            {
+                IGUITM.text = "StorageMax: " + currentScript.MaxStorage + '\n' + "Storage: " + currentScript.Storage + '\n' + "Pull: " + currentScript.Pull + '\n' + currentScript;
             }
         }
 

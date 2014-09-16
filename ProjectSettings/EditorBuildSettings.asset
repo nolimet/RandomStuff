@@ -11,9 +11,9 @@ EditorBuildSettings:
     path: Assets/_scenes/InitState.unity
   - enabled: 0
     path: Assets/_scenes/Menus/StartupMenu.unity
-  - enabled: 1
-    path: Assets/_scenes/Other/SoundVisualLiser.unity
   - enabled: 0
+    path: Assets/_scenes/Other/SoundVisualLiser.unity
+  - enabled: 1
     path: Assets/_scenes/EnergySystem Test/EnergyTest.unity
   - enabled: 0
     path: Assets/_scenes/Other/Atom.unity

@@ -37,6 +37,12 @@ namespace EnergyNet
                     MaxStorage = transferRate * 6;
                 }
             }
+            if(Storage<0){
+                Debug.LogError("NEGATIVE POWER!! IN NODE " + ID + '\n' + "Received " + receiving );
+                renderer.material.color = Color.red;
+                nonRecivend = true;
+
+            }
         }
 
         public virtual void sendPower()
@@ -48,7 +54,8 @@ namespace EnergyNet
             waitedTicks++;
             if (waitedTicks >= controlerTPS)
             {
-                EnergyNode highstPull = null;
+                List<EnergyNode> SendList = new List<EnergyNode>();
+                int HighestPull=-1;
                 waitedTicks = 0;
                 if (!endPoint && Storage > 0 && transferRate > 0)
                 {
@@ -56,30 +63,32 @@ namespace EnergyNet
                     int k = RevievedID.Count;
                     for (int i = 0; i < l; i++)
                     {
-                        bool receivedFrom = false;
-                        if (nodes[i].nonRecivend)
-                            receivedFrom = true;
-
-                        if (!receivedFrom)
-                            for (int j = 0; j < k; j++)
-                            {
-                                if (RevievedID[j] == nodes[i].ID)
-                                {
-                                    receivedFrom = true;
-                                }
-                            }
-                        if (!receivedFrom && Storage >= transferRate)
+                        int nodePull = nodes[i].Pull;
+                        if (!nodes[i].nonRecivend && Storage >= transferRate)
                         {
-                            if (nodes[i].Pull > Pull)
-                                highstPull = nodes[i];
+                            if (nodePull > Pull)
+                            {
+                                if (nodePull == HighestPull)
+                                    SendList.Add(nodes[i]);
+                                else if (nodePull > HighestPull)
+                                {
+                                    SendList = new List<EnergyNode>();
+                                    HighestPull = nodes[i].Pull;
+                                    SendList.Add(nodes[i]);
+                                }
+                            }                           
                         }
                     }
-
-                    if (highstPull != null)
-                    {
-                        EnergyGlobals.SendPackage(transform, highstPull.transform, ID, highstPull.ID, transferRate);
-                        Storage -= transferRate;
-                    }
+                        int recievers = SendList.Count;
+                        for(int m = 0; m<recievers;m++)
+                        {
+                           // Debug.Log(m);
+                            EnergyGlobals.SendPackage(transform, SendList[m].transform, ID, SendList[m].ID, transferRate / recievers);
+                        }
+                        if (recievers > 0)
+                        {
+                            Storage -= transferRate;
+                        }
                 }
                 #region oldSendCode
                 /* Debug.Log("sendpower : " + ID);
