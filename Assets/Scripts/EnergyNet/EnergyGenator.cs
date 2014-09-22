@@ -14,34 +14,46 @@ namespace EnergyNet
         private int waitedTicks;
         private int controlerTPS = EnergyGlobals.MaxTPS;
 
+        public float Fuel = 10f;
+        public int maxFuel = 20;
+        public float EnergyDensity = 10f;
+        public bool useFuel = false;
+
         protected override void Start()
         {
             base.Start();
             //controler.AddNewGenerator(this);
-            MaxStorage = 200;
+          //  MaxStorage = 200;
             name = "Energy Genarator: " + ID;
 
         }
 
-        public override void GetInRangeNodes(List<EnergyNode>_nodes)
+        public override void GetInRangeNodes(List<EnergyNode> _nodes)
         {
             base.GetInRangeNodes(_nodes);
-            if (activated&&Storage < MaxStorage)
+
+            if (!useFuel)
             {
-                if(Storage-generation<=MaxStorage){
-                Storage+=generation;
+                Storage = MaxStorage;
+            }
+        }
+
+        public void Genarate()
+        {
+            if (useFuel && activated && Storage != MaxStorage && Fuel > 0) 
+            {
+                float fuelperEnergy = 1f / EnergyDensity;
+                if (MaxStorage - generation < Storage)
+                {
+                    Fuel -= fuelperEnergy * (MaxStorage - Storage);
+                    Storage = MaxStorage;
                 }
                 else
                 {
-                    Storage = MaxStorage;
-                }
-                if (Storage > MaxStorage)
-                {
-                    Storage = MaxStorage;
+                    Fuel -= generation * fuelperEnergy;
+                    Storage += generation;
                 }
             }
-            //RevievedID = new List<int>();
-
         }
 
         public void sendPower()
@@ -50,28 +62,16 @@ namespace EnergyNet
             if (waitedTicks >= controlerTPS)
             {
                 waitedTicks = 0;
-                if (activated && Storage > 0 && transferRate > 0)
+                if (useFuel && Storage > 0 && transferRate > 0 || !useFuel && activated && Storage > 0 && transferRate > 0)
                 {
                     //check receiver's storage
                     int l = nodes.Count;
-                    int k = RevievedID.Count;
                     for (int i = 0; i < l; i++)
                     {
-                        bool receivedFrom = false;
-                        for (int j = 0; j < k; j++)
+                        if (Storage >= transferRate)
                         {
-                            if (RevievedID[j] == nodes[i].ID)
-                            {
-                                receivedFrom = true;
-                            }
-                        }
-                        if (!receivedFrom)
-                        {
-                            if (Storage >= transferRate)
-                            {
-                                EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
+                            EnergyGlobals.SendPackage(transform, nodes[i].transform, ID, nodes[i].ID, transferRate);
                                 Storage -= transferRate;
-                            }
                         }
                     }
                 }

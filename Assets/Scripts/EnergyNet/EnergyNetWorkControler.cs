@@ -16,16 +16,20 @@ namespace EnergyNet
         int tps = 0;
         float timer = 0f;
 
+        #region Start and Updates
         public void Start()
         {
-            if (EnergyGlobals.packageParent != null)
+            if (!EnergyGlobals.createdPackageParent)
             {
+                EnergyGlobals.createdPackageParent = true;
                 GameObject ep = new GameObject();
                 ep.name = "--EnergyPackages";
                 EnergyGlobals.packageParent = ep.transform;
             }
 
             name = "--NetworkControler";
+            StartCoroutine("CheckForChanges");
+            StartCoroutine("RangeCheck");
 
             tpsar[4] = 20;
             tpsar[3] = 20;
@@ -36,13 +40,9 @@ namespace EnergyNet
 
         public void Stop()
         {
-            StopAllCoroutines();
+            StopCoroutine("CheckForChanges");
         }
 
-        void Awake()
-        {
-            StartCoroutine("CheckForChanges");
-        }
         void Update()
         {
             CallculedWaitTime = 1f / TicksPerSecond;
@@ -61,23 +61,26 @@ namespace EnergyNet
                 EnergyGlobals.RealTPS = (tpsar[4] + tpsar[3] + tpsar[2] + tpsar[1] + tpsar[0]) / 5f;
             }
         }
+        #endregion
 
+        #region IEnumerators
         IEnumerator CheckForChanges()
         {
             UpdateGride();
-            while (true)
+            Debug.Log(name + "Started Checker");
+            while (Application.isPlaying)
             {
                 if (EnergyGlobals.LastNetworkObjectCount != EnergyGlobals.CurrentNetworkObjects)
                     UpdateGride();
                 foreach (EnergyNode node in nodes)
                 {
-                    node.GetInRangeNodes(nodes);
                     node.sendPower();
                     node.GetPull();
                 }
+
                 foreach (EnergyGenator gen in generators)
                 {
-                    gen.GetInRangeNodes(nodes);
+                    gen.Genarate();
                     gen.sendPower();
                 }
                 tps++;
@@ -85,6 +88,28 @@ namespace EnergyNet
             }
         }
 
+        IEnumerator RangeCheck()
+        {
+            Debug.Log(name + "Started RangeCheck");
+            while (Application.isPlaying)
+            {
+                if (EnergyGlobals.LastNetworkObjectCount != EnergyGlobals.CurrentNetworkObjects)
+                    UpdateGride();
+                foreach (EnergyNode node in nodes)
+                {
+                    node.GetInRangeNodes(nodes);
+                }
+
+                foreach (EnergyGenator gen in generators)
+                {
+                    gen.GetInRangeNodes(nodes);
+                }
+                yield return new WaitForSeconds(CallculedWaitTime * 2f);
+            }
+        }
+        #endregion
+
+        #region misc functions
         void OnApplicationStop()
         {
             StopCoroutine("CheckForChanges");
@@ -112,10 +137,12 @@ namespace EnergyNet
                 return output;
             }
         }
+        #endregion
 
+        #region enum Functions
         public void UpdateGride()
         {
-            Debug.Log(this.name + ": Updated Grid");
+            //Debug.Log(this.name + ": Updated Grid");
             nodes = new List<EnergyNode>();
             generators = new List<EnergyGenator>();
             foreach (GameObject go in EnergyGlobals.NetWorkObjects)
@@ -136,5 +163,6 @@ namespace EnergyNet
             }
             EnergyGlobals.LastNetworkObjectCount = EnergyGlobals.CurrentNetworkObjects;
         }
+        #endregion
     }
 }

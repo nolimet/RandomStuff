@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 namespace EnergyNet
 {
-    public class EnergyGlobals :MonoBehaviour
+    public class EnergyGlobals : MonoBehaviour
     {
         static public bool useLightParticles = true;
         static public float RealTPS = 0;
@@ -11,7 +11,8 @@ namespace EnergyNet
         static public int LastNetworkObjectCount = -1;
         static public int CurrentNetworkObjects = 0;
         static public List<GameObject> NetWorkObjects = new List<GameObject>();
-        static public Transform packageParent;
+        static public Transform packageParent = null;
+        static public bool createdPackageParent = false;
 
         public static void SendPackage(Transform sender, Transform target, int senderID, int targetID, int Energy, float Speed = 0.1f, bool forceFancyParticle = false)
         {

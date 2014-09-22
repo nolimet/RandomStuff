@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b819190472c75d4e9ac81e2c6e4cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 10
+  MaxStorage: 200
   Storage: 0
   Range: 10
   Pull: 0
@@ -1975,6 +1975,10 @@ MonoBehaviour:
   generation: 50
   activated: 1
   transferRate: 10
+  Fuel: 0
+  maxFuel: 0
+  EnergyDensity: 0
+  useFuel: 0
 --- !u!1 &391747312
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,7 +4911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8be66746c6b154459055c275cb69571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 80
+  MaxStorage: 1000000
   Storage: 0
   Range: 10
   Pull: 5
@@ -7031,7 +7035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b819190472c75d4e9ac81e2c6e4cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStorage: 10
+  MaxStorage: 500
   Storage: 0
   Range: 10
   Pull: 0
@@ -7039,9 +7043,13 @@ MonoBehaviour:
   nonRecivend: 0
   StaticPull: 0
   connections: 0
-  generation: 50
+  generation: 10
   activated: 1
   transferRate: 10
+  Fuel: 60
+  maxFuel: 60
+  EnergyDensity: 60
+  useFuel: 1
 --- !u!65 &1345478301
 BoxCollider:
   m_ObjectHideFlags: 0

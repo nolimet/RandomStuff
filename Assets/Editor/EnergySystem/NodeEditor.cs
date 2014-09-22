@@ -14,6 +14,7 @@ namespace EnergyNet._Editor
             EditorGUILayout.LabelField("MaxStorage: " + node.MaxStorage.ToString());
             ProgressBar(node.Storage / node.MaxStorage, "Storage: " + node.Storage.ToString());
             EditorGUILayout.LabelField("Transfer Rate: " + node.transferRate.ToString());
+            node.Range = EditorGUILayout.IntField("Range", node.Range);
             EditorGUILayout.Space();
 
             node.StaticPull = EditorGUILayout.Toggle("Static",node.StaticPull);
