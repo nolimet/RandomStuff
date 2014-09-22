@@ -60,7 +60,7 @@ namespace EnergyNet
                 if (!endPoint && Storage > 0 && transferRate > 0)
                 {
                     int l = nodes.Count;
-                    int k = RevievedID.Count;
+                   // int k = RevievedID.Count;
                     for (int i = 0; i < l; i++)
                     {
                         int nodePull = nodes[i].Pull;

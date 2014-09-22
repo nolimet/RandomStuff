@@ -15,7 +15,7 @@ namespace Menu
             public List<MenuButton> Button = new List<MenuButton>();
 
             int currentMenu = -1;
-            bool rotationDone = false;
+         //   bool rotationDone = false;
             void Start()
             {
                 object[] allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) ;

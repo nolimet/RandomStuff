@@ -4,7 +4,7 @@ using System.Collections;
 public class Move : MonoBehaviour {
 
 
-    bool g = false;
+   // bool g = false;
 
     [SerializeField]
     private float floatHeight=1f;
