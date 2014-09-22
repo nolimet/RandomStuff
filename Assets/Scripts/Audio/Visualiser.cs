@@ -42,9 +42,13 @@ namespace Audio
 
         #endregion
         #region public var's
+        [HideInInspector]
         public bool play = false;
+        [HideInInspector]
         public bool circle = true;
+        [HideInInspector]
         public int SpectrumLevel;
+        [HideInInspector]
         public int SpeedLevel;
         public GUIStyle labelFix;
         #endregion

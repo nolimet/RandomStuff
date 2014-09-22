@@ -111,6 +111,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &50071650
@@ -201,6 +202,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 1
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &78676878
@@ -361,6 +363,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &131349354
@@ -1597,6 +1600,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &186095846
@@ -1687,6 +1691,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &197993607
@@ -1777,6 +1782,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &199632088
@@ -1965,6 +1971,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   generation: 50
   activated: 1
   transferRate: 10
@@ -2131,6 +2138,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &428307695
@@ -2221,6 +2229,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &440348822
@@ -2381,6 +2390,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 1
+  connections: 0
   transferRate: 0
   endPoint: 1
 --- !u!23 &469908893
@@ -2604,6 +2614,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &540835274
@@ -2751,6 +2762,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 1
+  connections: 0
   transferRate: 2
   endPoint: 0
   IsSender: 1
@@ -2807,6 +2819,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &585662293
@@ -2967,6 +2980,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &646710107
@@ -3183,6 +3197,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &659861582
@@ -3273,6 +3288,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &696712771
@@ -4466,6 +4482,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &736652111
@@ -4556,6 +4573,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &748509188
@@ -4646,6 +4664,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &752744132
@@ -4736,6 +4755,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &766278030
@@ -4894,6 +4914,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 1
+  connections: 0
   transferRate: 10
   endPoint: 1
 --- !u!23 &788169005
@@ -4972,6 +4993,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &841722510
@@ -5062,6 +5084,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &842494448
@@ -5409,6 +5432,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &936109844
@@ -5689,6 +5713,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &986503074
@@ -5791,6 +5816,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1042481336
@@ -5983,6 +6009,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1160432193
@@ -6085,6 +6112,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1179063167
@@ -6163,6 +6191,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1182922445
@@ -6253,6 +6282,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1195563910
@@ -6343,6 +6373,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1222427245
@@ -6548,6 +6579,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1249453493
@@ -6706,6 +6738,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1260349208
@@ -6898,6 +6931,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1331062317
@@ -7004,6 +7038,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   generation: 50
   activated: 1
   transferRate: 10
@@ -7056,6 +7091,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1356228283
@@ -7146,6 +7182,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1362569921
@@ -7236,6 +7273,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1428346978
@@ -8465,6 +8503,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1477539731
@@ -8555,6 +8594,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1505296388
@@ -9748,6 +9788,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1555538071
@@ -9914,6 +9955,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1626865080
@@ -10004,6 +10046,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 1
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1628888101
@@ -10094,6 +10137,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1636451598
@@ -10184,6 +10228,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1685495072
@@ -10378,6 +10423,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1790885962
@@ -10608,6 +10654,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1825593585
@@ -10698,6 +10745,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1845813535
@@ -10858,6 +10906,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1923516543
@@ -10948,6 +10997,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1954275677
@@ -11038,6 +11088,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &1978426479
@@ -11140,6 +11191,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &2014319339
@@ -11218,6 +11270,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &2015722301
@@ -11474,6 +11527,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 2
   endPoint: 0
   IsSender: 0
@@ -11613,6 +11667,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &2086128994
@@ -11703,6 +11758,7 @@ MonoBehaviour:
   ID: 0
   nonRecivend: 0
   StaticPull: 0
+  connections: 0
   transferRate: 10
   endPoint: 0
 --- !u!23 &2134379642

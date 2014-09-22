@@ -18,9 +18,12 @@ namespace EnergyNet
 
         public void Start()
         {
-            GameObject ep = new GameObject();
-            ep.name = "--EnergyPackages";
-            EnergyGlobals.packageParent = ep.transform;
+            if (EnergyGlobals.packageParent != null)
+            {
+                GameObject ep = new GameObject();
+                ep.name = "--EnergyPackages";
+                EnergyGlobals.packageParent = ep.transform;
+            }
 
             name = "--NetworkControler";
 
@@ -29,6 +32,11 @@ namespace EnergyNet
             tpsar[2] = 20;
             tpsar[1] = 20;
             tpsar[0] = 20;
+        }
+
+        public void Stop()
+        {
+            StopAllCoroutines();
         }
 
         void Awake()

@@ -14,11 +14,11 @@ namespace EnergyNet
         public bool nonRecivend = false;
 
         [SerializeField]
-        protected bool StaticPull = false;
+        public bool StaticPull = false;
         protected Color NodeColor;
         protected List<EnergyNode> nodes = new List<EnergyNode>();
         protected EnergyNetWorkControler controler;
-        protected int connections;
+        public int connections;
 
         protected virtual void Start()
         {
