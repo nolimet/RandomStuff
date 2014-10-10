@@ -5,7 +5,7 @@ namespace springs
 {
     public class Spring : MonoBehaviour
     {
-
+        [SerializeField]
         private List<Transform> inRangeSprings  = new List<Transform>();
 
         void Start()
@@ -20,7 +20,8 @@ namespace springs
 
             foreach (Spring spr in Springs)
             {
-                if (Vector3.Distance(spr.transform.position, pos) < SpringStatics.maxDist)
+                
+                if (Vector3.Distance(spr.transform.position, pos) < SpringStatics.maxDist && spr!=this)
                 {
                     inRangeSprings.Add(spr.transform);
                 }
@@ -63,7 +64,6 @@ namespace springs
                 return true;
             if (float.IsNaN(value.z))
                 return true;
-
             return false;
         }
 
