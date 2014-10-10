@@ -38,11 +38,11 @@ namespace EnergyNet
 
             if (currentScript != null && currentSelected != null)
             {
-                IGUITM.text = "StorageMax: " + currentScript.MaxStorage + '\n' + "Storage: " + currentScript.Storage + '\n' + "Pull: " + currentScript.Pull + '\n' + currentScript;
+                IGUITM.text = "StorageMax: " + currentScript.MaxStorage.ToString() + '\n' + "Storage: " + currentScript.Storage.ToString() + '\n' + "Pull: " + currentScript.Pull.ToString() + '\n' + currentScript.ToString();
             }
         }
 
-        void log(Object mess)
+        void log(string mess)
         {
             print(printName+mess);
         }

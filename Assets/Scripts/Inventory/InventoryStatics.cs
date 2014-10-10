@@ -5,5 +5,7 @@ namespace InvFrameWork
     public class InventoryStatics
     {
         public static string ResourceStartPath = "Inventory/Items/";
+
+        public static InventoryHandler InvHandler;
     }
 }

@@ -7,7 +7,7 @@ namespace InvFrameWork
         override public void init()
         {
             base.init();
-            itemInit("Test", 16);
+            genericItem("Test", 16);
         }
     }
 }

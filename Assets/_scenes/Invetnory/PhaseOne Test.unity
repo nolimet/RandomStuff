@@ -84,7 +84,7 @@ GameObject:
   - 4: {fileID: 179934960}
   - 114: {fileID: 179934959}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InvHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,166 +102,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inv:
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 2800000, guid: 5a935579613b7c04fb7b32b44d759379, type: 3}
-  - Name: 
-    StackSize: 0
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 2800000, guid: e80c3c84ea861404d8a427db8b7abf04, type: 3}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
+    RenderItem: {fileID: 0}
+  - Name: nullItem
+    StackSize: 1
     ImagePath: 
     texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
-  - Name: 
-    StackSize: 0
-    ImagePath: 
-    texture: {fileID: 0}
+    RenderItem: {fileID: 0}
 --- !u!4 &179934960
 Transform:
   m_ObjectHideFlags: 0
@@ -286,6 +226,7 @@ GameObject:
   - 92: {fileID: 372029501}
   - 124: {fileID: 372029500}
   - 81: {fileID: 372029499}
+  - 114: {fileID: 372029504}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -333,7 +274,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -353,8 +294,154 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 372029498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &372029504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372029498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480f8478f6c2dc64383d9788080a6729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Range: 40
+  currentItem: {fileID: 0}
+--- !u!1 &535066714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 535066716}
+  - 108: {fileID: 535066715}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &535066715
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535066714}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &535066716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535066714}
+  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
+  m_LocalPosition: {x: 2.13875675, y: -15.1981735, z: 58.3555946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+--- !u!1 &992740885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 992740889}
+  - 33: {fileID: 992740888}
+  - 64: {fileID: 992740887}
+  - 23: {fileID: 992740886}
+  m_Layer: 0
+  m_Name: invBack
+  m_TagString: ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &992740886
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992740885}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &992740887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992740885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &992740888
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992740885}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &992740889
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992740885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 21, y: 11.6000004, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2

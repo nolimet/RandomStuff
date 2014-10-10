@@ -8,7 +8,9 @@ namespace InvFrameWork
         public string Name = "nullItem";
         public int StackSize = 1;
         public string ImagePath;
-        public Texture2D texture;
+        public Sprite texture;
+        public GameObject RenderItem;
+
 
 
         /*
@@ -22,7 +24,7 @@ namespace InvFrameWork
 
         }
 
-        protected void itemInit(string _Name,int _StackSize ,string _ImagePath="")
+        protected void genericItem(string _Name,int _StackSize ,string _ImagePath="")
         {
             Name = _Name;
             StackSize = _StackSize;
@@ -31,7 +33,7 @@ namespace InvFrameWork
             else
                 ImagePath = InventoryStatics.ResourceStartPath + ImagePath;
 
-            texture = Resources.Load(ImagePath, typeof(Texture2D)) as Texture2D;
+            texture = Resources.Load(ImagePath, typeof(Sprite)) as Sprite;
         }
     }
 }
