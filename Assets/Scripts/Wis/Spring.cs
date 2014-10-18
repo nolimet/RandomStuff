@@ -33,7 +33,7 @@ namespace springs
             foreach (Transform t in inRangeSprings)
             {
                 if (t != null)
-                    Debug.DrawLine(transform.position, t.position, Color.red);
+                    Debug.DrawLine(transform.position, t.position, Color.red, 0.1f);
 
                 if (Vector3.Distance(t.position, transform.position) < SpringStatics.maxDist)
                 {
