@@ -7,5 +7,6 @@ namespace springs
     {
         public static List<Spring> springs = new List<Spring>();
         public static float maxDist = 10f;
+        public static bool mouseDown = false;
     }
 }

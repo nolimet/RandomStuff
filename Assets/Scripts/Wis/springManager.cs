@@ -22,13 +22,20 @@ namespace springs
         {
             while (Application.isPlaying)
             {
+                SpringStatics.mouseDown = Input.GetMouseButton(1);
                 foreach (Spring spr in SpringStatics.springs)
                 {
                     if(spr!=null)
                        spr.GetInRange(SpringStatics.springs);
                 }
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.05f);
             }
+        }
+
+        void OnGUI()
+        {
+            GUI.
+            GUI.Box(new Rect(0, 0, 120, 50), "This is a title");
         }
 
     }

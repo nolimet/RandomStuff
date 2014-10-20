@@ -30,18 +30,19 @@ namespace springs
 
         void Update()
         {
-            foreach (Transform t in inRangeSprings)
-            {
-                if (t != null)
-                    Debug.DrawLine(transform.position, t.position, Color.red, 0.1f);
-
-                if (Vector3.Distance(t.position, transform.position) < SpringStatics.maxDist)
+            if(!SpringStatics.mouseDown)
+                foreach (Transform t in inRangeSprings)
                 {
-                    Vector3 step = stepv2(t.position);
-                    if (!checkNaN(step))
-                        transform.Translate(stepv2(t.position) / 5f);
+                    if (t != null)
+                        Debug.DrawLine(transform.position, t.position, Color.red, 0.1f);
+
+                    if (Vector3.Distance(t.position, transform.position) < SpringStatics.maxDist)
+                    {
+                        Vector3 step = stepv2(t.position);
+                        if (!checkNaN(step))
+                            t.Translate(stepv2(t.position) / -5f);
+                    }
                 }
-            }
         }
 
         void OnDestroy()
