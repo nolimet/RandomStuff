@@ -40,7 +40,7 @@ namespace springs
                     {
                         Vector3 step = stepv2(t.position);
                         if (!checkNaN(step))
-                            t.Translate(stepv2(t.position) / -5f);
+                            t.Translate(stepv2(t.position) / -10f);
                     }
                 }
         }

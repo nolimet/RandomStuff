@@ -34,8 +34,9 @@ namespace springs
 
         void OnGUI()
         {
-            GUI.
-            GUI.Box(new Rect(0, 0, 120, 50), "This is a title");
+        
+            GUI.Box(new Rect(0, 0, 200, 50), "Minimal distance = " + MaxDist.ToString());
+            MaxDist = GUI.HorizontalSlider(new Rect(25, 20, 100, 20), MaxDist, 0.1f, 20);
         }
 
     }
