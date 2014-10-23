@@ -8,6 +8,7 @@ namespace springs
         [SerializeField]
         private List<Transform> inRangeSprings  = new List<Transform>();
 
+        float distM = 0;
         void Start()
         {
             SpringStatics.springs.Add(this);
@@ -15,13 +16,14 @@ namespace springs
 
         public void GetInRange(List<Spring> Springs)
         {
+            distM = SpringStatics.maxDist + SpringStatics.maxDist / 10f;
             inRangeSprings = new List<Transform>();
             Vector3 pos = transform.position;
 
             foreach (Spring spr in Springs)
             {
                 
-                if (Vector3.Distance(spr.transform.position, pos) < SpringStatics.maxDist && spr!=this)
+                if (Vector3.Distance(spr.transform.position, pos) < distM && spr!=this)
                 {
                     inRangeSprings.Add(spr.transform);
                 }
@@ -30,13 +32,18 @@ namespace springs
 
         void Update()
         {
+            float dist;
             if(!SpringStatics.mouseDown)
+
                 foreach (Transform t in inRangeSprings)
                 {
-                    if (t != null)
+                    dist = Vector3.Distance(t.position, transform.position);
+                    if (dist < SpringStatics.maxDist)
                         Debug.DrawLine(transform.position, t.position, Color.red, 0.1f);
+                    else if (dist < distM)
+                        Debug.DrawLine(transform.position, t.position, Color.green, 0.1f);
 
-                    if (Vector3.Distance(t.position, transform.position) < SpringStatics.maxDist)
+                    if (dist < SpringStatics.maxDist)
                     {
                         Vector3 step = stepv2(t.position);
                         if (!checkNaN(step))
