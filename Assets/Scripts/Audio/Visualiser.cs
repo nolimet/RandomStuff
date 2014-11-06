@@ -121,12 +121,13 @@ namespace Audio
             barWidth = 25.6f / SpectrumSize;
             for (int i = 0; i < SpectrumSize; i++)
             {
-                // GameObject cube = Instantiate(Resources.Load("SimpleCube"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+               //building a cube
                 GameObject cube = new GameObject();
                 cube.AddComponent<MeshFilter>().mesh = beamMesh;
                 cube.AddComponent<MeshRenderer>().material = beamMaterial;
                 cube.name = "bar" + i;
-
+                
+                //building a pivot point
                 GameObject pivot = new GameObject();
                 pivot.transform.parent = transform;
                 cube.transform.parent = pivot.transform;
