@@ -53,5 +53,10 @@ namespace Audio
             else
                 listen.GetComponent<Visualiser>().circle = circle;
         }
+
+        public void SetMode()
+        {
+            circle = !circle;
+        }
     }
 }

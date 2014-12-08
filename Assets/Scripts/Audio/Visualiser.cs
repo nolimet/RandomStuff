@@ -51,6 +51,8 @@ namespace Audio
         [HideInInspector]
         public int SpeedLevel;
         public GUIStyle labelFix;
+
+        public static Visualiser instance;
         #endregion
 
         //Functions
@@ -76,6 +78,7 @@ namespace Audio
         {
             while (Application.isPlaying)
             {
+                CodeProfiler.Begin("Audio:PositionUpdater");
                 float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
                 //Quaternion temprot;
                 int i = 0;
@@ -92,6 +95,7 @@ namespace Audio
                     i++;
                 }
                 cirlelastframe = circle;
+                CodeProfiler.End("Audio:PositionUpdater");
                 yield return new WaitForSeconds(1f / updatespeed);
             }
             Debug.Log("stopped");
