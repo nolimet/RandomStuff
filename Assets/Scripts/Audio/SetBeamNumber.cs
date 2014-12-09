@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 namespace Audio
 {
@@ -25,9 +26,17 @@ namespace Audio
         
         #region inEditorSetVars
         [SerializeField]
+        GameObject UIControles;
+        [SerializeField]
         Texture2D PlayButton;
         [SerializeField]
         Rect posPlay = new Rect();
+        [SerializeField]
+        Slider UpdateSpeedSlider;
+        [SerializeField]
+        Text UpdateSpeedText;
+        [SerializeField]
+        GameObject ConfigScreen;
         #endregion
 
         void Start()
@@ -59,24 +68,36 @@ namespace Audio
 
             visu = GetComponent<Visualiser>();
             posPlay = new Rect((Screen.width / 2) - 128, (Screen.height / 2) - 128, 256, 256);
+            UIControles.SetActive(false);
+            UpdateSpeedText.text = "Updates per second: " + ((UpdateSpeed * 5) + 30).ToString();
         }
 
         void Update()
         {
             visu.SpectrumLevel = indexNumber;
             visu.SpeedLevel = UpdateSpeed;
-            if (play)
-            {
-                visu.play = true;
-                enabled = false;
-            }
+        }
+
+        public void SetUpdateSpeed()
+        {
+            UpdateSpeed = Mathf.FloorToInt(UpdateSpeedSlider.value);
+            UpdateSpeedText.text = "Updates per second: " + ((UpdateSpeed * 5) + 30).ToString();
+            visu.AdjustUpdateSpeed(UpdateSpeed);
+        }
+
+        public void Play()
+        {
+            visu.play = true;
+            enabled = false;
+            UIControles.SetActive(true);
+            ConfigScreen.SetActive(false);
         }
 
         void OnGUI()
         {
-            GUI.Label(new Rect(300, 25, 300, 75), "Having a low framerate?"+'\n' +"Lower the number of beams and/or update speed",visu.labelFix);
-            GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y - 75, 150, 25), "UpdateSpeed: " + (30 + UpdateSpeed * 5), visu.labelFix);
-            UpdateSpeed = Mathf.FloorToInt(GUI.HorizontalSlider(new Rect((dropDownRect.x - 95), dropDownRect.y - 50, 120, 25), UpdateSpeed, 0, 18));
+            //GUI.Label(new Rect(300, 25, 300, 75), "Having a low framerate?"+'\n' +"Lower the number of beams and/or update speed",visu.labelFix);
+            //GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y - 75, 150, 25), "UpdateSpeed: " + (30 + UpdateSpeed * 5), visu.labelFix);
+            //UpdateSpeed = Mathf.FloorToInt(GUI.HorizontalSlider(new Rect((dropDownRect.x - 95), dropDownRect.y - 50, 120, 25), UpdateSpeed, 0, 18));
             #region Select Number of Beams
             if (GUI.Button(new Rect((dropDownRect.x - 100), dropDownRect.y, dropDownRect.width, 25), "" ))
             {
@@ -117,8 +138,8 @@ namespace Audio
             }
             #endregion
 
-            if (GUI.Button(posPlay, PlayButton))
-                play = true;
+            //if (GUI.Button(posPlay, PlayButton))
+            //    play = true;
 
         }
     }

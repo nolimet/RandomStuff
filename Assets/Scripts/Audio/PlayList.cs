@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 namespace Audio
 {
@@ -13,6 +14,8 @@ namespace Audio
         string trackCurrentTime;
         Visualiser visu;
         public static PlayList instance;
+        [SerializeField]
+        Text text;
 
         void Start()
         {
@@ -37,16 +40,23 @@ namespace Audio
                 Debug.Log("next");
             }
             trackCurrentTime = Soundlength(Mathf.FloorToInt(audio.time));
+
+            UpdateGUI();
             
         }
-        void OnGUI()
-        {
-            if (audio.clip == null)
-                return;
+        //void OnGUI()
+        //{
+            //if (audio.clip == null)
+             //   return;
           //  if (GUI.Button(new Rect(20, 20, 100, 15), "Next Track"))
           //      nextTrack = true;
-            GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name,visu.labelFix);
-            GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration, visu.labelFix);
+           // GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name,visu.labelFix);
+           // GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration, visu.labelFix);
+        //}
+
+        void UpdateGUI()
+        {
+           text.text = audio.clip.name + "\n" + trackCurrentTime + " / " + trackDuration;
         }
 
         public void ChangeTrack()

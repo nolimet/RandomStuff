@@ -30,7 +30,7 @@ public class BeamControler : MonoBehaviour
 
     public void updateLocation(float @level, bool @world)
     {
-        CodeProfiler.Begin("Beam:Transforming");
+        //CodeProfiler.Begin("Beam:Transforming");
         //world refers to in world position if it's not using world it just update the local postion and scale;
         this.level = @level;
         this.world = @world;
@@ -49,7 +49,7 @@ public class BeamControler : MonoBehaviour
             }
             lastWorld = world;
         }
-        CodeProfiler.End("Beam:Transforming");
+        //CodeProfiler.End("Beam:Transforming");
     }
 
 	void Update () 
@@ -60,7 +60,7 @@ public class BeamControler : MonoBehaviour
 
     void lerp()
     {
-        CodeProfiler.Begin("Beam:Lerp");
+       // CodeProfiler.Begin("Beam:Lerp");
         float leveldiff = level - currentLevel;
         if (leveldiff > 0.4f && leveldiff < 1f)
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 3f);
@@ -76,12 +76,12 @@ public class BeamControler : MonoBehaviour
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed * 5f);
         else
             currentLevel = Mathf.Lerp(currentLevel, level, Time.deltaTime * lerpSpeed);
-        CodeProfiler.End("Beam:Lerp");
+       // CodeProfiler.End("Beam:Lerp");
     }
 
     void posUpdate()
     {
-        CodeProfiler.Begin("Beam:PosUpdate");
+       // CodeProfiler.Begin("Beam:PosUpdate");
         if (!toLowLevel)
         {
             transform.localScale = new Vector3(barWidth, currentLevel, 1f);
@@ -99,10 +99,6 @@ public class BeamControler : MonoBehaviour
 
         else if (toLowLevel && currentLevel > 0.01f)
             toLowLevel = false;
-        CodeProfiler.End("Beam:PosUpdate");
-    }
-    public void DebugLog()
-    {
-        Debug.Log("LEVEL: "+level);
+        //CodeProfiler.End("Beam:PosUpdate");
     }
 }

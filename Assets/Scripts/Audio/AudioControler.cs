@@ -14,6 +14,7 @@ namespace Audio
         AudioListener listen;
         [SerializeField]
         Texture2D textureBackdrop;
+        
 
         void Update()
         {
@@ -27,7 +28,7 @@ namespace Audio
             }
         }
 
-        void OnGUI()
+        void fOnGUI()
         {
             GUI.DrawTexture(new Rect(595, 25, 90, 110), textureBackdrop);
             volume = GUI.VerticalSlider(new Rect(600, 25, 30, 100), volume, 100f, 0f);
@@ -36,8 +37,8 @@ namespace Audio
                 pitch = 1f;
             //if (GUI.Button(new Rect(640, 130, 100, 15), "Awesom Pitch"))
            //     pitch = 0.727272f;
-            if(GUI.Button(new Rect(150, 20, 100, 15), "Circle/Flat"))
-                circle=!circle;
+            //if(GUI.Button(new Rect(150, 20, 100, 15), "Circle/Flat"))
+            //    circle=!circle;
             GUI.TextField(new Rect (580,5,50,20),"Volume");
             GUI.TextField(new Rect(637f, 5, 75, 20), "Pitch:" + pitch);
 

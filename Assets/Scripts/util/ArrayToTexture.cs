@@ -6,7 +6,7 @@ public class ArrayToTexture : MonoBehaviour {
     [Range(1,3),SerializeField]
     int NumbChannels = 2;
     void Start () {
-        int[] array = new int[2048];
+        float[] array = new float[2048];
         int l = array.Length;
          //  print(l);
         for (int i = 0; i < l; i++)
@@ -23,7 +23,7 @@ public class ArrayToTexture : MonoBehaviour {
     {
         Start();
     }
-    public Texture2D intArray(int[] arr, int channelSize, int maxWidth = 32)
+    public Texture2D intArray(float[] arr, int channelSize, int maxWidth = 32)
     {
         CodeProfiler.Begin("Array To Texture writer");
         if (channelSize > 3)
@@ -33,7 +33,7 @@ public class ArrayToTexture : MonoBehaviour {
         int index = 0;
         int l = arr.Length;
         Texture2D texture = new Texture2D(w, h, TextureFormat.ARGB32, false);
-        int[] cols = new int[3];
+        float[] cols = new float[3];
         cols[0] = 0;
         cols[1] = 0;
         cols[2] = 0;

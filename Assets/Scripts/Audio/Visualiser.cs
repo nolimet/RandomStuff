@@ -78,7 +78,7 @@ namespace Audio
         {
             while (Application.isPlaying)
             {
-                CodeProfiler.Begin("Audio:PositionUpdater");
+               // CodeProfiler.Begin("Audio:PositionUpdater");
                 float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
                 //Quaternion temprot;
                 int i = 0;
@@ -95,7 +95,7 @@ namespace Audio
                     i++;
                 }
                 cirlelastframe = circle;
-                CodeProfiler.End("Audio:PositionUpdater");
+                //CodeProfiler.End("Audio:PositionUpdater");
                 yield return new WaitForSeconds(1f / updatespeed);
             }
             Debug.Log("stopped");
@@ -115,6 +115,11 @@ namespace Audio
         {
             SpectrumSize = Mathf.FloorToInt(Mathf.Pow(2, 6 + SpectrumLevel));
             updatespeed = 30 + 5 * SpeedLevel;
+        }
+
+        public void AdjustUpdateSpeed(int value)
+        {
+            updatespeed = 30 + 5 * value;
         }
 
         void PlaceBars()
