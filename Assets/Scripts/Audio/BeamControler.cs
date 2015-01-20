@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[HideInInspector]
 public class BeamControler : MonoBehaviour
 {
     #region var's
@@ -17,6 +18,11 @@ public class BeamControler : MonoBehaviour
     float lerpSpeed = 20f;
     Transform parent;
     #endregion
+
+    void Start()
+    {
+        
+    }
 
     public void setup(float @barWidth, Vector3 @pos)
     {
