@@ -39,15 +39,15 @@ namespace TerainGen
                             {
                                 int he = Mathf.FloorToInt(SimplexNoise.Noise.Generate((pos.x + k) * NoiseScale, (pos.y + l) * NoiseScale) * Scale);
                                     _BlockBase.place("Cube", new Vector2(k, l), pos, transform, he-h);//a  test set last arg to 0f if fails
-                                if (h % 16 == 0)
+                               /* if (h % 16 == 0)
                                 {
-                                    yield return new WaitForSeconds(0.03f);    
-                                }
+                                    yield return new WaitForEndOfFrame();    
+                                }*/
                             }
                         }
-                        yield return new WaitForSeconds(0.001f);
+                        //yield return new WaitForEndOfFrame();  
                     }
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForEndOfFrame();  
                 }
             Destroy(this, 0.2f);
             TerainGlobals.buildingChunks--;
