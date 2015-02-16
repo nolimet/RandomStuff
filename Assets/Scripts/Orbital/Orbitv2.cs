@@ -43,20 +43,29 @@ namespace Orbital
                     appopaps = temp;
                 }
 
-                if (radius < periaps)
-                    updown = false;
-                else if (radius > appopaps)
+                if (angle < 180f)
                     updown = true;
+                else
+                    updown = false;
+
 
 
                 if (updown)
-                    radius -= (appopaps / 360) * speed;
+                {
+                    radius = periaps + (((appopaps - periaps) / 180f) * (angle % 180f));
+                    Debug.DrawLine(transform.position, transform.position + (Vector3.up * 20),Color.blue);
+                }
                 else
-                    radius += (appopaps / 360) * speed;
+                {
+                    radius = appopaps - (((appopaps - periaps) / 180f) * (angle % 180f));
+                    Debug.DrawLine(transform.position, transform.position + (Vector3.up * 20),Color.red);
+                }
+                //print((((appopaps - periaps) / 180f) * (angle % 180f)));
+                //print(appopaps - periaps);
             }
             Vector3 pos = new Vector3();
             float rad = angle * (Mathf.PI / 180); // Converting Degrees To Radians
-            angle += speed;
+            angle += speed * Time.deltaTime;
             pos.x = origin.position.x + radius * Mathf.Cos(rad); // position The this Along x-axis
             pos.z = origin.position.z + radius * Mathf.Sin(rad); // position The this Along y-axis
 
