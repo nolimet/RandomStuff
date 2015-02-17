@@ -41,3 +41,4 @@ $RECYCLE.BIN/
 *.unityproj
 *.sln
 *.userprefs
+/SyntaxTree.VisualStudio.Unity.Bridge.dll
