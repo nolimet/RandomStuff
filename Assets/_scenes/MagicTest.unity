@@ -186,14 +186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - combo: 010000000200000004000000
-    name: Spell1
-  - combo: 0100000001000000010000000200000003000000
-    name: Spell2
-  - combo: 040000000200000001000000
-    name: Spell3
-  - combo: 01000000030000000400000002000000
-    name: Spell4
+  - name: Spell1
+    combo: 010000000200000004000000
+  - name: Spell2
+    combo: 0100000001000000010000000200000003000000
+  - name: Spell3
+    combo: 040000000200000001000000
+  - name: Spell4
+    combo: 01000000030000000400000002000000
 --- !u!4 &1451209164
 Transform:
   m_ObjectHideFlags: 0

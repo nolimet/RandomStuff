@@ -9,14 +9,22 @@ public class InputSpell : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Q))
             keyspressed.Add(1);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.W))
             keyspressed.Add(2);
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.E))
             keyspressed.Add(3);
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.R))
             keyspressed.Add(4);
+        if (Input.GetKeyDown(KeyCode.A))
+            keyspressed.Add(5);
+        if (Input.GetKeyDown(KeyCode.S))
+            keyspressed.Add(6);
+        if (Input.GetKeyDown(KeyCode.D))
+            keyspressed.Add(7);
+        if (Input.GetKeyDown(KeyCode.F))
+            keyspressed.Add(8);
 
         if (Input.GetKeyDown(KeyCode.C))
             Cast();
