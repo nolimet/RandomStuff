@@ -135,13 +135,14 @@ namespace Audio
                 cube.AddComponent<MeshFilter>().mesh = beamMesh;
                 cube.AddComponent<MeshRenderer>().material = beamMaterial;
                 cube.name = "bar" + i;
-                
+                cube.hideFlags = HideFlags.HideInHierarchy;
                 //building a pivot point
                 GameObject pivot = new GameObject();
                 pivot.transform.parent = transform;
                 cube.transform.parent = pivot.transform;
                 cube.transform.rotation = Quaternion.Euler(0, 270, 0);
                 pivot.name = "Pivot" + i;
+                pivot.hideFlags = HideFlags.HideInHierarchy;
 
                 UpdateRot(pivot.transform, cube.transform, i);
                 cube.AddComponent<BeamControler>().setup(barWidth, new Vector3(0, 0, barWidth * i));
