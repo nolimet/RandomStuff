@@ -16,6 +16,7 @@ namespace Invetory.V2
             selected = gameObject;
             StartPos = transform.position;
             StartParent = transform.parent;
+            transform.SetParent(Inventory.instance.itemMove);
             GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 
@@ -26,10 +27,20 @@ namespace Invetory.V2
 
         public void OnEndDrag(PointerEventData eventData)
         {
+           // transform.SetParent(StartParent);
             selected = null;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
-            if (transform.parent == StartParent)
+            if(eventData.pointerEnter.tag=="item")
+            {
+                transform.SetParent(eventData.pointerEnter.transform.parent);
+                eventData.pointerEnter.transform.SetParent(StartParent);
+                ExecuteEvents.ExecuteHierarchy<IHasChanged>(eventData.pointerEnter.transform.parent.gameObject, null, (x, y) => x.onHasChanged());
+            }
+            if (transform.parent == StartParent || transform.parent==Inventory.instance.itemMove)
+            {
+                transform.SetParent(StartParent);
                 transform.position = StartPos;
+            }
 
         }
     }

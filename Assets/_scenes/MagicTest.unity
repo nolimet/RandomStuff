@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &972057258
 GameObject:
@@ -187,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spells:
   - name: Spell1
-    combo: 010000000200000004000000
+    combo: 050000000600000005000000
   - name: Spell2
     combo: 0100000001000000010000000200000003000000
   - name: Spell3

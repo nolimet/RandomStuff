@@ -5,14 +5,24 @@ namespace Invetory.V2
 {
     public class Inventory : MonoBehaviour, IHasChanged
     {
+        public static Inventory instance;
+
         [SerializeField]
         Transform slots;
+        [SerializeField]
+        public Transform itemMove;
         [SerializeField]
         UnityEngine.UI.Text InventoryText;
         // Use this for initialization
         void Start()
         {
+            instance = this;
             onHasChanged();
+        }
+
+        void Awake()
+        {
+            instance = this;
         }
 
         public void onHasChanged()

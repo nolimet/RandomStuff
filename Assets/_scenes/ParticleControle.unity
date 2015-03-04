@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &170710277
 GameObject:
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
-  speed: 7
+  speed: 20
   radius: 30
   origin: {x: 0, y: 0, z: 0}
   offSet:
@@ -1402,7 +1403,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 150
+      scalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:

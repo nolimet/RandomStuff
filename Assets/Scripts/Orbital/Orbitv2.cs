@@ -10,7 +10,7 @@ namespace Orbital
         [SerializeField]
 		private float angle= 0; // The Initial Angle Orbiting Starts From
         [SerializeField]
-		private float speed = 0.1f; // Number Of Pixels Orbited Per Frame
+		private float speed = 0.1f; // Number Of Unity unites Orbited Per Frame
         [SerializeField]
 		private float appopaps; // Orbiting Distance From Origin
         [SerializeField]
@@ -23,9 +23,13 @@ namespace Orbital
         [SerializeField]
         private bool staticOrbit = true;
 
+        Vector3 posLastframe;
+        Color lineCol;
+
         void Start(){
             origin = transform.parent;
             radius = periaps;
+            lineCol = DebugGrid.randomColor();
         }
 
         public void Update()
@@ -48,8 +52,6 @@ namespace Orbital
                 else
                     updown = false;
 
-
-
                 if (updown)
                 {
                     radius = periaps + (((appopaps - periaps) / 180f) * (angle % 180f));
@@ -71,6 +73,10 @@ namespace Orbital
 
             //this.rotation = (Math.atan2(this.y - origin.y, this.x - origin.x) * 180 / Math.PI);
             transform.position = pos;
+
+            Debug.DrawLine(transform.position,posLastframe,lineCol,10f);
+
+            posLastframe = transform.position;
         }
     }
 }

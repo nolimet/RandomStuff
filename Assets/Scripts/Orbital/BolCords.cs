@@ -41,7 +41,7 @@ namespace Orbital
             float y = parentBody.y + radius * Mathf.Sin(@thera) * Mathf.Sin(@pheta);
             float z = parentBody.z + radius * Mathf.Cos(@pheta);
 
-            output = new Vector3(y, x,z);
+            output = new Vector3(x, y,z);
                 return output;
         }
     }
