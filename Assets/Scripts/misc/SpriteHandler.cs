@@ -34,8 +34,8 @@ public class SpriteHandler : MonoBehaviour {
 		Debug.Log ("vindx " + vindex + " uindx " + uindex);
 		//set size
 		
-		renderer.material.SetTextureScale("_MainTex",size);
-		renderer.material.SetTextureOffset("_MainTex",OffSet);
+		GetComponent<Renderer>().material.SetTextureScale("_MainTex",size);
+		GetComponent<Renderer>().material.SetTextureOffset("_MainTex",OffSet);
 		
 	}
 }

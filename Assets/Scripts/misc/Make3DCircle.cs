@@ -35,7 +35,7 @@ public class Make3DCircle : MonoBehaviour
             g.AddComponent(typeof(MeshRenderer));
             g.AddComponent(typeof(MeshFilter));
             g.GetComponent<MeshFilter>().mesh = mainMesh;
-            g.renderer.material = mainMaterial;
+            g.GetComponent<Renderer>().material = mainMaterial;
 
             t.AddComponent(typeof(MeshRenderer));
             t.GetComponent<MeshRenderer>().material = textMaterial;

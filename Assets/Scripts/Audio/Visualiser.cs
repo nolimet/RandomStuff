@@ -79,7 +79,7 @@ namespace Audio
             while (Application.isPlaying)
             {
                // CodeProfiler.Begin("Audio:PositionUpdater");
-                float[] spectrum = audio.GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
+                float[] spectrum = GetComponent<AudioSource>().GetSpectrumData(SpectrumSize, 0, FFTWindow.BlackmanHarris);
                 //Quaternion temprot;
                 int i = 0;
                 float channelSize = 0f;

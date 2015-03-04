@@ -17,7 +17,7 @@ public class PingPongFade : MonoBehaviour {
 		
 		float substract=1/duration;
 
-        Color textureColor = renderer.material.color;
+        Color textureColor = GetComponent<Renderer>().material.color;
 		
 		if(textureColor.a > maxAlpha && updown==false)
 		{
@@ -32,7 +32,7 @@ public class PingPongFade : MonoBehaviour {
 		{
 				updown=!updown;
 		}
-        renderer.material.color = textureColor;
+        GetComponent<Renderer>().material.color = textureColor;
 
     }
 	public void ChangeOpacity()

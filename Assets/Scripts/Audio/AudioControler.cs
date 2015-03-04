@@ -24,7 +24,7 @@ namespace Audio
             }
             else
             {
-                UpdateSettings(audio);
+                UpdateSettings(GetComponent<AudioSource>());
             }
         }
 

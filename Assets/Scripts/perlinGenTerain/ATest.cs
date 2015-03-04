@@ -18,7 +18,7 @@ namespace perlin
         {
             noiseTex = new Texture2D(pixWidth, pixHeight);
             pix = new Color[noiseTex.width * noiseTex.height];
-            renderer.material.mainTexture = noiseTex;
+            GetComponent<Renderer>().material.mainTexture = noiseTex;
         }
         void CalcNoise()
         {

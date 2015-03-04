@@ -31,9 +31,9 @@ namespace EnergyNet
 
             EnergyGlobals.AddnewObject(gameObject);
             NodeColor = DebugGrid.randomColor();
-            if (renderer != null)
+            if (GetComponent<Renderer>() != null)
             {
-                renderer.material.color = NodeColor;
+                GetComponent<Renderer>().material.color = NodeColor;
             }
         }
 

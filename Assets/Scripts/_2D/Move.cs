@@ -33,8 +33,8 @@ public class Move : MonoBehaviour {
         {
             float distance = Mathf.Abs(hit.point.y - transform.position.y);
             float heightError = floatHeight - distance;
-            float force = liftForce * heightError - rigidbody2D.velocity.y * damping;
-            rigidbody2D.AddForce(Vector3.up * force);
+            float force = liftForce * heightError - GetComponent<Rigidbody2D>().velocity.y * damping;
+            GetComponent<Rigidbody2D>().AddForce(Vector3.up * force);
         }
     }
 }

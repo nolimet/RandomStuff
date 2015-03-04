@@ -16,7 +16,7 @@ namespace menu_old
         {
             if (Disabled)
             {
-                GetComponent<TextMesh>().renderer.material.color = Color.gray;
+                GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.gray;
             }
         }
 

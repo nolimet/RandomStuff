@@ -11,12 +11,12 @@ public class SlowFade : MonoBehaviour {
 
     void Update () {
 
-        Color textureColor = renderer.material.color;
+        Color textureColor = GetComponent<Renderer>().material.color;
 
         textureColor.a = Mathf.PingPong(Time.time, duration) / duration;
 		//Debug.Log (textureColor.a);
 
-        renderer.material.color = textureColor;
+        GetComponent<Renderer>().material.color = textureColor;
 
     }
 }

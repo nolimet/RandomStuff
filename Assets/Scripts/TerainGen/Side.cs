@@ -9,7 +9,7 @@ namespace TerainGen
             set
             {
                 Active = value;
-                renderer.enabled = false;
+                GetComponent<Renderer>().enabled = false;
                 gameObject.SetActive(value);
             }
             get

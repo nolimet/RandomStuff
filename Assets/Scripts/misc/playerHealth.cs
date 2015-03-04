@@ -18,9 +18,9 @@ public class playerHealth : MonoBehaviour {
 		float ver = Input.GetAxis("Vertical");
 
 		walk=ver;
-		if(rigidbody.velocity.x<3 && rigidbody.velocity.z<3)
+		if(GetComponent<Rigidbody>().velocity.x<3 && GetComponent<Rigidbody>().velocity.z<3)
 		{
-			rigidbody.AddRelativeForce(new Vector3(0,0,ver*10));
+			GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0,0,ver*10));
 		}
 
 		transform.Rotate(0,hor*0.5f,0);

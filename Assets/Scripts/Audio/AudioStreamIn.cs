@@ -34,18 +34,18 @@ namespace Audio
         {
             if (!invaledUrl)
             {
-                if (!audio.isPlaying && track < streamLocations.Count || nextTrack && track < streamLocations.Count)
+                if (!GetComponent<AudioSource>().isPlaying && track < streamLocations.Count || nextTrack && track < streamLocations.Count)
                 {
                     if (!startedLoading)
                     {
-                        audio.Stop();
+                        GetComponent<AudioSource>().Stop();
                         //currentSound = getNewClip(new WWW(streamLocations[track]));
                         loadingNewClip = true;
                     }
                     if (!loadingNewClip)
                     {
-                        audio.clip = currentSound;
-                        audio.Play();
+                        GetComponent<AudioSource>().clip = currentSound;
+                        GetComponent<AudioSource>().Play();
                         nextTrack = false;
                         startedLoading = true;
                         trackDuration = Soundlength(Mathf.FloorToInt(currentSound.length));
@@ -58,16 +58,16 @@ namespace Audio
                     }
                 }
             }
-            trackCurrentTime = Soundlength(Mathf.FloorToInt(audio.time));
+            trackCurrentTime = Soundlength(Mathf.FloorToInt(GetComponent<AudioSource>().time));
         }
 
         void OnGUI()
         {
-            if (audio.clip == null)
+            if (GetComponent<AudioSource>().clip == null)
                 return;
             if (GUI.Button(new Rect(20, 20, 100, 15), "Next Track"))
                 nextTrack = true;
-            GUI.Label(new Rect(20, 42, 500, 20), audio.clip.name);
+            GUI.Label(new Rect(20, 42, 500, 20), GetComponent<AudioSource>().clip.name);
             GUI.Label(new Rect(20, 72, 500, 20), trackCurrentTime + " / " + trackDuration);
             if(loadingNewClip)
                 GUI.Label(new Rect(Center.xMin,Center.yMin,40,120),"Loading new Clip");

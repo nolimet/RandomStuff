@@ -29,9 +29,9 @@ public class puntEnLiijn : MonoBehaviour {
         punten[1].position = new Vector3(-5, 5);
         punten[0].position = new Vector3(5, -5);
 
-        punten[0].gameObject.renderer.material.color = Color.blue;
-        punten[1].gameObject.renderer.material.color = Color.red;
-        punten[2].gameObject.renderer.material.color = Color.yellow;
+        punten[0].gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        punten[1].gameObject.GetComponent<Renderer>().material.color = Color.red;
+        punten[2].gameObject.GetComponent<Renderer>().material.color = Color.yellow;
 
         for (int j = 0; j < Lines.Length; j++)
         {

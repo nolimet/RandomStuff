@@ -27,10 +27,10 @@ namespace Orbital
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rigidbody.velocity = new Vector3();
+                GetComponent<Rigidbody>().velocity = new Vector3();
             }
 
-            rigidbody.AddRelativeForce(force);
+            GetComponent<Rigidbody>().AddRelativeForce(force);
         }
     }
 }

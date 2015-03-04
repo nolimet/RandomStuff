@@ -186,14 +186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - combo: 010000000200000004000000
-    name: Spell1
-  - combo: 0100000001000000010000000200000003000000
-    name: Spell2
-  - combo: 040000000200000001000000
-    name: Spell3
-  - combo: 01000000030000000400000002000000
-    name: Spell4
+  - name: Spell1
+    combo: 010000000200000004000000
+  - name: Spell2
+    combo: 0100000001000000010000000200000003000000
+  - name: Spell3
+    combo: 040000000200000001000000
+  - name: Spell4
+    combo: 01000000030000000400000002000000
 --- !u!4 &1451209164
 Transform:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451209162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 586.92865, y: 409.642212, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

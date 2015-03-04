@@ -44,7 +44,7 @@ namespace TerainGen
         void Update()
         {
             chunksize = new Vector2(ChunkSize, ChunkSize);
-            guiText.text = "TotalBlocks: " + TerainGlobals.TotalBlocks + " Of "+neededblocks+'\n' + "Seed: " + Seed;
+            GetComponent<GUIText>().text = "TotalBlocks: " + TerainGlobals.TotalBlocks + " Of "+neededblocks+'\n' + "Seed: " + Seed;
             if (generate && !started)
             {
                 StartCoroutine("TerainGen");

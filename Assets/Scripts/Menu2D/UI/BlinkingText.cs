@@ -16,7 +16,7 @@ namespace menu
         private float blinkSpeed =4f;
         void Start()
         {
-            m = GetComponent<TextMesh>().renderer.material;
+            m = GetComponent<TextMesh>().GetComponent<Renderer>().material;
         }
 
         // Update is called once per frame

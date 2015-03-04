@@ -34,14 +34,14 @@ namespace Orbital
                 Vector3 diff = parentPos.position - transform.position;
                 Vector3 direction = diff.normalized;
                 float gravitationalForce = (parentobj.mass * mass * gravitationalConstant) / diff.sqrMagnitude;
-                rigidbody.AddForce(direction * gravitationalForce);
+                GetComponent<Rigidbody>().AddForce(direction * gravitationalForce);
             }
         }
         void Update()
         {
             if (parentPos != null)
             {
-                Debug.DrawLine(transform.position, (rigidbody.velocity / 5f) + transform.position, Color.blue);
+                Debug.DrawLine(transform.position, (GetComponent<Rigidbody>().velocity / 5f) + transform.position, Color.blue);
                 Debug.DrawLine(transform.position, parentPos.position, Color.red);
             }
 

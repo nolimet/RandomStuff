@@ -15,7 +15,7 @@ public class ArrayToTexture : MonoBehaviour {
            // print(i);
         }
 
-        renderer.material.mainTexture = intArray(array, NumbChannels, 32);
+        GetComponent<Renderer>().material.mainTexture = intArray(array, NumbChannels, 32);
 	}
 
 

@@ -10,6 +10,6 @@ public class SpeedMonitor : MonoBehaviour {
 	}
 
 	void Update(){
-		guiText.text="VelocityX: " + ToMonitor.rigidbody.velocity.x + "\nVelocityY: " + ToMonitor.rigidbody.velocity.y + "\nVelocityZ: " + ToMonitor.rigidbody.velocity.z;
+		GetComponent<GUIText>().text="VelocityX: " + ToMonitor.GetComponent<Rigidbody>().velocity.x + "\nVelocityY: " + ToMonitor.GetComponent<Rigidbody>().velocity.y + "\nVelocityZ: " + ToMonitor.GetComponent<Rigidbody>().velocity.z;
 	}
 }

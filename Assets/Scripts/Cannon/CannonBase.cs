@@ -22,8 +22,8 @@ namespace Cannon
                 b.AddComponent<MeshFilter>().mesh = bMes;
                 b.AddComponent<Rigidbody>();
                 b.AddComponent<SphereCollider>();
-                b.rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-                b.rigidbody.AddForce(power);
+                b.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+                b.GetComponent<Rigidbody>().AddForce(power);
 
             }
         }

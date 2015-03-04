@@ -24,12 +24,12 @@ namespace Audio
         }
         void Update()
         {
-            if (!audio.isPlaying && track < playList.Length  || nextTrack && track < playList.Length)
+            if (!GetComponent<AudioSource>().isPlaying && track < playList.Length  || nextTrack && track < playList.Length)
             {
                 
-                audio.Stop();
-                audio.clip = playList[track];
-                audio.Play();
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = playList[track];
+                GetComponent<AudioSource>().Play();
                 nextTrack = false;
                 trackDuration = Soundlength(Mathf.FloorToInt(playList[track].length));
                 track++;
@@ -39,7 +39,7 @@ namespace Audio
                 }
                 Debug.Log("next");
             }
-            trackCurrentTime = Soundlength(Mathf.FloorToInt(audio.time));
+            trackCurrentTime = Soundlength(Mathf.FloorToInt(GetComponent<AudioSource>().time));
 
             UpdateGUI();
             
@@ -56,7 +56,7 @@ namespace Audio
 
         void UpdateGUI()
         {
-           text.text = audio.clip.name + "\n" + trackCurrentTime + " / " + trackDuration;
+           text.text = GetComponent<AudioSource>().clip.name + "\n" + trackCurrentTime + " / " + trackDuration;
         }
 
         public void ChangeTrack()

@@ -39,7 +39,7 @@ namespace EnergyNet
             }
             if(Storage<0){
                 Debug.LogError("NEGATIVE POWER!! IN NODE " + ID + '\n' + "Received " + receiving );
-                renderer.material.color = Color.red;
+                GetComponent<Renderer>().material.color = Color.red;
                 nonRecivend = true;
 
             }
