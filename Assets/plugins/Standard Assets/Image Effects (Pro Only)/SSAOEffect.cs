@@ -132,7 +132,7 @@ public class SSAOEffect : MonoBehaviour
 				new Vector4 ((float)m_Blur / source.width, 0,0,0));
 			m_SSAOMaterial.SetTexture ("_SSAO", rtAO);
 			Graphics.Blit (null, rtBlurX, m_SSAOMaterial, 3);
-			RenderTexture.ReleaseTemporary (rtAO); // original rtAO not needed anymore
+			RenderTexture.ReleaseTemporary (rtAO); // oal rtAO not needed anymore
 
 			// Blur SSAO vertically
 			RenderTexture rtBlurY = RenderTexture.GetTemporary (source.width, source.height, 0);

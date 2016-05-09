@@ -28,7 +28,7 @@ public class GlowEffect : MonoBehaviour
 	
 	// --------------------------------------------------------
 	// The final composition shader:
-	//   adds (glow color * glow alpha * amount) to the original image.
+	//   adds (glow color * glow alpha * amount) to the oal image.
 	// In the combiner glow amount can be only in 0..1 range; we apply extra
 	// amount during the blurring phase.
 	

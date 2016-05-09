@@ -14,7 +14,7 @@ namespace Audio
         #region privateVars
         Vector2 scrollViewVector = Vector2.zero;
         Visualiser visu;
-
+        VisualiserV2 visuv2;
         bool play;
         bool show = false;
 
@@ -67,6 +67,8 @@ namespace Audio
             #endregion
 
             visu = GetComponent<Visualiser>();
+            if (!visu)
+                visuv2 = GetComponent<VisualiserV2>();
             posPlay = new Rect((Screen.width / 2) - 128, (Screen.height / 2) - 128, 256, 256);
             UIControles.SetActive(false);
             UpdateSpeedText.text = "Updates per second: " + ((UpdateSpeed * 5) + 30).ToString();
@@ -74,20 +76,34 @@ namespace Audio
 
         void Update()
         {
-            visu.SpectrumLevel = indexNumber;
-            visu.SpeedLevel = UpdateSpeed;
+            if (visu)
+            {
+                visu.SpectrumLevel = indexNumber;
+                visu.SpeedLevel = UpdateSpeed;
+            }
+            else
+            {
+                visuv2.SpectrumLevel = indexNumber;
+                visuv2.SpeedLevel = UpdateSpeed;
+            }
         }
 
         public void SetUpdateSpeed()
         {
             UpdateSpeed = Mathf.FloorToInt(UpdateSpeedSlider.value);
             UpdateSpeedText.text = "Updates per second: " + ((UpdateSpeed * 5) + 30).ToString();
+            if(visu)
             visu.AdjustUpdateSpeed(UpdateSpeed);
+            else
+                visuv2.AdjustUpdateSpeed(UpdateSpeed);
         }
 
         public void Play()
         {
-            visu.play = true;
+            if (visu)
+                visu.play = true;
+            else
+                visuv2.play = true;
             enabled = false;
             UIControles.SetActive(true);
             ConfigScreen.SetActive(false);
@@ -110,31 +126,61 @@ namespace Audio
                     show = false;
                 }
             }
-
-            if (show)
+            if (visu)
             {
-                scrollViewVector = GUI.BeginScrollView(new Rect((dropDownRect.x - 100), (dropDownRect.y + 25), dropDownRect.width, dropDownRect.height), scrollViewVector, new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))));
-                
-                GUI.Box(new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))), "");
-
-                for (int index = 0; index < list.Length; index++)
+                if (show)
                 {
+                    scrollViewVector = GUI.BeginScrollView(new Rect((dropDownRect.x - 100), (dropDownRect.y + 25), dropDownRect.width, dropDownRect.height), scrollViewVector, new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))));
 
-                    if (GUI.Button(new Rect(0, (index * 25), dropDownRect.height, 25), "" ))
+                    GUI.Box(new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))), "");
+
+                    for (int index = 0; index < list.Length; index++)
                     {
-                        show = false;
-                        indexNumber = index;
+
+                        if (GUI.Button(new Rect(0, (index * 25), dropDownRect.height, 25), ""))
+                        {
+                            show = false;
+                            indexNumber = index;
+                        }
+
+                        GUI.Label(new Rect(5, (index * 25), dropDownRect.height, 25), list[index], visu.labelFix);
+
                     }
 
-                    GUI.Label(new Rect(5, (index * 25), dropDownRect.height, 25), list[index], visu.labelFix);
-
+                    GUI.EndScrollView();
                 }
-
-                GUI.EndScrollView();
+                else
+                {
+                    GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y, 300, 25), list[indexNumber], visu.labelFix);
+                }
             }
             else
             {
-                GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y, 300, 25), list[indexNumber], visu.labelFix);
+                if (show)
+                {
+                    scrollViewVector = GUI.BeginScrollView(new Rect((dropDownRect.x - 100), (dropDownRect.y + 25), dropDownRect.width, dropDownRect.height), scrollViewVector, new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))));
+
+                    GUI.Box(new Rect(0, 0, dropDownRect.width, Mathf.Max(dropDownRect.height, (list.Length * 25))), "");
+
+                    for (int index = 0; index < list.Length; index++)
+                    {
+
+                        if (GUI.Button(new Rect(0, (index * 25), dropDownRect.height, 25), ""))
+                        {
+                            show = false;
+                            indexNumber = index;
+                        }
+
+                        GUI.Label(new Rect(5, (index * 25), dropDownRect.height, 25), list[index], visuv2.labelFix);
+
+                    }
+
+                    GUI.EndScrollView();
+                }
+                else
+                {
+                    GUI.Label(new Rect((dropDownRect.x - 95), dropDownRect.y, 300, 25), list[indexNumber], visuv2.labelFix);
+                }
             }
             #endregion
 

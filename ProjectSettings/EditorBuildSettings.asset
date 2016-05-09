@@ -12,7 +12,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_scenes/Menus/StartupMenu.unity
   - enabled: 0
-    path: Assets/_scenes/Other/SoundVisualLiser.unity
+    path: Assets/_scenes/Sound/SoundVisualLiser.unity
   - enabled: 0
     path: Assets/_scenes/EnergySystem Test/EnergyTest.unity
   - enabled: 0

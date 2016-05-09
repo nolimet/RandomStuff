@@ -270,24 +270,24 @@
 	}
 		
 	half4 fragDarkenForBokeh(v2fRadius i) : COLOR {		
-		half4 fromOriginal = tex2D(_MainTex, i.uv.xy);
-		half4 lowRez = BokehPrereqs (_MainTex, i.uv1, fromOriginal, _Threshhold.z);
-		half4 outColor = half4(0,0,0, fromOriginal.a);
-		half modulate = fromOriginal.a;		
+		half4 fromoal = tex2D(_MainTex, i.uv.xy);
+		half4 lowRez = BokehPrereqs (_MainTex, i.uv1, fromoal, _Threshhold.z);
+		half4 outColor = half4(0,0,0, fromoal.a);
+		half modulate = fromoal.a;		
 		
 		// this code imitates the if-then-else conditions below
-		half2 conditionCheck = half2( dot(abs(fromOriginal.rgb-lowRez.rgb), half3(0.3,0.5,0.2)), Luminance(fromOriginal.rgb));
-		conditionCheck *= fromOriginal.a;
+		half2 conditionCheck = half2( dot(abs(fromoal.rgb-lowRez.rgb), half3(0.3,0.5,0.2)), Luminance(fromoal.rgb));
+		conditionCheck *= fromoal.a;
 		conditionCheck = saturate(_Threshhold.xy - conditionCheck);
-		outColor = lerp (outColor, fromOriginal, saturate (dot(conditionCheck, half2(1000.0,1000.0))));
+		outColor = lerp (outColor, fromoal, saturate (dot(conditionCheck, half2(1000.0,1000.0))));
 		
 		/*
-		if ( abs(dot(fromOriginal.rgb - lowRez.rgb,  half3 (0.3,0.5,0.2))) * modulate < _Threshhold.x)
-			outColor = fromOriginal; // no darkening
-		if (Luminance(fromOriginal.rgb) * modulate < _Threshhold.y)
-			outColor = fromOriginal; // no darkening
+		if ( abs(dot(fromoal.rgb - lowRez.rgb,  half3 (0.3,0.5,0.2))) * modulate < _Threshhold.x)
+			outColor = fromoal; // no darkening
+		if (Luminance(fromoal.rgb) * modulate < _Threshhold.y)
+			outColor = fromoal; // no darkening
 		if (lowRez.a < _Threshhold.z) // need to make foreground not cast false bokeh's
-			outColor = fromOriginal; // no darkenin
+			outColor = fromoal; // no darkenin
 		*/	
 		 
 		return outColor;

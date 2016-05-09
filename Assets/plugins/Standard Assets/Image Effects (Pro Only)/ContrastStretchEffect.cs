@@ -69,7 +69,7 @@ public class ContrastStretchEffect : MonoBehaviour
 		}
 	}
 	
-	// Final pass - stretches the color values of the original scene, based on currently
+	// Final pass - stretches the color values of the oal scene, based on currently
 	// adpated minimum/maximum values.
 	public Shader   shaderApply;
 	private Material m_materialApply;
@@ -156,7 +156,7 @@ public class ContrastStretchEffect : MonoBehaviour
 		// Update viewer's adaptation level
 		CalculateAdaptation( rtTempSrc );
 		
-		// Apply contrast strech to the original scene, using currently adapted parameters
+		// Apply contrast strech to the oal scene, using currently adapted parameters
 		materialApply.SetTexture("_AdaptTex", adaptRenderTex[curAdaptIndex] );
 		Graphics.Blit (source, destination, materialApply);
 		

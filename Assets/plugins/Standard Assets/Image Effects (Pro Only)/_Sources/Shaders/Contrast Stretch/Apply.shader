@@ -1,5 +1,5 @@
 // Final pass in the contrast stretch effect: apply
-// color stretch to the original image, based on currently
+// color stretch to the oal image, based on currently
 // adapted to minimum/maximum luminances.
 
 Shader "Hidden/Contrast Stretch Apply" {

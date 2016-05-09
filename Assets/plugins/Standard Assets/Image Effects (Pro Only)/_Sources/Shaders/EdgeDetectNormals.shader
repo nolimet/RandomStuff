@@ -51,11 +51,11 @@ Shader "Hidden/EdgeDetect" {
 
 	fixed4 fragLum (v2flum i) : COLOR
 	{
-		fixed4 original = tex2D(_MainTex, i.uv[0]);
+		fixed4 oal = tex2D(_MainTex, i.uv[0]);
 
 		// a very simple cross gradient filter
 
-		half3 p1 = original.rgb;
+		half3 p1 = oal.rgb;
 		half3 p2 = tex2D(_MainTex, i.uv[1]).rgb;
 		half3 p3 = tex2D(_MainTex, i.uv[2]).rgb;
 		
@@ -63,9 +63,9 @@ Shader "Hidden/EdgeDetect" {
 		half len = dot(diff, diff);
 		len = step(len, _Threshold);
 		//if(len >= _Threshold)
-		//	original.rgb = 0;
+		//	oal.rgb = 0;
 
-		return len * lerp(original, _BgColor, _BgFade);			
+		return len * lerp(oal, _BgColor, _BgFade);			
 	}	
 	
 	inline half CheckSame (half2 centerNormal, float centerDepth, half4 sample)
@@ -253,7 +253,7 @@ Shader "Hidden/EdgeDetect" {
 	
 	half4 fragThin (v2f i) : COLOR
 	{
-		half4 original = tex2D(_MainTex, i.uv[0]);
+		half4 oal = tex2D(_MainTex, i.uv[0]);
 		
 		half4 center = tex2D (_CameraDepthNormalsTexture, i.uv[1]);
 		half4 sample1 = tex2D (_CameraDepthNormalsTexture, i.uv[2]);
@@ -269,7 +269,7 @@ Shader "Hidden/EdgeDetect" {
 		edge *= CheckSame(centerNormal, centerDepth, sample1);
 		edge *= CheckSame(centerNormal, centerDepth, sample2);
 			
-		return edge * lerp(original, _BgColor, _BgFade);
+		return edge * lerp(oal, _BgColor, _BgFade);
 	}
 	
 	ENDCG 

@@ -16,7 +16,8 @@ public class ControleParticles : MonoBehaviour
     Vector3[] dir;
     [SerializeField]
     int directions = 10;
-
+    [SerializeField]
+    float SphereRadius = 10;
     
     void Start()
     {
@@ -32,6 +33,8 @@ public class ControleParticles : MonoBehaviour
         {
             offSet[i] = Random.Range(0.4f,1f);
         }
+
+        dir = SphericalArray.getArrayLenght(directions, SphereRadius);
     }
     void LateUpdate()
     {

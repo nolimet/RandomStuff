@@ -9,7 +9,7 @@ namespace Audio
     [RequireComponent(typeof(AudioStreamIn))]
     [RequireComponent(typeof(AudioControler))]
     [RequireComponent(typeof(PlayList))]
-    public class Visualiser : MonoBehaviour
+    public class VisualiserV2 : MonoBehaviour
     {
         //Variablen
         #region General var's
@@ -21,25 +21,27 @@ namespace Audio
         [Range(64, 8192)]
         int SpectrumSize;
 
-        List<BeamControler> cubes = new List<BeamControler>();
-
         bool cirlelastframe = false;
         
         bool playing;
 
         float heightCap = 12f;
-        float barWidth;
 
         [SerializeField]
         [Range(30, 120)]
         int updatespeed;
+
+        Texture2D visualTexture;
+
+        [SerializeField]
+        int barHeight = 256;
+        [SerializeField]
+        Color BarLowerColor, BarHeigherColor;
         #endregion
         #region InEditorSetVars
-        [SerializeField]
-        Material beamMaterial;
-        [SerializeField]
-        Mesh beamMesh;
 
+        [SerializeField]
+        Renderer visual;
         #endregion
         #region public var's
         [HideInInspector]
@@ -52,7 +54,7 @@ namespace Audio
         public int SpeedLevel;
         public GUIStyle labelFix;
 
-        public static Visualiser instance;
+        public static VisualiserV2 instance;
         #endregion
 
         //Functions
@@ -76,25 +78,52 @@ namespace Audio
         #region Position Updates
         IEnumerator SoundUpdate()
         {
-            float[] spectrum = new float[SpectrumSize];
             while (Application.isPlaying)
             {
-               // CodeProfiler.Begin("Audio:PositionUpdater");
-                 GetComponent<AudioSource>().GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+                // CodeProfiler.Begin("Audio:PositionUpdater");
+                float[] spectrum = new float[SpectrumSize];
+                int[] calculated = new int[SpectrumSize];
+
+                GetComponent<AudioSource>().GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+                
                 //Quaternion temprot;
                 int i = 0;
                 float channelSize = 0f;
                 while (i < SpectrumSize)
                 {
-                    channelSize = spectrum[i] * audioDrawScale;
+                    channelSize = spectrum[i] * barHeight;
                     //limiter
-                        if (channelSize > heightCap)
+                        if (channelSize > barHeight)
                         {
-                            channelSize = heightCap / audioDrawScale;
+                            channelSize = barHeight;
                         }
-                        cubes[i].updateLocation(channelSize, !circle);
+
+                    calculated[i] = Mathf.FloorToInt(channelSize);
                     i++;
                 }
+
+                //visualTexture = new Texture2D(SpectrumSize, barHeight, TextureFormat.ARGB32,false);
+              
+
+                float f = 1f / audioDrawScale;
+                for (int x = 0; x < visualTexture.width; x++)
+                {
+                    for (int y = 0; y < visualTexture.height; y++)
+                    {
+
+                        if (calculated[x] >= y)
+                        {
+                            visualTexture.SetPixel(x, y, Color.Lerp(BarLowerColor, BarHeigherColor, f*y));
+                        }
+                        else
+                        {
+                            visualTexture.SetPixel(x, y, Color.black);
+                        }
+                        
+                    }
+                }
+                visualTexture.Apply();
+                visual.material.mainTexture = visualTexture;
                 cirlelastframe = circle;
                 //CodeProfiler.End("Audio:PositionUpdater");
                 yield return new WaitForSeconds(1f / updatespeed);
@@ -104,11 +133,7 @@ namespace Audio
         
         void UpdateRot(Transform pivot, Transform cube, int i)
         {
-            pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i, 0f, 0f);
-            pivot.transform.localPosition = Vector3.zero;
-            pivot.transform.Translate(0, 0, 1);
-            pivot.transform.rotation = Quaternion.Euler((360f / SpectrumSize) * i + 90, 0f, 0f);
-            heightCap = 5f;
+            
         }
         #endregion
         #region Place/Replace
@@ -128,32 +153,19 @@ namespace Audio
             SetOptions();
             playing = true;
 
-            barWidth = 25.6f / SpectrumSize;
-            for (int i = 0; i < SpectrumSize; i++)
-            {
-               //building a cube
-                GameObject cube = new GameObject();
-                cube.AddComponent<MeshFilter>().mesh = beamMesh;
-                cube.AddComponent<MeshRenderer>().material = beamMaterial;
-                cube.name = "bar" + i;
-                cube.hideFlags = HideFlags.HideInHierarchy;
-                //building a pivot point
-                GameObject pivot = new GameObject();
-                pivot.transform.parent = transform;
-                cube.transform.parent = pivot.transform;
-                cube.transform.rotation = Quaternion.Euler(0, 270, 0);
-                pivot.name = "Pivot" + i;
-                pivot.hideFlags = HideFlags.HideInHierarchy;
+            visualTexture = new Texture2D(SpectrumSize, barHeight, TextureFormat.ARGB32,false);
+            visualTexture.filterMode = FilterMode.Point;
+            visualTexture.anisoLevel = 0;
 
-                UpdateRot(pivot.transform, cube.transform, i);
-                cube.AddComponent<BeamControler>().setup(barWidth, new Vector3(0, 0, barWidth * i));
-                cubes.Add(cube.GetComponent<BeamControler>());
-            }
+            ProceduralTexture t = new ProceduralTexture();
+           // t.
             cirlelastframe = circle;
 
             GetComponent<PlayList>().enabled = true;
             GetComponent<AudioControler>().enabled = true;
             GetComponent<SetBeamNumber>().enabled = false;
+
+            visual.material.mainTexture = visualTexture;
 
             StartCoroutine("SoundUpdate");
         }

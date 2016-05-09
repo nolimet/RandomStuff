@@ -14,7 +14,16 @@ namespace Audio
         AudioListener listen;
         [SerializeField]
         Texture2D textureBackdrop;
+
+        Visualiser visu;
+        VisualiserV2 visuv2;
         
+        void Start()
+        {
+            visu = GetComponent<Visualiser>();
+            if (!visu)
+                visuv2 = GetComponent<VisualiserV2>();
+        }
 
         void Update()
         {
@@ -49,8 +58,11 @@ namespace Audio
         {
             editSource.volume = volume/100f;
             editSource.pitch = pitch;
-            if(listen==null)
-             GetComponent<Visualiser>().circle = circle;
+            if (listen == null)
+                if (visu)
+                    visu.circle = circle;
+                else
+                    visuv2.circle = circle;
             else
                 listen.GetComponent<Visualiser>().circle = circle;
         }

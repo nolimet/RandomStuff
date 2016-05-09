@@ -21,7 +21,7 @@ namespace EnergyNet
             {
                 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                //Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow,20f);
+                //Debug.DrawRay(ray.o, ray.direction * 10, Color.yellow,20f);
 
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 100) && hit.collider.tag == EnergyTags.EnergyNode)
